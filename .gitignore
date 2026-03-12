@@ -1,0 +1,55 @@
+# This .gitignore file is for Unity 6 (6000.3) projects.
+# It excludes temporary files, build artifacts, and IDE-specific settings.
+
+# --- Unity ---
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]serSettings/
+MemoryCaptures/
+AssetPacks/
+.bezisidekick/
+
+# --- Assets ---
+# Never ignore .meta files
+!*.meta
+
+# --- IDEs ---
+# Visual Studio
+.vs/
+*.user
+*.userprefs
+*.sln
+*.csproj
+*.unityproj
+*.suo
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+*.idea.iml
+
+# --- OS Specific ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# --- Crashes ---
+sysinfo.txt
+
+# --- Builds ---
+*.apk
+*.unitypackage
+*.bundle

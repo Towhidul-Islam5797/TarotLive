@@ -1,0 +1,2248 @@
+fileFormatVersion: 2
+guid: b9ed25837309cb94283627b0ccdba700
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6048620899721498222
+    second: 1666765882frenchtatotcards_0
+  - first:
+      213: -8504032011991074752
+    second: 1666765882frenchtatotcards_1
+  - first:
+      213: -1265060183712093890
+    second: 1666765882frenchtatotcards_2
+  - first:
+      213: -5555010818961813085
+    second: 1666765882frenchtatotcards_3
+  - first:
+      213: 3172276405862189201
+    second: 1666765882frenchtatotcards_4
+  - first:
+      213: 879864850294878773
+    second: 1666765882frenchtatotcards_5
+  - first:
+      213: -3320683197207699516
+    second: 1666765882frenchtatotcards_6
+  - first:
+      213: -6019979760038250191
+    second: 1666765882frenchtatotcards_7
+  - first:
+      213: -8839835103333412678
+    second: 1666765882frenchtatotcards_8
+  - first:
+      213: 52748233691050779
+    second: 1666765882frenchtatotcards_9
+  - first:
+      213: 8303425746561336913
+    second: 1666765882frenchtatotcards_10
+  - first:
+      213: -4300270698822940495
+    second: 1666765882frenchtatotcards_11
+  - first:
+      213: 3825295769638858094
+    second: 1666765882frenchtatotcards_12
+  - first:
+      213: -1428558429373786341
+    second: 1666765882frenchtatotcards_13
+  - first:
+      213: -4297045231424923843
+    second: 1666765882frenchtatotcards_14
+  - first:
+      213: 8006420315016429520
+    second: 1666765882frenchtatotcards_15
+  - first:
+      213: -3271474813396378848
+    second: 1666765882frenchtatotcards_16
+  - first:
+      213: -6621534811603411062
+    second: 1666765882frenchtatotcards_17
+  - first:
+      213: 8534981505756974057
+    second: 1666765882frenchtatotcards_18
+  - first:
+      213: -3287912473627570225
+    second: 1666765882frenchtatotcards_19
+  - first:
+      213: -2661088544270154895
+    second: 1666765882frenchtatotcards_20
+  - first:
+      213: 2202001814114955242
+    second: 1666765882frenchtatotcards_21
+  - first:
+      213: -7796634796401553600
+    second: 1666765882frenchtatotcards_22
+  - first:
+      213: 5511121654549314468
+    second: 1666765882frenchtatotcards_23
+  - first:
+      213: -1006929636023541304
+    second: 1666765882frenchtatotcards_24
+  - first:
+      213: 1049785782534614274
+    second: 1666765882frenchtatotcards_25
+  - first:
+      213: 995038593879699488
+    second: 1666765882frenchtatotcards_26
+  - first:
+      213: 19878631982315506
+    second: 1666765882frenchtatotcards_27
+  - first:
+      213: -7709931811195837730
+    second: 1666765882frenchtatotcards_28
+  - first:
+      213: 5556215205730629384
+    second: 1666765882frenchtatotcards_29
+  - first:
+      213: -3291432822697114958
+    second: 1666765882frenchtatotcards_30
+  - first:
+      213: -3509636051738614028
+    second: 1666765882frenchtatotcards_31
+  - first:
+      213: 8525570925633028318
+    second: 1666765882frenchtatotcards_32
+  - first:
+      213: -1018397602485683540
+    second: 1666765882frenchtatotcards_33
+  - first:
+      213: -836752305500804142
+    second: 1666765882frenchtatotcards_34
+  - first:
+      213: 8791344360049756948
+    second: 1666765882frenchtatotcards_35
+  - first:
+      213: 3986597595954755745
+    second: 1666765882frenchtatotcards_36
+  - first:
+      213: 5562871684746210886
+    second: 1666765882frenchtatotcards_37
+  - first:
+      213: 3160344537499521419
+    second: 1666765882frenchtatotcards_38
+  - first:
+      213: 5415736214752921257
+    second: 1666765882frenchtatotcards_39
+  - first:
+      213: 7814066670028795890
+    second: 1666765882frenchtatotcards_40
+  - first:
+      213: -3120067227060582826
+    second: 1666765882frenchtatotcards_41
+  - first:
+      213: 8681366907997427331
+    second: 1666765882frenchtatotcards_42
+  - first:
+      213: -7190834003319482085
+    second: 1666765882frenchtatotcards_43
+  - first:
+      213: 8561155845757873099
+    second: 1666765882frenchtatotcards_44
+  - first:
+      213: 6018549173079014493
+    second: 1666765882frenchtatotcards_45
+  - first:
+      213: -5000106436984658663
+    second: 1666765882frenchtatotcards_46
+  - first:
+      213: -6105430587380081012
+    second: 1666765882frenchtatotcards_47
+  - first:
+      213: 4672441300048626745
+    second: 1666765882frenchtatotcards_48
+  - first:
+      213: -7826463087484043154
+    second: 1666765882frenchtatotcards_49
+  - first:
+      213: -7972124945333303902
+    second: 1666765882frenchtatotcards_50
+  - first:
+      213: 3624364562586420649
+    second: 1666765882frenchtatotcards_51
+  - first:
+      213: -898711329921653174
+    second: 1666765882frenchtatotcards_52
+  - first:
+      213: 1176434781166357734
+    second: 1666765882frenchtatotcards_53
+  - first:
+      213: -4350789782541697568
+    second: 1666765882frenchtatotcards_54
+  - first:
+      213: -8508020129479159079
+    second: 1666765882frenchtatotcards_55
+  - first:
+      213: -7794455456943271465
+    second: 1666765882frenchtatotcards_56
+  - first:
+      213: 466290623870757392
+    second: 1666765882frenchtatotcards_57
+  - first:
+      213: 6571619973850644865
+    second: 1666765882frenchtatotcards_58
+  - first:
+      213: 4360443896126563459
+    second: 1666765882frenchtatotcards_59
+  - first:
+      213: 3492417667058223679
+    second: 1666765882frenchtatotcards_60
+  - first:
+      213: 9085028779273593673
+    second: 1666765882frenchtatotcards_61
+  - first:
+      213: 7986038410661424367
+    second: 1666765882frenchtatotcards_62
+  - first:
+      213: -6404689582611628150
+    second: 1666765882frenchtatotcards_63
+  - first:
+      213: -5883910962514161006
+    second: 1666765882frenchtatotcards_64
+  - first:
+      213: 5943730278151464699
+    second: 1666765882frenchtatotcards_65
+  - first:
+      213: 2598813734125195775
+    second: 1666765882frenchtatotcards_66
+  - first:
+      213: -3473849881989352898
+    second: 1666765882frenchtatotcards_67
+  - first:
+      213: 783055200693364202
+    second: 1666765882frenchtatotcards_68
+  - first:
+      213: -66125779273461636
+    second: 1666765882frenchtatotcards_69
+  - first:
+      213: -1581610134074835529
+    second: 1666765882frenchtatotcards_70
+  - first:
+      213: -6837145737821172171
+    second: 1666765882frenchtatotcards_71
+  - first:
+      213: -7416591778438451920
+    second: 1666765882frenchtatotcards_72
+  - first:
+      213: 4707118694817691793
+    second: 1666765882frenchtatotcards_73
+  - first:
+      213: -414682872720467684
+    second: 1666765882frenchtatotcards_74
+  - first:
+      213: -5177676928319624467
+    second: 1666765882frenchtatotcards_75
+  - first:
+      213: 73395846896907681
+    second: 1666765882frenchtatotcards_76
+  - first:
+      213: 86491158703764744
+    second: 1666765882frenchtatotcards_77
+  - first:
+      213: 8973990728892137278
+    second: 1666765882frenchtatotcards_78
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: frenchtatotcards_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4511
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 291b813b65bfe0ca0800000000000000
+      internalID: -6048620899721498222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_1
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 4511
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9e4eb412214883439a20d672846758e
+      internalID: -2127574380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_2
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 4511
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac9297f63a457404ba62a02c146849d9
+      internalID: 1815630543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_3
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 4511
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ac47c2c1dc95434e9ff16f038f471dd
+      internalID: 1852656097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_4
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 4511
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f14a8b5a3fe1a994e9f97ad88282f6d2
+      internalID: -957629490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_5
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 4511
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1f4f8dc143deb340886369761a69b69
+      internalID: -1289178642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_6
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 4511
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 748632b00ae4c004b973804d359973f3
+      internalID: 1658996807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_7
+      rect:
+        serializedVersion: 2
+        x: 2352
+        y: 4511
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfbb5319eb74d1e4dbdd4da331b15cc0
+      internalID: -1636887075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_8
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 4511
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c581534dcf65934e917ea8b9ceec09a
+      internalID: 1363722488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_9
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 4511
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05d8a2ed1a4f5374f99e375753ae805a
+      internalID: 1823639119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3867
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bd67c9d2ecd6504cb89f05883a9aad1
+      internalID: -796940325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_11
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 3867
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef88433b08f02bb45a436fa233b83b55
+      internalID: 1992871100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_12
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 3867
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c07c1f059d6443046920c362dd644875
+      internalID: 619226358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_13
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 3867
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad6e2ded77fd31c4a8c9cdd15c91c7ef
+      internalID: -1337065366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_14
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 3867
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60f5341e85bbc6945ab87d44f4901eb4
+      internalID: 451081904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_15
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 3867
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33ab003644be63948afad9ef239611a4
+      internalID: 1140797473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_16
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 3867
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ed09d80f03218a41bbfa58bb69c0f41
+      internalID: 1733544528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_17
+      rect:
+        serializedVersion: 2
+        x: 2352
+        y: 3867
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e51029a6b9a039f4e902a4c1cd40b9f4
+      internalID: 1368072743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_18
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 3867
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fbdf826198d0234eaad5f3161acf63c
+      internalID: 178660529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_19
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 3867
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3700de7423ef9d48a812279f7581406
+      internalID: 1399549954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3223
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ba716ef7227a004cbbebaf4b954141a
+      internalID: -975897320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_21
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 3223
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d23a418cae230c4eb83c0670fd35550
+      internalID: -230238272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_22
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 3223
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bed5d653051c4fd4ead01145263a9a1c
+      internalID: 234088347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_23
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 3223
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6f2ded3c22cdaa47918c5c5a46474a7
+      internalID: 871691281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_24
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 3223
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5926e178414296347a1d56d64fcb81a9
+      internalID: 1645682650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_25
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 3223
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8f96ca8d4bf4234285a672c4f85d18b
+      internalID: -518340243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_26
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 3223
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38d77b1ffac2c064883740c9f25d84d0
+      internalID: -259744561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_27
+      rect:
+        serializedVersion: 2
+        x: 2352
+        y: 3223
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d373708a86e967448b1db514e02d6c91
+      internalID: -544491825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_28
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 3223
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1d2ccf61a2a07e4b8618a56f014f151
+      internalID: 390009407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_29
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 3223
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5fecbdbc605d9648ac1aa650c3b9259
+      internalID: 1377268403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2579
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fdc44595149903448ea594c68ce45fa
+      internalID: -152723863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_31
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 2579
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e76c73db361b584badcbc0e36b79324
+      internalID: -2022953913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_32
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 2579
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8463801e31976d24a9b974a261b769a6
+      internalID: 458422711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_33
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 2579
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62ad1d97cd0379944a232a46bb5a4dee
+      internalID: 779080685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_34
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 2579
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12d355a5fbf84814cbad2276149f1ed9
+      internalID: -1842463841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_35
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 2579
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66311630d0110a042b8af213912ccf23
+      internalID: 553424872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_36
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 2579
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 430ba670ac0201f42adf8d3d10f88068
+      internalID: -1599843163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_37
+      rect:
+        serializedVersion: 2
+        x: 2352
+        y: 2579
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e739f79b5cd05b45adaaae1f4b738c9
+      internalID: -2063976347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_38
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 2579
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa7947543ec6bea418038eaa52774cde
+      internalID: -2070236935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_39
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 2579
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cae8e61ff3df4f34f9fba3833715eb75
+      internalID: 1371434283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1935
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5bb497eee4d58348a7eae987bd690f0
+      internalID: 2116002967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_41
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 1935
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 857f39e5eff56884ea41ac1a4f27a353
+      internalID: -1989724908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_42
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 1935
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d66eac257ad6f04e82aeaba1663e84b
+      internalID: 1195911194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_43
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 1935
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43bd2228b43c1684d87d41841df4f01a
+      internalID: 1459856263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_44
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 1935
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 788cc41bd8b8c6249bb40c2cac8e5ef4
+      internalID: 1081052529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_45
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 1935
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6d2a01893d5c1040b9cd0b46a76a8c1
+      internalID: -1142367642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_46
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 1935
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c5cec18eedf5fa4f85b71dd0fa35dd4
+      internalID: 2075234648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_47
+      rect:
+        serializedVersion: 2
+        x: 2352
+        y: 1935
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45179cadb861e814a964ca45b317e665
+      internalID: -1753953154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_48
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 1935
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b94404a157b3564096394e91cc569fd
+      internalID: 1808846053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_49
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 1935
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3337a9038e1e40845a754e170113e4be
+      internalID: -104318514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1291
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6360e220d71026499e677f2c156ec25
+      internalID: 1172312638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_51
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 1291
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17dc7baa2d1d76b4f98bc9d8d5745303
+      internalID: 1333868369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_52
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 1291
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 383a7ec69dc2b9f40bcad6ff64ea46c4
+      internalID: 335610392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_53
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 1291
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab7ae39873e99df4b86265bf429f8728
+      internalID: -120250074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_54
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 1291
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70ae18bfb3370cd4c8c8be8bfe8beea9
+      internalID: -1144987885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_55
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 1291
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f68f0fa48f551124aae9e74979f95c65
+      internalID: -1836238938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_56
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 1291
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6d342a3b84335c47af97e4935168138
+      internalID: -393435879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_57
+      rect:
+        serializedVersion: 2
+        x: 2352
+        y: 1291
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7d9fc1222d187a478630bb3a79c81f9
+      internalID: 415830562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_58
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 1291
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dc7b9dfe86496345aa6fc65c8da6013
+      internalID: 680554610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_59
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 1291
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bc3e9c4b0b9ed4458e9786aab266693
+      internalID: -1974606648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 647
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb68bf609e62b294f8177e97555b9c14
+      internalID: 1089597443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_61
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 647
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d48dd7a418cb234faab63d71beb83d4
+      internalID: 1196305208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_62
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 647
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5ce48edadf6c9f4d82beb8d7e8753b8
+      internalID: 661611387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_63
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 647
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c65f8b6b1261724b91fff9950393987
+      internalID: -1314466767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_64
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 647
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b9b65c8bc45e5a41b12b2a36c16c9ff
+      internalID: 757513469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_65
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 647
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 944a77a5a76dd5c49b4871faa3698849
+      internalID: 247160008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_66
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 647
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67b6571772ab38849a5e5714d8a9bfa0
+      internalID: 23824561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_67
+      rect:
+        serializedVersion: 2
+        x: 2352
+        y: 647
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98bf63227591c154aa2965be4675b2b3
+      internalID: -897598540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_68
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 647
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bda31c502f186d44e8bb86230fd9f755
+      internalID: -1520557397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_69
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 647
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14bcf08df24789f4d9bf94d165cf4251
+      internalID: 1898708077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69245d6fb6807164698557889b0fea7a
+      internalID: 1132048386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_71
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 3
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be9d7931136e4774c8b03dd37b2a4efa
+      internalID: 206315381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_72
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 3
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50a754d533833794bb71a3a1ecbc0dac
+      internalID: -1121179789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_73
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 3
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb15f84ed0ab5cf4aaeec8b1c24a0a0f
+      internalID: 1259862092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_74
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 3
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 114d6e1a7057c8d4c811ae0902234470
+      internalID: 1432514470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_75
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 3
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2abadaccfeb9234ab2afe6e6a12f5c6
+      internalID: -1719974754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_76
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 3
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fb6fbed3e5b0b64db0a6c01f372c4cc
+      internalID: 1374640040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_77
+      rect:
+        serializedVersion: 2
+        x: 2352
+        y: 3
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8a400731170225478c32c8a91a97eef
+      internalID: -1658813489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_78
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 3
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d52a6a8102e5d0c43affd76d98c0b290
+      internalID: 1494442919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frenchtatotcards_79
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 3
+        width: 336
+        height: 644
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56725c0fcee976d438e28dc3d4a14523
+      internalID: 1953455791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: a1f5b8c28b2243e4eb37b857341a323c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":10.0,"y":8.0},"gridSpriteSize":{"x":336.0,"y":644.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      frenchtatotcards_0: -6048620899721498222
+      frenchtatotcards_1: -2127574380
+      frenchtatotcards_10: -796940325
+      frenchtatotcards_11: 1992871100
+      frenchtatotcards_12: 619226358
+      frenchtatotcards_13: -1337065366
+      frenchtatotcards_14: 451081904
+      frenchtatotcards_15: 1140797473
+      frenchtatotcards_16: 1733544528
+      frenchtatotcards_17: 1368072743
+      frenchtatotcards_18: 178660529
+      frenchtatotcards_19: 1399549954
+      frenchtatotcards_2: 1815630543
+      frenchtatotcards_20: -975897320
+      frenchtatotcards_21: -230238272
+      frenchtatotcards_22: 234088347
+      frenchtatotcards_23: 871691281
+      frenchtatotcards_24: 1645682650
+      frenchtatotcards_25: -518340243
+      frenchtatotcards_26: -259744561
+      frenchtatotcards_27: -544491825
+      frenchtatotcards_28: 390009407
+      frenchtatotcards_29: 1377268403
+      frenchtatotcards_3: 1852656097
+      frenchtatotcards_30: -152723863
+      frenchtatotcards_31: -2022953913
+      frenchtatotcards_32: 458422711
+      frenchtatotcards_33: 779080685
+      frenchtatotcards_34: -1842463841
+      frenchtatotcards_35: 553424872
+      frenchtatotcards_36: -1599843163
+      frenchtatotcards_37: -2063976347
+      frenchtatotcards_38: -2070236935
+      frenchtatotcards_39: 1371434283
+      frenchtatotcards_4: -957629490
+      frenchtatotcards_40: 2116002967
+      frenchtatotcards_41: -1989724908
+      frenchtatotcards_42: 1195911194
+      frenchtatotcards_43: 1459856263
+      frenchtatotcards_44: 1081052529
+      frenchtatotcards_45: -1142367642
+      frenchtatotcards_46: 2075234648
+      frenchtatotcards_47: -1753953154
+      frenchtatotcards_48: 1808846053
+      frenchtatotcards_49: -104318514
+      frenchtatotcards_5: -1289178642
+      frenchtatotcards_50: 1172312638
+      frenchtatotcards_51: 1333868369
+      frenchtatotcards_52: 335610392
+      frenchtatotcards_53: -120250074
+      frenchtatotcards_54: -1144987885
+      frenchtatotcards_55: -1836238938
+      frenchtatotcards_56: -393435879
+      frenchtatotcards_57: 415830562
+      frenchtatotcards_58: 680554610
+      frenchtatotcards_59: -1974606648
+      frenchtatotcards_6: 1658996807
+      frenchtatotcards_60: 1089597443
+      frenchtatotcards_61: 1196305208
+      frenchtatotcards_62: 661611387
+      frenchtatotcards_63: -1314466767
+      frenchtatotcards_64: 757513469
+      frenchtatotcards_65: 247160008
+      frenchtatotcards_66: 23824561
+      frenchtatotcards_67: -897598540
+      frenchtatotcards_68: -1520557397
+      frenchtatotcards_69: 1898708077
+      frenchtatotcards_7: -1636887075
+      frenchtatotcards_70: 1132048386
+      frenchtatotcards_71: 206315381
+      frenchtatotcards_72: -1121179789
+      frenchtatotcards_73: 1259862092
+      frenchtatotcards_74: 1432514470
+      frenchtatotcards_75: -1719974754
+      frenchtatotcards_76: 1374640040
+      frenchtatotcards_77: -1658813489
+      frenchtatotcards_78: 1494442919
+      frenchtatotcards_79: 1953455791
+      frenchtatotcards_8: 1363722488
+      frenchtatotcards_9: 1823639119
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
