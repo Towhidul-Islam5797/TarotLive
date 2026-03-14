@@ -198,8 +198,12 @@ MonoBehaviour:
   cardFactory: {fileID: 547901630}
   playArea: {fileID: 1860478144}
   cardSpacing: 0.7
-  cardScale: 0.2
+  cardScale: 0.22
+  rowOffset: 0.6
+  maxPerRow: 9
   faceUp: 0
+  handRotation: 0
+  selectLift: 0.4
   selectSpeed: 0.15
   playSpeed: 0.3
 --- !u!4 &275713503
@@ -681,6 +685,62 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1974511513}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1009384414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1009384416}
+  - component: {fileID: 1009384415}
+  m_Layer: 0
+  m_Name: HandDisplay (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1009384415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009384414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e101b0d61c10ff54ca09abaeb2e21a58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TarotLive.Game.HandDisplay
+  cardPrefab: {fileID: 1962675000049230852, guid: ba7fe61f0c211e342a09c4c943cf7aff, type: 3}
+  cardFactory: {fileID: 547901630}
+  playArea: {fileID: 1860478144}
+  cardSpacing: 0.7
+  cardScale: 0.22
+  rowOffset: 0.6
+  maxPerRow: 9
+  faceUp: 0
+  handRotation: 0
+  selectLift: 0.4
+  selectSpeed: 0.15
+  playSpeed: 0.3
+--- !u!4 &1009384416
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009384414}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1014584427
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,6 +820,118 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1373934281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1373934283}
+  - component: {fileID: 1373934282}
+  m_Layer: 0
+  m_Name: HandDisplay (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1373934282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373934281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e101b0d61c10ff54ca09abaeb2e21a58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TarotLive.Game.HandDisplay
+  cardPrefab: {fileID: 1962675000049230852, guid: ba7fe61f0c211e342a09c4c943cf7aff, type: 3}
+  cardFactory: {fileID: 547901630}
+  playArea: {fileID: 1860478144}
+  cardSpacing: 0.7
+  cardScale: 0.22
+  rowOffset: 0.6
+  maxPerRow: 9
+  faceUp: 0
+  handRotation: 0
+  selectLift: 0.4
+  selectSpeed: 0.15
+  playSpeed: 0.3
+--- !u!4 &1373934283
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373934281}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1855456243
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1855456245}
+  - component: {fileID: 1855456244}
+  m_Layer: 0
+  m_Name: HandDisplay (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1855456244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855456243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e101b0d61c10ff54ca09abaeb2e21a58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TarotLive.Game.HandDisplay
+  cardPrefab: {fileID: 1962675000049230852, guid: ba7fe61f0c211e342a09c4c943cf7aff, type: 3}
+  cardFactory: {fileID: 547901630}
+  playArea: {fileID: 1860478144}
+  cardSpacing: 0.7
+  cardScale: 0.22
+  rowOffset: 0.6
+  maxPerRow: 9
+  faceUp: 0
+  handRotation: 0
+  selectLift: 0.4
+  selectSpeed: 0.15
+  playSpeed: 0.3
+--- !u!4 &1855456245
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855456243}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1860478142
 GameObject:
   m_ObjectHideFlags: 0
@@ -836,8 +1008,12 @@ MonoBehaviour:
   deckManager: {fileID: 547901628}
   turnManager: {fileID: 581581052}
   tableLayout: {fileID: 228813926}
-  localHandDisplay: {fileID: 275713502}
   playArea: {fileID: 1860478144}
+  handDisplays:
+  - {fileID: 275713502}
+  - {fileID: 1009384415}
+  - {fileID: 1373934282}
+  - {fileID: 1855456244}
   playerCount: 4
   localSeatIndex: 0
 --- !u!4 &1865759171
@@ -850,8 +1026,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -900,4 +1076,7 @@ SceneRoots:
   - {fileID: 1865759171}
   - {fileID: 581581053}
   - {fileID: 275713503}
+  - {fileID: 1373934283}
+  - {fileID: 1009384416}
+  - {fileID: 1855456245}
   - {fileID: 1860478143}

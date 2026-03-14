@@ -51,6 +51,7 @@ namespace TarotLive.Game
         public void Flip()
         {
             SetFacing(!isFaceUp);
+            Debug.Log("CardView: Flipped card " + data.ToString() + " to " + (isFaceUp ? "face up" : "face down"));
         }
     }
 }

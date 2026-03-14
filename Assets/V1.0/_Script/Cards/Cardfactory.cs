@@ -1,15 +1,26 @@
 #region Summary
 // CardFactory.cs
 //Summary:
-// This class is responsible for creating CardData instances for each card in the Tarot deck. It uses a sprite sheet to assign the correct front sprite to each card based on its suit and rank. The BuildDeck method generates a complete list of CardData objects representing the full deck of 78 cards, including the 56 suit cards, 21 trumps, and the Fool (L'Excuse).
+// This class is responsible for creating CardData instances for each card in the Tarot deck. It uses a sprite sheet to assign
+// the correct front sprite to each card based on its suit and rank. The BuildDeck method generates a complete list of CardData
+// objects representing the full deck of 78 cards, including the 56 suit cards, 21 trumps, and the Fool (L'Excuse).
 // Usage:
 // 1. Attach this script to an empty GameObject in the Game scene (e.g., "CardFactory").
-// 2. Assign the cardSprites array in the Inspector by dragging the full sprite sheet (with all 78 card sprites) into it. Ensure that the sprites are sliced correctly in the Unity Sprite Editor and that the indices match the expected order.
+// 2. Assign the cardSprites array in the Inspector by dragging the full sprite sheet (with all 78 card sprites) into it.
+//    Ensure that the sprites are sliced correctly in the Unity Sprite Editor and that the indices match the expected order.
 // 3. Assign the cardBackSprite in the Inspector (this can be the first sprite in the sheet or a separate sprite).
-// 4. Call the BuildDeck method to generate the list of CardData objects for the game. This method will create a CardData instance for each card, setting its suit, rank, trump number (if applicable), and front sprite based on the assigned sprite sheet.
-// Note: The sprite indices in the BuildDeck method are based on the expected order of the sprites in the sheet. You may need to adjust these indices after verifying the order in the Unity Sprite Editor. The AddSuitCards method is a helper function to create the suit cards for each suit, while the loop in BuildDeck handles the creation of trump cards and the Fool. This class is essential for initializing the card data used throughout the game and should be used in conjunction with other game management scripts to handle player interactions and game flow.
-// Note: This class is not responsible for player actions or game logic. It only creates the card data objects based on the provided sprite sheet. Future enhancements could include methods for creating custom decks, handling different card designs, or adding additional properties to the CardData class if needed. For now, it focuses on generating the standard Tarot deck used in the game.
-// Note: Ensure that the cardSprites array is properly populated with the correct sprites in the Unity Editor, and that the indices used in the BuildDeck method correspond to the correct cards based on how you sliced the sprite sheet. This setup is crucial for ensuring that each CardData instance has the correct visual representation in the game.
+// 4. Call the BuildDeck method to generate the list of CardData objects for the game. This method will create a CardData instance
+//    for each card, setting its suit, rank, trump number (if applicable), and front sprite based on the assigned sprite sheet.
+// Note: The sprite indices in the BuildDeck method are based on the expected order of the sprites in the sheet. You may need to
+//       adjust these indices after verifying the order in the Unity Sprite Editor. The AddSuitCards method is a helper function to create the
+//       suit cards for each suit, while the loop in BuildDeck handles the creation of trump cards and the Fool. This class is essential for
+//       initializing the card data used throughout the game and should be used in conjunction with other game management scripts to handle player interactions and game flow.
+// Note: This class is not responsible for player actions or game logic. It only creates the card data objects based on the provided sprite sheet.
+//       Future enhancements could include methods for creating custom decks, handling different card designs, or adding additional properties to the
+//       CardData class if needed. For now, it focuses on generating the standard Tarot deck used in the game.
+// Note: Ensure that the cardSprites array is properly populated with the correct sprites in the Unity Editor,
+//       and that the indices used in the BuildDeck method correspond to the correct cards based on how you sliced the sprite sheet.
+//       This setup is crucial for ensuring that each CardData instance has the correct visual representation in the game.
 #endregion
 
 // CardFactory.cs

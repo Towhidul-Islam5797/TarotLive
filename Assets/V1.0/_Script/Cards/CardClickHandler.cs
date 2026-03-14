@@ -14,30 +14,7 @@
 // Note: This script does not handle the logic for what happens when a card is selected (e.g., playing the card, showing details, etc.); it only detects clicks and notifies the HandDisplay script. The actual game logic for card interactions will need to be implemented in other parts of the codebase, such as the PlayerManager or GameManager.
 // Note: Ensure that the card prefab has a collider component to detect mouse clicks, and that the HandDisplay script is properly referenced in this script for it to function correctly.
 #endregion
-#region
-//using UnityEngine;
 
-//namespace TarotLive.Game
-//{
-//    public class CardClickHandler : MonoBehaviour
-//    {
-//        private CardView cardView;
-//        private HandDisplay handDisplay;
-
-//        public void Init(HandDisplay display)
-//        {
-//            cardView = GetComponent<CardView>();
-//            handDisplay = display;
-//        }
-
-//        void OnMouseDown()
-//        {
-//            if (handDisplay != null)
-//                handDisplay.OnCardClicked(cardView);
-//        }
-//    }
-//}
-#endregion
 
 #region second version
 // CardClickHandler.cs
@@ -63,6 +40,7 @@ namespace TarotLive.Game
         {
             if (handDisplay == null) return;
             handDisplay.OnCardClicked(cardView);
+            Debug.Log("CardClickHandler: Card clicked");
         }
     }
 }

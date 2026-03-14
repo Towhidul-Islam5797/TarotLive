@@ -11,7 +11,10 @@
 // Note: Future enhancements could include handling player actions during their turn, managing game state transitions (e.g., bidding phase, playing phase), and implementing win/loss conditions. For now, it focuses on initializing the game and managing turns in a basic way to set up the foundation for further development.
 #endregion
 
-#region
+#region second version
+// GameManager.cs
+// Entry point. No longer handles card playing directly - HandDisplay owns that flow.
+
 //using UnityEngine;
 
 //namespace TarotLive.Game
@@ -23,6 +26,7 @@
 //        public TurnManager turnManager;
 //        public TableLayout tableLayout;
 //        public HandDisplay localHandDisplay;
+//        public PlayArea playArea;
 
 //        [Header("Settings")]
 //        public int playerCount = 4;
@@ -30,19 +34,15 @@
 
 //        void Start()
 //        {
-//            // 1. Deal cards
 //            deckManager.StartDeal(playerCount);
 
-//            // 2. Get local seat position to anchor the hand there
 //            PlayerSeat localSeat = tableLayout.GetSeat(localSeatIndex);
 //            Vector3 seatPosition = localSeat != null ? localSeat.transform.position : Vector3.zero;
 
-//            // 3. Show local player's hand at seat position
-//            var localHand = deckManager.GetHand(localSeatIndex);
 //            localHandDisplay.faceUp = true;
-//            localHandDisplay.ShowHand(localHand, seatPosition);
+//            localHandDisplay.playArea = playArea;
+//            localHandDisplay.ShowHand(deckManager.GetHand(localSeatIndex), seatPosition);
 
-//            // 4. Start turn order
 //            turnManager.StartGame(playerCount, firstSeat: 0);
 //            turnManager.OnTurnChanged += OnTurnChanged;
 //        }
@@ -53,12 +53,12 @@
 //        }
 //    }
 //}
-
 #endregion
 
-#region second version
+#region Third version 
 // GameManager.cs
-// Entry point. No longer handles card playing directly - HandDisplay owns that flow.
+// Spawns hand displays for all players.
+// All hands face up for testing.
 
 using UnityEngine;
 
@@ -70,23 +70,39 @@ namespace TarotLive.Game
         public DeckManager deckManager;
         public TurnManager turnManager;
         public TableLayout tableLayout;
-        public HandDisplay localHandDisplay;
         public PlayArea playArea;
+
+        [Header("Hand Displays - assign all 4 in Inspector")]
+        public HandDisplay[] handDisplays; // 0=bottom, 1=right, 2=top, 3=left
 
         [Header("Settings")]
         public int playerCount = 4;
         public int localSeatIndex = 0;
 
+        // Rotation per seat: bottom=0, right=-90, top=180, left=90
+        private float[] seatRotations = { 0f, -90f, 180f, 90f };
+
         void Start()
         {
             deckManager.StartDeal(playerCount);
 
-            PlayerSeat localSeat = tableLayout.GetSeat(localSeatIndex);
-            Vector3 seatPosition = localSeat != null ? localSeat.transform.position : Vector3.zero;
+            for (int i = 0; i < playerCount; i++)
+            {
+                if (i >= handDisplays.Length || handDisplays[i] == null)
+                {
+                    Debug.LogWarning("GameManager: HandDisplay " + i + " not assigned.");
+                    continue;
+                }
 
-            localHandDisplay.faceUp = true;
-            localHandDisplay.playArea = playArea;
-            localHandDisplay.ShowHand(deckManager.GetHand(localSeatIndex), seatPosition);
+                PlayerSeat seat = tableLayout.GetSeat(i);
+                if (seat == null) continue;
+
+                HandDisplay display = handDisplays[i];
+                display.faceUp = true; // all face up for testing
+                display.handRotation = seatRotations[i];
+                display.playArea = playArea;
+                display.ShowHand(deckManager.GetHand(i), seat.transform.position);
+            }
 
             turnManager.StartGame(playerCount, firstSeat: 0);
             turnManager.OnTurnChanged += OnTurnChanged;
