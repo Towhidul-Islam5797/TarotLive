@@ -60,6 +60,68 @@
 // Spawns hand displays for all players.
 // All hands face up for testing.
 
+//using UnityEngine;
+
+//namespace TarotLive.Game
+//{
+//    public class GameManager : MonoBehaviour
+//    {
+//        [Header("References")]
+//        public DeckManager deckManager;
+//        public TurnManager turnManager;
+//        public TableLayout tableLayout;
+//        public PlayArea playArea;
+
+//        [Header("Hand Displays - assign all 4 in Inspector")]
+//        public HandDisplay[] handDisplays; // 0=bottom, 1=right, 2=top, 3=left
+
+//        [Header("Settings")]
+//        public int playerCount = 4;
+//        public int localSeatIndex = 0;
+
+//        // Rotation per seat: bottom=0, right=-90, top=180, left=90
+//        private float[] seatRotations = { 0f, -90f, 180f, 90f };
+
+//        void Start()
+//        {
+//            deckManager.StartDeal(playerCount);
+
+//            for (int i = 0; i < playerCount; i++)
+//            {
+//                if (i >= handDisplays.Length || handDisplays[i] == null)
+//                {
+//                    Debug.LogWarning("GameManager: HandDisplay " + i + " not assigned.");
+//                    continue;
+//                }
+
+//                PlayerSeat seat = tableLayout.GetSeat(i);
+//                if (seat == null) continue;
+
+//                HandDisplay display = handDisplays[i];
+//                display.faceUp = true; // all face up for testing
+//                display.handRotation = seatRotations[i];
+//                display.playArea = playArea;
+//                display.ShowHand(deckManager.GetHand(i), seat.transform.position);
+//            }
+
+//            turnManager.StartGame(playerCount, firstSeat: 0);
+//            turnManager.OnTurnChanged += OnTurnChanged;
+//        }
+
+//        private void OnTurnChanged(int seatIndex)
+//        {
+//            Debug.Log("GameManager: Active seat -> " + seatIndex);
+//        }
+//    }
+//}
+#endregion
+
+#region Final version
+// GameManager.cs
+// Entry point. Initializes all hands, enforces turn-based play.
+// Seat 0 = local player (face up, canPlay on their turn).
+// All other seats = opponents (face down, canPlay never true for now).
+
 using UnityEngine;
 
 namespace TarotLive.Game
@@ -72,15 +134,17 @@ namespace TarotLive.Game
         public TableLayout tableLayout;
         public PlayArea playArea;
 
-        [Header("Hand Displays - assign all 4 in Inspector")]
-        public HandDisplay[] handDisplays; // 0=bottom, 1=right, 2=top, 3=left
+        [Header("Hand Displays")]
+        public HandDisplay[] handDisplays;
 
         [Header("Settings")]
-        public int playerCount = 4;
         public int localSeatIndex = 0;
 
-        // Rotation per seat: bottom=0, right=-90, top=180, left=90
-        private float[] seatRotations = { 0f, -90f, 180f, 90f };
+        // Rotations match scene hierarchy: Seat0=bottom, Seat1=right, Seat2=top, Seat3=left
+        // Note: refactor to dynamic calculation in Milestone 2 for 3-7 player support
+        private readonly float[] seatRotations = { 0f, -90f, 180f, 90f };
+
+        private int playerCount => handDisplays.Length;
 
         void Start()
         {
@@ -88,29 +152,32 @@ namespace TarotLive.Game
 
             for (int i = 0; i < playerCount; i++)
             {
-                if (i >= handDisplays.Length || handDisplays[i] == null)
-                {
-                    Debug.LogWarning("GameManager: HandDisplay " + i + " not assigned.");
-                    continue;
-                }
-
                 PlayerSeat seat = tableLayout.GetSeat(i);
-                if (seat == null) continue;
+                Vector3 seatPos = seat != null ? seat.transform.position : Vector3.zero;
 
-                HandDisplay display = handDisplays[i];
-                display.faceUp = true; // all face up for testing
-                display.handRotation = seatRotations[i];
-                display.playArea = playArea;
-                display.ShowHand(deckManager.GetHand(i), seat.transform.position);
+                handDisplays[i].handRotation = seatRotations[i];
+                handDisplays[i].faceUp = (i == localSeatIndex);
+                handDisplays[i].canPlay = false;
+                handDisplays[i].playArea = playArea;
+                handDisplays[i].ShowHand(deckManager.GetHand(i), seatPos);
             }
 
-            turnManager.StartGame(playerCount, firstSeat: 0);
+            playArea.OnCardPlayed += OnCardPlayed;
             turnManager.OnTurnChanged += OnTurnChanged;
+            turnManager.StartGame(playerCount, firstSeat: 0);
         }
 
-        private void OnTurnChanged(int seatIndex)
+        private void OnCardPlayed()
         {
-            Debug.Log("GameManager: Active seat -> " + seatIndex);
+            turnManager.NextTurn();
+        }
+
+        private void OnTurnChanged(int activeSeat)
+        {
+            for (int i = 0; i < playerCount; i++)
+                handDisplays[i].canPlay = (i == activeSeat);
+
+            Debug.Log("GameManager: Active seat -> " + activeSeat);
         }
     }
 }
