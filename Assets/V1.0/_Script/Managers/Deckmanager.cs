@@ -18,6 +18,90 @@
 //       initial setup of the deck and hands. Future enhancements could include methods for reshuffling, handling card draws
 //       during gameplay, or managing the discard pile if needed. For now, it focuses on the initial deal and setup of the game state.
 #endregion
+#region version 1.0
+//using UnityEngine;
+//using System.Collections.Generic;
+
+//namespace TarotLive.Game
+//{
+//    public class DeckManager : MonoBehaviour
+//    {
+//        [Header("References")]
+//        public CardFactory cardFactory;
+//        public TableLayout tableLayout;
+
+//        private List<CardData> deck = new List<CardData>();
+//        private Dictionary<int, List<CardData>> hands = new Dictionary<int, List<CardData>>();
+//        private List<CardData> chien = new List<CardData>();
+
+//        public List<CardData> Chien => chien;
+
+//        public void StartDeal(int playerCount)
+//        {
+//            deck = cardFactory.BuildDeck();
+//            Shuffle();
+
+//            hands.Clear();
+//            chien.Clear();
+
+//            for (int i = 0; i < playerCount; i++)
+//                hands[i] = new List<CardData>();
+
+//            // Deal rules by player count
+//            // 3 players: 24 cards each, 6 chien
+//            // 4 players: 18 cards each, 6 chien
+//            // 5 players: 15 cards each, 3 chien
+//            int chienSize = playerCount == 5 ? 3 : 6;
+//            int cardsPerPlayer = (78 - chienSize) / playerCount;
+//            int totalRounds = cardsPerPlayer / 3;
+
+//            // Deal 3 cards per player per round
+//            for (int round = 0; round < totalRounds; round++)
+//                for (int p = 0; p < playerCount; p++)
+//                    for (int c = 0; c < 3; c++)
+//                        hands[p].Add(DealOne());
+
+//            // Remaining cards go to chien
+//            chien.AddRange(deck);
+//            deck.Clear();
+
+//            Debug.Log("DeckManager: Deal complete.");
+//            Debug.Log("Cards per player: " + cardsPerPlayer + " | Chien: " + chien.Count);
+//            for (int i = 0; i < playerCount; i++)
+//                Debug.Log("Seat " + i + " -> " + hands[i].Count + " cards.");
+//        }
+
+//        public List<CardData> GetHand(int seatIndex)
+//        {
+//            return hands.ContainsKey(seatIndex) ? hands[seatIndex] : new List<CardData>();
+//        }
+
+//        private void Shuffle()
+//        {
+//            for (int i = deck.Count - 1; i > 0; i--)
+//            {
+//                int j = Random.Range(0, i + 1);
+//                (deck[i], deck[j]) = (deck[j], deck[i]);
+//            }
+//            Debug.Log("DeckManager: Deck shuffled.");
+//        }
+
+//        private CardData DealOne()
+//        {
+//            if (deck.Count == 0) return null; 
+//            CardData card = deck[0]; 
+//            deck.RemoveAt(0);
+//            Debug.Log("DeckManager: Deal" + " .");
+//            return card;
+//        }
+//    }
+//}
+#endregion
+#region Sprint 6
+// DeckManager.cs
+// Manages deck, player hands, and chien.
+// Deals from end of list (O(1)) instead of front (O(n)).
+
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -27,7 +111,6 @@ namespace TarotLive.Game
     {
         [Header("References")]
         public CardFactory cardFactory;
-        public TableLayout tableLayout;
 
         private List<CardData> deck = new List<CardData>();
         private Dictionary<int, List<CardData>> hands = new Dictionary<int, List<CardData>>();
@@ -46,33 +129,27 @@ namespace TarotLive.Game
             for (int i = 0; i < playerCount; i++)
                 hands[i] = new List<CardData>();
 
-            // Deal rules by player count
-            // 3 players: 24 cards each, 6 chien
-            // 4 players: 18 cards each, 6 chien
-            // 5 players: 15 cards each, 3 chien
+            // 3p: 24 each + 6 chien | 4p: 18 each + 6 chien | 5p: 15 each + 3 chien
             int chienSize = playerCount == 5 ? 3 : 6;
             int cardsPerPlayer = (78 - chienSize) / playerCount;
             int totalRounds = cardsPerPlayer / 3;
 
-            // Deal 3 cards per player per round
             for (int round = 0; round < totalRounds; round++)
                 for (int p = 0; p < playerCount; p++)
                     for (int c = 0; c < 3; c++)
                         hands[p].Add(DealOne());
 
-            // Remaining cards go to chien
             chien.AddRange(deck);
             deck.Clear();
 
-            Debug.Log("DeckManager: Deal complete.");
-            Debug.Log("Cards per player: " + cardsPerPlayer + " | Chien: " + chien.Count);
+            Debug.Log("DeckManager: Deal complete. Cards per player: " + cardsPerPlayer + " | Chien: " + chien.Count);
             for (int i = 0; i < playerCount; i++)
                 Debug.Log("Seat " + i + " -> " + hands[i].Count + " cards.");
         }
 
         public List<CardData> GetHand(int seatIndex)
         {
-            return hands.ContainsKey(seatIndex) ? hands[seatIndex] : new List<CardData>();
+            return hands.TryGetValue(seatIndex, out var hand) ? hand : new List<CardData>();
         }
 
         private void Shuffle()
@@ -85,13 +162,15 @@ namespace TarotLive.Game
             Debug.Log("DeckManager: Deck shuffled.");
         }
 
+        // O(1) - deal from end instead of RemoveAt(0) which was O(n)
         private CardData DealOne()
         {
-            if (deck.Count == 0) return null; 
-            CardData card = deck[0]; 
-            deck.RemoveAt(0);
-            Debug.Log("DeckManager: Deal" + " .");
+            if (deck.Count == 0) return null;
+            int last = deck.Count - 1;
+            CardData card = deck[last];
+            deck.RemoveAt(last);
             return card;
         }
     }
 }
+#endregion
