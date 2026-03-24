@@ -915,6 +915,172 @@
 // faceUp passed as parameter to ShowHand - GameManager owns that decision.
 // Sorting order assigned per row. canPlay gates interaction.
 
+//using UnityEngine;
+//using System.Collections.Generic;
+//using DG.Tweening;
+
+//namespace TarotLive.Game
+//{
+//    public class HandDisplay : MonoBehaviour
+//    {
+//        [Header("References")]
+//        public GameObject cardPrefab;
+//        public CardFactory cardFactory;
+//        public PlayArea playArea;
+
+//        [Header("Layout")]
+//        public float cardSpacing = 0.7f;
+//        public float cardScale = 0.3f;
+//        public float rowOffset = 0.5f;
+//        public float handRotation = 0f;
+
+//        [Header("Turn")]
+//        public bool canPlay = false;
+//        public int seatIndex = 0;
+
+//        [Header("Animation")]
+//        public float selectLift = 0.4f;
+//        public float selectSpeed = 0.15f;
+//        public float playSpeed = 0.3f;
+
+//        private List<CardView> cardViews = new List<CardView>();
+//        private List<Vector3> basePositions = new List<Vector3>();
+//        private List<int> baseSortOrders = new List<int>();
+//        private CardView selectedCard = null;
+
+//        private const int BackRowBase = 0;
+//        private const int FrontRowBase = 10;
+//        private const int SelectedOrder = 20;
+
+//        public void ShowHand(List<CardData> hand, Vector3 anchorPosition, bool faceUp)
+//        {
+//            ClearHand();
+
+//            transform.position = anchorPosition;
+//            transform.rotation = Quaternion.Euler(0, 0, handRotation);
+
+//            int total = hand.Count;
+//            int row1Count = Mathf.CeilToInt(total / 2f);
+//            int row2Count = total - row1Count;
+
+//            for (int i = 0; i < total; i++)
+//            {
+//                bool isRow2 = i >= row1Count;
+//                int indexInRow = isRow2 ? i - row1Count : i;
+//                int countInRow = isRow2 ? row2Count : row1Count;
+
+//                float totalWidth = (countInRow - 1) * cardSpacing;
+//                float startX = -totalWidth / 2f;
+//                float yOffset = isRow2 ? -rowOffset : 0f;
+
+//                Vector3 worldPos = transform.TransformPoint(new Vector3(startX + indexInRow * cardSpacing, yOffset, 0f));
+//                basePositions.Add(worldPos);
+
+//                int sortOrder = isRow2 ? BackRowBase + indexInRow : FrontRowBase + indexInRow;
+//                baseSortOrders.Add(sortOrder);
+
+//                GameObject go = Instantiate(cardPrefab, worldPos, Quaternion.Euler(0, 0, handRotation), transform);
+//                go.name = "Card_" + i;
+//                go.transform.localScale = new Vector3(cardScale, cardScale, 1f);
+
+//                CardView view = go.GetComponent<CardView>();
+//                view.Setup(hand[i], cardFactory.cardBackSprite, faceUp);
+//                view.spriteRenderer.sortingOrder = sortOrder;
+
+//                go.GetComponent<CardClickHandler>().Init(this);
+//                cardViews.Add(view);
+//            }
+//        }
+
+//        public void ClearHand()
+//        {
+//            foreach (var view in cardViews)
+//                if (view != null) Destroy(view.gameObject);
+
+//            cardViews.Clear();
+//            basePositions.Clear();
+//            baseSortOrders.Clear();
+//            selectedCard = null;
+//        }
+
+//        public void OnCardClicked(CardView card)
+//        {
+//            if (!canPlay) return;
+
+//            if (selectedCard == card)
+//            {
+//                PlaySelectedCard();
+//                return;
+//            }
+
+//            if (selectedCard != null)
+//            {
+//                int prevIndex = cardViews.IndexOf(selectedCard);
+//                selectedCard.transform.DOMove(basePositions[prevIndex], selectSpeed);
+//                selectedCard.spriteRenderer.sortingOrder = baseSortOrders[prevIndex];
+//            }
+
+//            int newIndex = cardViews.IndexOf(card);
+//            card.transform.DOMove(basePositions[newIndex] + GetLiftDirection() * selectLift, selectSpeed);
+//            card.spriteRenderer.sortingOrder = SelectedOrder;
+//            selectedCard = card;
+//        }
+
+//        // Bottom(0)->up | Right(-90)->left | Top(180)->down | Left(90)->right
+//        private Vector3 GetLiftDirection()
+//        {
+//            float angle = handRotation % 360f;
+//            if (angle < 0) angle += 360f;
+
+//            if (Mathf.Approximately(angle, 0f)) return Vector3.up;
+//            if (Mathf.Approximately(angle, 180f)) return Vector3.down;
+//            if (Mathf.Approximately(angle, 90f)) return Vector3.right;
+//            if (Mathf.Approximately(angle, 270f)) return Vector3.left;
+
+//            float rad = (90f - angle) * Mathf.Deg2Rad;
+//            return new Vector3(Mathf.Cos(rad), Mathf.Sin(rad), 0f).normalized;
+//        }
+
+//        private void PlaySelectedCard()
+//        {
+//            if (selectedCard == null || playArea == null)
+//            {
+//                if (playArea == null) Debug.LogWarning("HandDisplay: PlayArea not assigned.");
+//                return;
+//            }
+
+//            CardView card = selectedCard;
+//            RemoveCard(card);
+
+//            card.transform.SetParent(null);
+//            card.transform.DOMove(playArea.transform.position, playSpeed)
+//                .OnComplete(() => playArea.PlayCard(card, seatIndex));
+//        }
+
+//        public void RemoveCard(CardView card)
+//        {
+//            int index = cardViews.IndexOf(card);
+//            if (index == -1) return;
+
+//            cardViews.RemoveAt(index);
+//            basePositions.RemoveAt(index);
+//            baseSortOrders.RemoveAt(index);
+
+//            if (selectedCard == card)
+//                selectedCard = null;
+//        }
+
+//        public CardView GetSelectedCard() => selectedCard;
+//    }
+//}
+#endregion
+#region Sprint 7 - Finalize HandDisplay with canPlay gate and SetPlayableCards
+// HandDisplay.cs
+// Two row hand display with correct lift direction per seat.
+// faceUp passed as parameter to ShowHand - GameManager owns that decision.
+// Sorting order assigned per row. canPlay gates interaction.
+// SetPlayableCards applies Rule 5-7 visual validation.
+
 using UnityEngine;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -951,6 +1117,8 @@ namespace TarotLive.Game
         private const int BackRowBase = 0;
         private const int FrontRowBase = 10;
         private const int SelectedOrder = 20;
+
+        public List<CardView> CardViews => cardViews;
 
         public void ShowHand(List<CardData> hand, Vector3 anchorPosition, bool faceUp)
         {
@@ -990,6 +1158,21 @@ namespace TarotLive.Game
                 go.GetComponent<CardClickHandler>().Init(this);
                 cardViews.Add(view);
             }
+        }
+
+        // Rules 5-7: called by GameManager to highlight legal cards
+        // legal = list of CardView that are allowed to be played this turn
+        public void SetPlayableCards(List<CardView> legal)
+        {
+            foreach (var view in cardViews)
+                view.SetPlayable(legal.Contains(view));
+        }
+
+        // Reset all cards to playable (e.g. first card of trick or end of trick)
+        public void SetAllPlayable()
+        {
+            foreach (var view in cardViews)
+                view.SetPlayable(true);
         }
 
         public void ClearHand()

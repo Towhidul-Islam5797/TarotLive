@@ -208,6 +208,114 @@
 // Array rule: Element 0 = frenchtatotcards_1, so array index = sprite number - 1
 // Card Back = frenchtatotcards_0, assigned separately to cardBackSprite
 
+//using UnityEngine;
+//using System.Collections.Generic;
+
+//namespace TarotLive.Game
+//{
+//    public class CardFactory : MonoBehaviour
+//    {
+//        [Header("Sprite Sheet")]
+//        public Sprite[] cardSprites;
+//        public Sprite cardBackSprite;
+
+//        // Static readonly - allocated once, reused across all AddSuitCards calls
+//        private static readonly CardRank[] SuitRanks =
+//        {
+//            CardRank.One, CardRank.Two,  CardRank.Three, CardRank.Four,
+//            CardRank.Five, CardRank.Six, CardRank.Seven, CardRank.Eight,
+//            CardRank.Nine, CardRank.Ten,
+//            CardRank.Valet, CardRank.Cavalier, CardRank.Dame, CardRank.Roi
+//        };
+
+//        private static readonly int[] TrumpIndices =
+//        {
+//            63, 72, 44, 45, 46, 47, 48, 54, 64, 73,
+//            55, 65, 74, 56, 57, 58, 66, 75, 67, 76, 68
+//        };
+
+//        public List<CardData> BuildDeck()
+//        {
+//            var deck = new List<CardData>(78);
+
+//            if (cardSprites == null || cardSprites.Length == 0)
+//            {
+//                Debug.LogError("CardFactory: No sprites assigned.");
+//                return deck;
+//            }
+
+//            // Clubs:    C1-C9=0-8, C10=12, C-V=13, C-C=9, C-D=10, C-R=11
+//            AddSuitCards(deck, CardSuit.Clubs, new[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 12, 13, 9, 10, 11 });
+//            // Diamonds: D1-D5=14-18, D6=19, D7=29, D8=39, D9=49, D10=21, D-V=22, D-C=77, D-D=31, D-R=20
+//            AddSuitCards(deck, CardSuit.Diamonds, new[] { 14, 15, 16, 17, 18, 19, 29, 39, 49, 21, 22, 77, 31, 20 });
+//            // Hearts:   H1-H5=24-28, H6=30, H7=40, H8=50, H9=60, H10=51, H-V=61, H-C=59, H-D=69, H-R=41
+//            AddSuitCards(deck, CardSuit.Hearts, new[] { 24, 25, 26, 27, 28, 30, 40, 50, 60, 51, 61, 59, 69, 41 });
+//            // Spades:   S1=70, S2-S8=32-38, S9=42, S10=43, S-V=53, S-C=52, S-D=62, S-R=71
+//            AddSuitCards(deck, CardSuit.Spades, new[] { 70, 32, 33, 34, 35, 36, 37, 38, 42, 43, 53, 52, 62, 71 });
+
+//            for (int i = 0; i < 21; i++)
+//            {
+//                var trump = ScriptableObject.CreateInstance<CardData>();
+//                trump.suit = CardSuit.Trump;
+//                trump.trumpNumber = i + 1;
+//                trump.frontSprite = GetSprite(TrumpIndices[i]);
+//                deck.Add(trump);
+//            }
+
+//            // Fool (L'Excuse) = index 23
+//            var fool = ScriptableObject.CreateInstance<CardData>();
+//            fool.suit = CardSuit.Trump;
+//            fool.rank = CardRank.Fool;
+//            fool.trumpNumber = 0;
+//            fool.frontSprite = GetSprite(23);
+//            deck.Add(fool);
+
+//            Debug.Log("CardFactory: Built " + deck.Count + " cards.");
+//            return deck;
+//        }
+
+//        private void AddSuitCards(List<CardData> deck, CardSuit suit, int[] indices)
+//        {
+//            for (int i = 0; i < 14; i++)
+//            {
+//                var card = ScriptableObject.CreateInstance<CardData>();
+//                card.suit = suit;
+//                card.rank = SuitRanks[i];
+//                card.frontSprite = GetSprite(indices[i]);
+//                deck.Add(card);
+//            }
+//        }
+
+//        private Sprite GetSprite(int index)
+//        {
+//            if (index >= 0 && index < cardSprites.Length)
+//                return cardSprites[index];
+
+//            Debug.LogWarning("CardFactory: Index " + index + " out of range. Array size: " + cardSprites.Length);
+//            return null;
+//        }
+//    }
+//}
+#endregion
+#region Sprint 7
+// CardFactory.cs
+// Builds all 78 CardData objects from the sliced sprite sheet.
+// Attach to the DeckBuilder GameObject.
+// Drag sprite sheet into Card Sprites in Inspector.
+//
+// Array rule: Element 0 = sprite_1 (C1), so array index = sprite number - 1
+// Card Back = sprite_0, assigned separately to cardBackSprite
+//
+// SHEET LAYOUT (10 cols x 8 rows, left->right, top->bottom):
+// Row 0: Back | C1  C2  C3  C4  C5  C6  C7  C8  C9
+// Row 1: C10  C-C C-D C-R  C-V | D1  D2  D3  D4  D5
+// Row 2: D6   D7  D8  D9   D10 D-C D-D  D-R D-V  H1
+// Row 3: H2   H3  H4  H5   H6  H7  H8   H9  H10 H-C
+// Row 4: H-D  H-R H-V S1   S2  S3  S4   S5  S6   S7
+// Row 5: S8   S9  S10 S-C  S-D S-R S-V  Fool T1   T2
+// Row 6: T3   T4  T5  T6   T7  T8  T9   T10  T11  T12
+// Row 7: T13  T14 T15 T16  T17 T18 T19  T20  T21  (empty)
+
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -222,16 +330,17 @@ namespace TarotLive.Game
         // Static readonly - allocated once, reused across all AddSuitCards calls
         private static readonly CardRank[] SuitRanks =
         {
-            CardRank.One, CardRank.Two,  CardRank.Three, CardRank.Four,
-            CardRank.Five, CardRank.Six, CardRank.Seven, CardRank.Eight,
-            CardRank.Nine, CardRank.Ten,
+            CardRank.One,   CardRank.Two,   CardRank.Three, CardRank.Four,
+            CardRank.Five,  CardRank.Six,   CardRank.Seven, CardRank.Eight,
+            CardRank.Nine,  CardRank.Ten,
             CardRank.Valet, CardRank.Cavalier, CardRank.Dame, CardRank.Roi
         };
 
+        // Trump indices are now perfectly sequential: T1-T21 = indices 57-77
         private static readonly int[] TrumpIndices =
         {
-            63, 72, 44, 45, 46, 47, 48, 54, 64, 73,
-            55, 65, 74, 56, 57, 58, 66, 75, 67, 76, 68
+            57, 58, 59, 60, 61, 62, 63, 64, 65, 66,
+            67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77
         };
 
         public List<CardData> BuildDeck()
@@ -244,15 +353,20 @@ namespace TarotLive.Game
                 return deck;
             }
 
-            // Clubs:    C1-C9=0-8, C10=12, C-V=13, C-C=9, C-D=10, C-R=11
-            AddSuitCards(deck, CardSuit.Clubs, new[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 12, 13, 9, 10, 11 });
-            // Diamonds: D1-D5=14-18, D6=19, D7=29, D8=39, D9=49, D10=21, D-V=22, D-C=77, D-D=31, D-R=20
-            AddSuitCards(deck, CardSuit.Diamonds, new[] { 14, 15, 16, 17, 18, 19, 29, 39, 49, 21, 22, 77, 31, 20 });
-            // Hearts:   H1-H5=24-28, H6=30, H7=40, H8=50, H9=60, H10=51, H-V=61, H-C=59, H-D=69, H-R=41
-            AddSuitCards(deck, CardSuit.Hearts, new[] { 24, 25, 26, 27, 28, 30, 40, 50, 60, 51, 61, 59, 69, 41 });
-            // Spades:   S1=70, S2-S8=32-38, S9=42, S10=43, S-V=53, S-C=52, S-D=62, S-R=71
-            AddSuitCards(deck, CardSuit.Spades, new[] { 70, 32, 33, 34, 35, 36, 37, 38, 42, 43, 53, 52, 62, 71 });
+            // Rank order per suit: 1-10, Valet, Cavalier, Dame, Roi
+            // Clubs:    C1-C9=0-8, C10=9, C-V=13, C-C=10, C-D=11, C-R=12
+            AddSuitCards(deck, CardSuit.Clubs, new[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 13, 10, 11, 12 });
 
+            // Diamonds: D1-D5=14-18, D6-D10=19-23, D-V=27, D-C=24, D-D=25, D-R=26
+            AddSuitCards(deck, CardSuit.Diamonds, new[] { 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 27, 24, 25, 26 });
+
+            // Hearts:   H1-H10=28-37, H-V=41, H-C=38, H-D=39, H-R=40
+            AddSuitCards(deck, CardSuit.Hearts, new[] { 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 41, 38, 39, 40 });
+
+            // Spades:   S1-S10=42-51, S-V=55, S-C=52, S-D=53, S-R=54
+            AddSuitCards(deck, CardSuit.Spades, new[] { 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 55, 52, 53, 54 });
+
+            // Trumps 1-21 = indices 57-77
             for (int i = 0; i < 21; i++)
             {
                 var trump = ScriptableObject.CreateInstance<CardData>();
@@ -262,12 +376,12 @@ namespace TarotLive.Game
                 deck.Add(trump);
             }
 
-            // Fool (L'Excuse) = index 23
+            // Fool (L'Excuse) = index 56
             var fool = ScriptableObject.CreateInstance<CardData>();
             fool.suit = CardSuit.Trump;
             fool.rank = CardRank.Fool;
             fool.trumpNumber = 0;
-            fool.frontSprite = GetSprite(23);
+            fool.frontSprite = GetSprite(56);
             deck.Add(fool);
 
             Debug.Log("CardFactory: Built " + deck.Count + " cards.");

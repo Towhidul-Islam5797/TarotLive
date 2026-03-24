@@ -18,6 +18,48 @@
 // Note: This script assumes that the card's front and back sprites are properly set up in the CardData and that the SpriteRenderer component is correctly assigned. It will be important to test the flipping functionality to ensure that the correct sprites are displayed based on the card's state.
 #endregion
 #region
+//using UnityEngine;
+
+//namespace TarotLive.Game
+//{
+//    public class CardView : MonoBehaviour
+//    {
+//        [Header("References")]
+//        public SpriteRenderer spriteRenderer;
+
+//        [Header("State")]
+//        public bool isFaceUp = false;
+
+//        private CardData data;
+//        private Sprite backSprite;
+
+//        public CardData Data => data;
+
+//        public void Setup(CardData cardData, Sprite back, bool faceUp = false)
+//        {
+//            data = cardData;
+//            backSprite = back;
+//            SetFacing(faceUp);
+//        }
+
+//        public void SetFacing(bool faceUp)
+//        {
+//            isFaceUp = faceUp;
+//            spriteRenderer.sprite = isFaceUp ? data.frontSprite : backSprite;
+//        }
+
+//        public void Flip()
+//        {
+//            SetFacing(!isFaceUp);
+//            Debug.Log("CardView: Flipped card " + data.ToString() + " to " + (isFaceUp ? "face up" : "face down"));
+//        }
+//    }
+//}
+#endregion
+#region Sprint 7 - Playable State
+// CardView.cs
+// Manages card visual state - facing, sprite, and playability.
+
 using UnityEngine;
 
 namespace TarotLive.Game
@@ -27,8 +69,11 @@ namespace TarotLive.Game
         [Header("References")]
         public SpriteRenderer spriteRenderer;
 
-        [Header("State")]
-        public bool isFaceUp = false;
+        public bool isFaceUp { get; private set; }
+        public bool isPlayable { get; private set; } = true;
+
+        private static readonly Color PlayableColor = Color.white;
+        private static readonly Color UnplayableColor = new Color(1f, 1f, 1f, 0.35f);
 
         private CardData data;
         private Sprite backSprite;
@@ -40,6 +85,7 @@ namespace TarotLive.Game
             data = cardData;
             backSprite = back;
             SetFacing(faceUp);
+            SetPlayable(true);
         }
 
         public void SetFacing(bool faceUp)
@@ -48,12 +94,18 @@ namespace TarotLive.Game
             spriteRenderer.sprite = isFaceUp ? data.frontSprite : backSprite;
         }
 
+        // Rule 5-7: visually dims unplayable cards
+        public void SetPlayable(bool playable)
+        {
+            isPlayable = playable;
+            spriteRenderer.color = playable ? PlayableColor : UnplayableColor;
+        }
+
         public void Flip()
         {
             SetFacing(!isFaceUp);
-            Debug.Log("CardView: Flipped card " + data.ToString() + " to " + (isFaceUp ? "face up" : "face down"));
+            Debug.Log("CardView: Flipped " + data + " to " + (isFaceUp ? "face up" : "face down"));
         }
     }
 }
-
 #endregion

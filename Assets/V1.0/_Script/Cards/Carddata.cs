@@ -33,9 +33,6 @@
 //        }
 //    }
 //}
-
-// CardData.cs
-// Holds data for a single Tarot card.
 #endregion
 #region 
 using UnityEngine;

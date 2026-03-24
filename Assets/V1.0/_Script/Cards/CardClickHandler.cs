@@ -21,6 +21,36 @@
 // Single click selects a card. Second click on same card plays it to the play area.
 // Attach to CardPrefab alongside CardView. Requires Collider2D.
 
+//using UnityEngine;
+
+//namespace TarotLive.Game
+//{
+//    public class CardClickHandler : MonoBehaviour
+//    {
+//        private CardView cardView;
+//        private HandDisplay handDisplay;
+
+//        public void Init(HandDisplay display)
+//        {
+//            cardView = GetComponent<CardView>();
+//            handDisplay = display;
+//        }
+
+//        void OnMouseDown()
+//        {
+//            if (handDisplay == null) return;
+//            handDisplay.OnCardClicked(cardView);
+//            Debug.Log("CardClickHandler: Card clicked");
+//        }
+//    }
+//}
+#endregion
+#region Sprint 7 - Playable State
+// CardClickHandler.cs
+// Forwards click events to HandDisplay.
+// Respects CardView.isPlayable - blocks clicks on grayed out cards.
+// Attach to CardPrefab. Requires Collider2D and Physics 2D Raycaster on camera.
+
 using UnityEngine;
 
 namespace TarotLive.Game
@@ -39,6 +69,7 @@ namespace TarotLive.Game
         void OnMouseDown()
         {
             if (handDisplay == null) return;
+            if (!cardView.isPlayable) return;
             handDisplay.OnCardClicked(cardView);
             Debug.Log("CardClickHandler: Card clicked");
         }
