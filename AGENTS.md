@@ -2,7 +2,7 @@
 - Project name: Tarot_Classique
 - Unity version: Unity 6000.3.10f1
 - Active game object:
-  - Name: HUD
+  - Name: GameManager
   - Tag: Untagged
-  - Layer: UI
+  - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
