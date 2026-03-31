@@ -1,244 +1,67 @@
 fileFormatVersion: 2
-guid: b9ed25837309cb94283627b0ccdba700
+guid: 6a8c9d73d0b8f9f4e94fb19658a24a9b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6048620899721498222
-    second: 1666765882frenchtatotcards_0
+      213: -8496765173421001146
+    second: Tarrot_Classic copy-2_0
   - first:
-      213: -8504032011991074752
-    second: 1666765882frenchtatotcards_1
+      213: -3527205444184408798
+    second: Tarrot_Classic copy-2_1
   - first:
-      213: -1265060183712093890
-    second: 1666765882frenchtatotcards_2
+      213: -2432053969961393258
+    second: Tarrot_Classic copy-2_2
   - first:
-      213: -5555010818961813085
-    second: 1666765882frenchtatotcards_3
+      213: -2683004207436371329
+    second: Tarrot_Classic copy-2_3
   - first:
-      213: 3172276405862189201
-    second: 1666765882frenchtatotcards_4
+      213: 1610232181702102306
+    second: Tarrot_Classic copy-2_4
   - first:
-      213: 879864850294878773
-    second: 1666765882frenchtatotcards_5
+      213: 9138956918303567037
+    second: Tarrot_Classic copy-2_5
   - first:
-      213: -3320683197207699516
-    second: 1666765882frenchtatotcards_6
+      213: 4030288487403824252
+    second: Tarrot_Classic copy-2_6
   - first:
-      213: -6019979760038250191
-    second: 1666765882frenchtatotcards_7
+      213: 2193115687785938670
+    second: Tarrot_Classic copy-2_7
   - first:
-      213: -8839835103333412678
-    second: 1666765882frenchtatotcards_8
+      213: -318042192581472160
+    second: Tarrot_Classic copy-2_8
   - first:
-      213: 52748233691050779
-    second: 1666765882frenchtatotcards_9
+      213: 4438057982874278971
+    second: Tarrot_Classic copy-2_9
   - first:
-      213: 8303425746561336913
-    second: 1666765882frenchtatotcards_10
+      213: 4333600633980595163
+    second: Tarrot_Classic copy-2_10
   - first:
-      213: -4300270698822940495
-    second: 1666765882frenchtatotcards_11
+      213: -8403698819573031216
+    second: Tarrot_Classic copy-2_11
   - first:
-      213: 3825295769638858094
-    second: 1666765882frenchtatotcards_12
+      213: 31620756018327661
+    second: Tarrot_Classic copy-2_12
   - first:
-      213: -1428558429373786341
-    second: 1666765882frenchtatotcards_13
+      213: -8055731950681518606
+    second: Tarrot_Classic copy-2_13
   - first:
-      213: -4297045231424923843
-    second: 1666765882frenchtatotcards_14
+      213: -5283397106863493926
+    second: Tarrot_Classic copy-2_14
   - first:
-      213: 8006420315016429520
-    second: 1666765882frenchtatotcards_15
+      213: -706626686625969403
+    second: Tarrot_Classic copy-2_15
   - first:
-      213: -3271474813396378848
-    second: 1666765882frenchtatotcards_16
+      213: 8012860641381467497
+    second: Tarrot_Classic copy-2_16
   - first:
-      213: -6621534811603411062
-    second: 1666765882frenchtatotcards_17
+      213: 247096984991258992
+    second: Tarrot_Classic copy-2_17
   - first:
-      213: 8534981505756974057
-    second: 1666765882frenchtatotcards_18
+      213: 1782513575790347401
+    second: Tarrot_Classic copy-2_18
   - first:
-      213: -3287912473627570225
-    second: 1666765882frenchtatotcards_19
-  - first:
-      213: -2661088544270154895
-    second: 1666765882frenchtatotcards_20
-  - first:
-      213: 2202001814114955242
-    second: 1666765882frenchtatotcards_21
-  - first:
-      213: -7796634796401553600
-    second: 1666765882frenchtatotcards_22
-  - first:
-      213: 5511121654549314468
-    second: 1666765882frenchtatotcards_23
-  - first:
-      213: -1006929636023541304
-    second: 1666765882frenchtatotcards_24
-  - first:
-      213: 1049785782534614274
-    second: 1666765882frenchtatotcards_25
-  - first:
-      213: 995038593879699488
-    second: 1666765882frenchtatotcards_26
-  - first:
-      213: 19878631982315506
-    second: 1666765882frenchtatotcards_27
-  - first:
-      213: -7709931811195837730
-    second: 1666765882frenchtatotcards_28
-  - first:
-      213: 5556215205730629384
-    second: 1666765882frenchtatotcards_29
-  - first:
-      213: -3291432822697114958
-    second: 1666765882frenchtatotcards_30
-  - first:
-      213: -3509636051738614028
-    second: 1666765882frenchtatotcards_31
-  - first:
-      213: 8525570925633028318
-    second: 1666765882frenchtatotcards_32
-  - first:
-      213: -1018397602485683540
-    second: 1666765882frenchtatotcards_33
-  - first:
-      213: -836752305500804142
-    second: 1666765882frenchtatotcards_34
-  - first:
-      213: 8791344360049756948
-    second: 1666765882frenchtatotcards_35
-  - first:
-      213: 3986597595954755745
-    second: 1666765882frenchtatotcards_36
-  - first:
-      213: 5562871684746210886
-    second: 1666765882frenchtatotcards_37
-  - first:
-      213: 3160344537499521419
-    second: 1666765882frenchtatotcards_38
-  - first:
-      213: 5415736214752921257
-    second: 1666765882frenchtatotcards_39
-  - first:
-      213: 7814066670028795890
-    second: 1666765882frenchtatotcards_40
-  - first:
-      213: -3120067227060582826
-    second: 1666765882frenchtatotcards_41
-  - first:
-      213: 8681366907997427331
-    second: 1666765882frenchtatotcards_42
-  - first:
-      213: -7190834003319482085
-    second: 1666765882frenchtatotcards_43
-  - first:
-      213: 8561155845757873099
-    second: 1666765882frenchtatotcards_44
-  - first:
-      213: 6018549173079014493
-    second: 1666765882frenchtatotcards_45
-  - first:
-      213: -5000106436984658663
-    second: 1666765882frenchtatotcards_46
-  - first:
-      213: -6105430587380081012
-    second: 1666765882frenchtatotcards_47
-  - first:
-      213: 4672441300048626745
-    second: 1666765882frenchtatotcards_48
-  - first:
-      213: -7826463087484043154
-    second: 1666765882frenchtatotcards_49
-  - first:
-      213: -7972124945333303902
-    second: 1666765882frenchtatotcards_50
-  - first:
-      213: 3624364562586420649
-    second: 1666765882frenchtatotcards_51
-  - first:
-      213: -898711329921653174
-    second: 1666765882frenchtatotcards_52
-  - first:
-      213: 1176434781166357734
-    second: 1666765882frenchtatotcards_53
-  - first:
-      213: -4350789782541697568
-    second: 1666765882frenchtatotcards_54
-  - first:
-      213: -8508020129479159079
-    second: 1666765882frenchtatotcards_55
-  - first:
-      213: -7794455456943271465
-    second: 1666765882frenchtatotcards_56
-  - first:
-      213: 466290623870757392
-    second: 1666765882frenchtatotcards_57
-  - first:
-      213: 6571619973850644865
-    second: 1666765882frenchtatotcards_58
-  - first:
-      213: 4360443896126563459
-    second: 1666765882frenchtatotcards_59
-  - first:
-      213: 3492417667058223679
-    second: 1666765882frenchtatotcards_60
-  - first:
-      213: 9085028779273593673
-    second: 1666765882frenchtatotcards_61
-  - first:
-      213: 7986038410661424367
-    second: 1666765882frenchtatotcards_62
-  - first:
-      213: -6404689582611628150
-    second: 1666765882frenchtatotcards_63
-  - first:
-      213: -5883910962514161006
-    second: 1666765882frenchtatotcards_64
-  - first:
-      213: 5943730278151464699
-    second: 1666765882frenchtatotcards_65
-  - first:
-      213: 2598813734125195775
-    second: 1666765882frenchtatotcards_66
-  - first:
-      213: -3473849881989352898
-    second: 1666765882frenchtatotcards_67
-  - first:
-      213: 783055200693364202
-    second: 1666765882frenchtatotcards_68
-  - first:
-      213: -66125779273461636
-    second: 1666765882frenchtatotcards_69
-  - first:
-      213: -1581610134074835529
-    second: 1666765882frenchtatotcards_70
-  - first:
-      213: -6837145737821172171
-    second: 1666765882frenchtatotcards_71
-  - first:
-      213: -7416591778438451920
-    second: 1666765882frenchtatotcards_72
-  - first:
-      213: 4707118694817691793
-    second: 1666765882frenchtatotcards_73
-  - first:
-      213: -414682872720467684
-    second: 1666765882frenchtatotcards_74
-  - first:
-      213: -5177676928319624467
-    second: 1666765882frenchtatotcards_75
-  - first:
-      213: 73395846896907681
-    second: 1666765882frenchtatotcards_76
-  - first:
-      213: 86491158703764744
-    second: 1666765882frenchtatotcards_77
-  - first:
-      213: 8973990728892137278
-    second: 1666765882frenchtatotcards_78
+      213: 1214790412913732004
+    second: Tarrot_Classic copy-2_19
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -386,7 +209,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: frenchtatotcards_0
+      name: Cards_0
       rect:
         serializedVersion: 2
         x: 0
@@ -399,16 +222,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 291b813b65bfe0ca0800000000000000
-      internalID: -6048620899721498222
+      spriteID: 74fe8021e09d3b04a86c0f756e2abbdd
+      internalID: 313130297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_1
+      name: Cards_1
       rect:
         serializedVersion: 2
         x: 336
@@ -423,14 +246,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9e4eb412214883439a20d672846758e
-      internalID: -2127574380
+      spriteID: 4c981183434b4c74cadd3e33c59c751a
+      internalID: -1085558240
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_2
+      name: Cards_2
       rect:
         serializedVersion: 2
         x: 672
@@ -445,14 +268,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac9297f63a457404ba62a02c146849d9
-      internalID: 1815630543
+      spriteID: 6f4e3060861cf3b4e9a2379199f66715
+      internalID: -1566961383
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_3
+      name: Cards_3
       rect:
         serializedVersion: 2
         x: 1008
@@ -467,14 +290,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ac47c2c1dc95434e9ff16f038f471dd
-      internalID: 1852656097
+      spriteID: fb9d8868020417044b7cf73f53a2aeb1
+      internalID: -1036668590
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_4
+      name: Cards_4
       rect:
         serializedVersion: 2
         x: 1344
@@ -489,14 +312,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f14a8b5a3fe1a994e9f97ad88282f6d2
-      internalID: -957629490
+      spriteID: e5a7f082f1fb9fd48a08c248319865a0
+      internalID: 1983592666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_5
+      name: Cards_5
       rect:
         serializedVersion: 2
         x: 1680
@@ -511,14 +334,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1f4f8dc143deb340886369761a69b69
-      internalID: -1289178642
+      spriteID: 3938746fde83e4345b2449866dafd55a
+      internalID: -1364300563
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_6
+      name: Cards_6
       rect:
         serializedVersion: 2
         x: 2016
@@ -533,14 +356,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 748632b00ae4c004b973804d359973f3
-      internalID: 1658996807
+      spriteID: a0c7bef8709b45e4fa8d3019c4c66e5e
+      internalID: 490712410
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_7
+      name: Cards_7
       rect:
         serializedVersion: 2
         x: 2352
@@ -555,14 +378,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfbb5319eb74d1e4dbdd4da331b15cc0
-      internalID: -1636887075
+      spriteID: 6ee24111b15cbc74885021614cdae9e9
+      internalID: -189553759
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_8
+      name: Cards_8
       rect:
         serializedVersion: 2
         x: 2688
@@ -577,14 +400,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c581534dcf65934e917ea8b9ceec09a
-      internalID: 1363722488
+      spriteID: 7f35556f33780894d86d7b38858debd8
+      internalID: 5282953
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_9
+      name: Cards_9
       rect:
         serializedVersion: 2
         x: 3024
@@ -599,14 +422,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05d8a2ed1a4f5374f99e375753ae805a
-      internalID: 1823639119
+      spriteID: 5408833fed02fe745a909117bdaf6106
+      internalID: -1727719131
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_10
+      name: Cards_10
       rect:
         serializedVersion: 2
         x: 0
@@ -621,14 +444,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bd67c9d2ecd6504cb89f05883a9aad1
-      internalID: -796940325
+      spriteID: 834bf3c8eff642449af707268b1e9e37
+      internalID: -1991478365
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_11
+      name: Cards_11
       rect:
         serializedVersion: 2
         x: 336
@@ -643,14 +466,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef88433b08f02bb45a436fa233b83b55
-      internalID: 1992871100
+      spriteID: 8ea159f697b2ad841ba3766ed1a00b9f
+      internalID: -1309556671
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_12
+      name: Cards_12
       rect:
         serializedVersion: 2
         x: 672
@@ -665,14 +488,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c07c1f059d6443046920c362dd644875
-      internalID: 619226358
+      spriteID: bce316950034ce34ab31b1aafdd1fc64
+      internalID: 2132566074
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_13
+      name: Cards_13
       rect:
         serializedVersion: 2
         x: 1008
@@ -687,14 +510,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad6e2ded77fd31c4a8c9cdd15c91c7ef
-      internalID: -1337065366
+      spriteID: 0667294a7c4dc1e4fab242181e80913d
+      internalID: -1500365531
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_14
+      name: Cards_14
       rect:
         serializedVersion: 2
         x: 1344
@@ -709,14 +532,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60f5341e85bbc6945ab87d44f4901eb4
-      internalID: 451081904
+      spriteID: e49bc78e1868bc44f847ccdde0423421
+      internalID: -1026725574
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_15
+      name: Cards_15
       rect:
         serializedVersion: 2
         x: 1680
@@ -731,14 +554,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33ab003644be63948afad9ef239611a4
-      internalID: 1140797473
+      spriteID: e9dc6f2e1018aa94f9f1abbb76bc9b9c
+      internalID: 751568915
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_16
+      name: Cards_16
       rect:
         serializedVersion: 2
         x: 2016
@@ -753,14 +576,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ed09d80f03218a41bbfa58bb69c0f41
-      internalID: 1733544528
+      spriteID: c6181fc241acf194a924d8029f2a44e2
+      internalID: -837819309
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_17
+      name: Cards_17
       rect:
         serializedVersion: 2
         x: 2352
@@ -775,14 +598,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e51029a6b9a039f4e902a4c1cd40b9f4
-      internalID: 1368072743
+      spriteID: 189347014f0ed344983c4dabba68a34a
+      internalID: -2008148969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_18
+      name: Cards_18
       rect:
         serializedVersion: 2
         x: 2688
@@ -797,14 +620,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fbdf826198d0234eaad5f3161acf63c
-      internalID: 178660529
+      spriteID: 292cdccf026a9dd48b4018f8533630fe
+      internalID: -1479598585
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_19
+      name: Cards_19
       rect:
         serializedVersion: 2
         x: 3024
@@ -819,14 +642,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3700de7423ef9d48a812279f7581406
-      internalID: 1399549954
+      spriteID: 477e2b68e3bd86d4996e70726e1943bc
+      internalID: -829560471
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_20
+      name: Cards_20
       rect:
         serializedVersion: 2
         x: 0
@@ -841,14 +664,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ba716ef7227a004cbbebaf4b954141a
-      internalID: -975897320
+      spriteID: de7a70270392dfe49ae325b58ddc3b0e
+      internalID: 1378564356
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_21
+      name: Cards_21
       rect:
         serializedVersion: 2
         x: 336
@@ -863,14 +686,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d23a418cae230c4eb83c0670fd35550
-      internalID: -230238272
+      spriteID: c197a406236ec5c4abd8c57906a85d17
+      internalID: 87232556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_22
+      name: Cards_22
       rect:
         serializedVersion: 2
         x: 672
@@ -885,14 +708,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bed5d653051c4fd4ead01145263a9a1c
-      internalID: 234088347
+      spriteID: 2e01d3194f1994740b69758bee61dc57
+      internalID: 1472660000
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_23
+      name: Cards_23
       rect:
         serializedVersion: 2
         x: 1008
@@ -907,14 +730,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6f2ded3c22cdaa47918c5c5a46474a7
-      internalID: 871691281
+      spriteID: d3e54295f267e054bbcf08992be9a92a
+      internalID: -1302546189
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_24
+      name: Cards_24
       rect:
         serializedVersion: 2
         x: 1344
@@ -929,14 +752,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5926e178414296347a1d56d64fcb81a9
-      internalID: 1645682650
+      spriteID: 0f96c50c93a958d43b66cfa55e3b4732
+      internalID: 1832752491
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_25
+      name: Cards_25
       rect:
         serializedVersion: 2
         x: 1680
@@ -951,14 +774,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8f96ca8d4bf4234285a672c4f85d18b
-      internalID: -518340243
+      spriteID: bda54b2ba31d8f24f991c54f66d1f573
+      internalID: 744302592
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_26
+      name: Cards_26
       rect:
         serializedVersion: 2
         x: 2016
@@ -973,14 +796,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38d77b1ffac2c064883740c9f25d84d0
-      internalID: -259744561
+      spriteID: 6499cccf08136d64386f4c1d37d188f3
+      internalID: 479904834
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_27
+      name: Cards_27
       rect:
         serializedVersion: 2
         x: 2352
@@ -995,14 +818,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d373708a86e967448b1db514e02d6c91
-      internalID: -544491825
+      spriteID: 4b5e27af7f533a8478e58b41491a0a3d
+      internalID: -264845468
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_28
+      name: Cards_28
       rect:
         serializedVersion: 2
         x: 2688
@@ -1017,14 +840,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1d2ccf61a2a07e4b8618a56f014f151
-      internalID: 390009407
+      spriteID: 5b36a71855b15cb4ba57295cf9366442
+      internalID: -529259988
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_29
+      name: Cards_29
       rect:
         serializedVersion: 2
         x: 3024
@@ -1039,14 +862,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5fecbdbc605d9648ac1aa650c3b9259
-      internalID: 1377268403
+      spriteID: 27352c1e2b5fd77439f97854767f2e7e
+      internalID: 1684152808
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_30
+      name: Cards_30
       rect:
         serializedVersion: 2
         x: 0
@@ -1061,14 +884,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fdc44595149903448ea594c68ce45fa
-      internalID: -152723863
+      spriteID: 6bb7457b34ff82b499b23a0504842935
+      internalID: 2056281856
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_31
+      name: Cards_31
       rect:
         serializedVersion: 2
         x: 336
@@ -1083,14 +906,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e76c73db361b584badcbc0e36b79324
-      internalID: -2022953913
+      spriteID: be1c51f6517c7a94d993299be975c5d0
+      internalID: 914437885
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_32
+      name: Cards_32
       rect:
         serializedVersion: 2
         x: 672
@@ -1105,14 +928,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8463801e31976d24a9b974a261b769a6
-      internalID: 458422711
+      spriteID: 6809254ccd231d94d890ff377f72b995
+      internalID: -405532852
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_33
+      name: Cards_33
       rect:
         serializedVersion: 2
         x: 1008
@@ -1127,14 +950,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62ad1d97cd0379944a232a46bb5a4dee
-      internalID: 779080685
+      spriteID: 4e01d851a8f28134ba8314d20163539e
+      internalID: 1052792793
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_34
+      name: Cards_34
       rect:
         serializedVersion: 2
         x: 1344
@@ -1149,14 +972,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12d355a5fbf84814cbad2276149f1ed9
-      internalID: -1842463841
+      spriteID: b904f994078906444882c87eff4e4f84
+      internalID: 465359684
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_35
+      name: Cards_35
       rect:
         serializedVersion: 2
         x: 1680
@@ -1171,14 +994,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66311630d0110a042b8af213912ccf23
-      internalID: 553424872
+      spriteID: 5ba1fc15c2944a54aadaffdcdc9ed02d
+      internalID: 491166714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_36
+      name: Cards_36
       rect:
         serializedVersion: 2
         x: 2016
@@ -1193,14 +1016,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 430ba670ac0201f42adf8d3d10f88068
-      internalID: -1599843163
+      spriteID: bf00315f560814f479bd5b43f31328f8
+      internalID: 593495038
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_37
+      name: Cards_37
       rect:
         serializedVersion: 2
         x: 2352
@@ -1215,14 +1038,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e739f79b5cd05b45adaaae1f4b738c9
-      internalID: -2063976347
+      spriteID: 54e72458ee98a8a438117b62c5c660d2
+      internalID: 1294605564
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_38
+      name: Cards_38
       rect:
         serializedVersion: 2
         x: 2688
@@ -1237,14 +1060,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa7947543ec6bea418038eaa52774cde
-      internalID: -2070236935
+      spriteID: f2ce021f500246047b1867383181f40b
+      internalID: -819637290
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_39
+      name: Cards_39
       rect:
         serializedVersion: 2
         x: 3024
@@ -1259,14 +1082,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cae8e61ff3df4f34f9fba3833715eb75
-      internalID: 1371434283
+      spriteID: b57a292446ab0714a8aa0d9b7f271e0b
+      internalID: 459849414
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_40
+      name: Cards_40
       rect:
         serializedVersion: 2
         x: 0
@@ -1281,14 +1104,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5bb497eee4d58348a7eae987bd690f0
-      internalID: 2116002967
+      spriteID: f14b9ae6961da8b4481e4c6cf27148dc
+      internalID: -1555219951
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_41
+      name: Cards_41
       rect:
         serializedVersion: 2
         x: 336
@@ -1303,14 +1126,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 857f39e5eff56884ea41ac1a4f27a353
-      internalID: -1989724908
+      spriteID: 620ab8e4eb39657418e5c7dc75661a4e
+      internalID: 803431818
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_42
+      name: Cards_42
       rect:
         serializedVersion: 2
         x: 672
@@ -1325,14 +1148,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d66eac257ad6f04e82aeaba1663e84b
-      internalID: 1195911194
+      spriteID: 4564f310af4c54d45b85695667400d8b
+      internalID: 1940923137
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_43
+      name: Cards_43
       rect:
         serializedVersion: 2
         x: 1008
@@ -1347,14 +1170,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43bd2228b43c1684d87d41841df4f01a
-      internalID: 1459856263
+      spriteID: 63dbb223b99220b4ebaa6e94007b94e0
+      internalID: -922083629
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_44
+      name: Cards_44
       rect:
         serializedVersion: 2
         x: 1344
@@ -1369,14 +1192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 788cc41bd8b8c6249bb40c2cac8e5ef4
-      internalID: 1081052529
+      spriteID: 847ba5b95888b8848981e6f789c3b598
+      internalID: 423449605
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_45
+      name: Cards_45
       rect:
         serializedVersion: 2
         x: 1680
@@ -1391,14 +1214,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6d2a01893d5c1040b9cd0b46a76a8c1
-      internalID: -1142367642
+      spriteID: 385ef09ecddd74649ba3af8bd4d6ae88
+      internalID: -969651581
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_46
+      name: Cards_46
       rect:
         serializedVersion: 2
         x: 2016
@@ -1413,14 +1236,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c5cec18eedf5fa4f85b71dd0fa35dd4
-      internalID: 2075234648
+      spriteID: 09ec3d1d3059df44bb94369ba8a4cdfa
+      internalID: 1011698966
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_47
+      name: Cards_47
       rect:
         serializedVersion: 2
         x: 2352
@@ -1435,14 +1258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45179cadb861e814a964ca45b317e665
-      internalID: -1753953154
+      spriteID: 932f05405dca9894bb14274571c9f494
+      internalID: 87577432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_48
+      name: Cards_48
       rect:
         serializedVersion: 2
         x: 2688
@@ -1457,14 +1280,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b94404a157b3564096394e91cc569fd
-      internalID: 1808846053
+      spriteID: 3cdc2f41eafa67d46a656ac9fe617be2
+      internalID: -919817064
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_49
+      name: Cards_49
       rect:
         serializedVersion: 2
         x: 3024
@@ -1479,14 +1302,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3337a9038e1e40845a754e170113e4be
-      internalID: -104318514
+      spriteID: 206089339e0928c41b341a2137b0f6d1
+      internalID: 1622501213
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_50
+      name: Cards_50
       rect:
         serializedVersion: 2
         x: 0
@@ -1501,14 +1324,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6360e220d71026499e677f2c156ec25
-      internalID: 1172312638
+      spriteID: cfc62d607e54cc14088665387d1a6ebb
+      internalID: -304359372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_51
+      name: Cards_51
       rect:
         serializedVersion: 2
         x: 336
@@ -1523,14 +1346,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17dc7baa2d1d76b4f98bc9d8d5745303
-      internalID: 1333868369
+      spriteID: dc67bf56f1c376341aa04796bc6625ea
+      internalID: 1037755672
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_52
+      name: Cards_52
       rect:
         serializedVersion: 2
         x: 672
@@ -1545,14 +1368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 383a7ec69dc2b9f40bcad6ff64ea46c4
-      internalID: 335610392
+      spriteID: f57d2f7d204fd7047ac3e2a96d6df4ed
+      internalID: 1414403620
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_53
+      name: Cards_53
       rect:
         serializedVersion: 2
         x: 1008
@@ -1567,14 +1390,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab7ae39873e99df4b86265bf429f8728
-      internalID: -120250074
+      spriteID: fff7559335668e943a7ce157656e42ad
+      internalID: -2139144975
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_54
+      name: Cards_54
       rect:
         serializedVersion: 2
         x: 1344
@@ -1589,14 +1412,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70ae18bfb3370cd4c8c8be8bfe8beea9
-      internalID: -1144987885
+      spriteID: 7e33fcf961a34f64cbf4a5a7731cea2a
+      internalID: 1489918278
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_55
+      name: Cards_55
       rect:
         serializedVersion: 2
         x: 1680
@@ -1611,14 +1434,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f68f0fa48f551124aae9e74979f95c65
-      internalID: -1836238938
+      spriteID: 98346b5be59f89c4f820f403c9336811
+      internalID: -1344666564
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_56
+      name: Cards_56
       rect:
         serializedVersion: 2
         x: 2016
@@ -1633,14 +1456,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6d342a3b84335c47af97e4935168138
-      internalID: -393435879
+      spriteID: 6151817cd6a7ebb448bcd0b3dafedcaf
+      internalID: -1967723366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_57
+      name: Cards_57
       rect:
         serializedVersion: 2
         x: 2352
@@ -1655,14 +1478,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7d9fc1222d187a478630bb3a79c81f9
-      internalID: 415830562
+      spriteID: a671954162adb4847b8b1762de124fe2
+      internalID: 1317677450
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_58
+      name: Cards_58
       rect:
         serializedVersion: 2
         x: 2688
@@ -1677,14 +1500,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5dc7b9dfe86496345aa6fc65c8da6013
-      internalID: 680554610
+      spriteID: a4ad366b30194e941bdd575e1e6fe4ab
+      internalID: 1037305133
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_59
+      name: Cards_59
       rect:
         serializedVersion: 2
         x: 3024
@@ -1699,14 +1522,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bc3e9c4b0b9ed4458e9786aab266693
-      internalID: -1974606648
+      spriteID: 13fccfe82daf23845878f9b8b82add74
+      internalID: 870559653
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_60
+      name: Cards_60
       rect:
         serializedVersion: 2
         x: 0
@@ -1721,14 +1544,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb68bf609e62b294f8177e97555b9c14
-      internalID: 1089597443
+      spriteID: 9089795c6b6dbff4d9a1d4fb8cacddee
+      internalID: -1941799942
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_61
+      name: Cards_61
       rect:
         serializedVersion: 2
         x: 336
@@ -1743,14 +1566,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d48dd7a418cb234faab63d71beb83d4
-      internalID: 1196305208
+      spriteID: 24de9b702198ab14e800a009e22a782a
+      internalID: -602009152
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_62
+      name: Cards_62
       rect:
         serializedVersion: 2
         x: 672
@@ -1765,14 +1588,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5ce48edadf6c9f4d82beb8d7e8753b8
-      internalID: 661611387
+      spriteID: 0a4f8e55950989640b47c7c33f3dfc1d
+      internalID: 896955490
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_63
+      name: Cards_63
       rect:
         serializedVersion: 2
         x: 1008
@@ -1787,14 +1610,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c65f8b6b1261724b91fff9950393987
-      internalID: -1314466767
+      spriteID: e889b6c62a600c442b94083c6dd6560e
+      internalID: 621202536
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_64
+      name: Cards_64
       rect:
         serializedVersion: 2
         x: 1344
@@ -1809,14 +1632,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b9b65c8bc45e5a41b12b2a36c16c9ff
-      internalID: 757513469
+      spriteID: a2387cbf345aae54c97059cffe3f01b2
+      internalID: -609321390
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_65
+      name: Cards_65
       rect:
         serializedVersion: 2
         x: 1680
@@ -1831,14 +1654,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 944a77a5a76dd5c49b4871faa3698849
-      internalID: 247160008
+      spriteID: 7c95e7e320e04ae48b50909dea0d75a8
+      internalID: 1071772151
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_66
+      name: Cards_66
       rect:
         serializedVersion: 2
         x: 2016
@@ -1853,14 +1676,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67b6571772ab38849a5e5714d8a9bfa0
-      internalID: 23824561
+      spriteID: 47e9fe0195037164d9f2b1f9bef62121
+      internalID: -565046689
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_67
+      name: Cards_67
       rect:
         serializedVersion: 2
         x: 2352
@@ -1875,14 +1698,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98bf63227591c154aa2965be4675b2b3
-      internalID: -897598540
+      spriteID: bd48b8091068a9a43a860e510c47c6af
+      internalID: 1161106721
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_68
+      name: Cards_68
       rect:
         serializedVersion: 2
         x: 2688
@@ -1897,14 +1720,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bda31c502f186d44e8bb86230fd9f755
-      internalID: -1520557397
+      spriteID: ee29c153573fbdc41873eb9034d77445
+      internalID: 1148443149
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_69
+      name: Cards_69
       rect:
         serializedVersion: 2
         x: 3024
@@ -1919,14 +1742,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14bcf08df24789f4d9bf94d165cf4251
-      internalID: 1898708077
+      spriteID: debaadfc3037a754e9a021454c475178
+      internalID: -1263159768
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_70
+      name: Cards_70
       rect:
         serializedVersion: 2
         x: 0
@@ -1941,14 +1764,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69245d6fb6807164698557889b0fea7a
-      internalID: 1132048386
+      spriteID: 95ec4e33c9f714f41992dd3d5e79b923
+      internalID: 584870433
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_71
+      name: Cards_71
       rect:
         serializedVersion: 2
         x: 336
@@ -1963,14 +1786,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be9d7931136e4774c8b03dd37b2a4efa
-      internalID: 206315381
+      spriteID: be8a288baca7e54459685599494da8b7
+      internalID: 1451466352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_72
+      name: Cards_72
       rect:
         serializedVersion: 2
         x: 672
@@ -1985,14 +1808,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50a754d533833794bb71a3a1ecbc0dac
-      internalID: -1121179789
+      spriteID: fd5c7c52686291d479f0bb81aff459fe
+      internalID: -569973900
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_73
+      name: Cards_73
       rect:
         serializedVersion: 2
         x: 1008
@@ -2007,14 +1830,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb15f84ed0ab5cf4aaeec8b1c24a0a0f
-      internalID: 1259862092
+      spriteID: 8b33a927b8155c541885460faf45bc6d
+      internalID: 676683460
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_74
+      name: Cards_74
       rect:
         serializedVersion: 2
         x: 1344
@@ -2029,14 +1852,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 114d6e1a7057c8d4c811ae0902234470
-      internalID: 1432514470
+      spriteID: ac476664a44de4043a079bf598653743
+      internalID: 51110214
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_75
+      name: Cards_75
       rect:
         serializedVersion: 2
         x: 1680
@@ -2051,14 +1874,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2abadaccfeb9234ab2afe6e6a12f5c6
-      internalID: -1719974754
+      spriteID: a08f6dc6db3d19c42bd597d59e6508c9
+      internalID: -1910804636
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_76
+      name: Cards_76
       rect:
         serializedVersion: 2
         x: 2016
@@ -2073,14 +1896,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fb6fbed3e5b0b64db0a6c01f372c4cc
-      internalID: 1374640040
+      spriteID: 0e2b7cfaa2178f14ba1499045ca19ca7
+      internalID: -858589424
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_77
+      name: Cards_77
       rect:
         serializedVersion: 2
         x: 2352
@@ -2095,14 +1918,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8a400731170225478c32c8a91a97eef
-      internalID: -1658813489
+      spriteID: 29fe84b38e0afdf48b5d915a9ed3c65f
+      internalID: -1850041773
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_78
+      name: Cards_78
       rect:
         serializedVersion: 2
         x: 2688
@@ -2117,14 +1940,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d52a6a8102e5d0c43affd76d98c0b290
-      internalID: 1494442919
+      spriteID: 7e6aff510505ea148881374a789ee09e
+      internalID: 1836483900
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frenchtatotcards_79
+      name: Cards_79
       rect:
         serializedVersion: 2
         x: 3024
@@ -2139,8 +1962,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56725c0fcee976d438e28dc3d4a14523
-      internalID: 1953455791
+      spriteID: 3461b7c03acebe14ca8b1db9ca95de99
+      internalID: -958905004
       vertices: []
       indices: 
       edges: []
@@ -2149,7 +1972,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a1f5b8c28b2243e4eb37b857341a323c
+    spriteID: 3970eb1001ea57948a1be3525efa1fea
     internalID: 0
     vertices: []
     indices: 
@@ -2161,86 +1984,86 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":10.0,"y":8.0},"gridSpriteSize":{"x":336.0,"y":644.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      frenchtatotcards_0: -6048620899721498222
-      frenchtatotcards_1: -2127574380
-      frenchtatotcards_10: -796940325
-      frenchtatotcards_11: 1992871100
-      frenchtatotcards_12: 619226358
-      frenchtatotcards_13: -1337065366
-      frenchtatotcards_14: 451081904
-      frenchtatotcards_15: 1140797473
-      frenchtatotcards_16: 1733544528
-      frenchtatotcards_17: 1368072743
-      frenchtatotcards_18: 178660529
-      frenchtatotcards_19: 1399549954
-      frenchtatotcards_2: 1815630543
-      frenchtatotcards_20: -975897320
-      frenchtatotcards_21: -230238272
-      frenchtatotcards_22: 234088347
-      frenchtatotcards_23: 871691281
-      frenchtatotcards_24: 1645682650
-      frenchtatotcards_25: -518340243
-      frenchtatotcards_26: -259744561
-      frenchtatotcards_27: -544491825
-      frenchtatotcards_28: 390009407
-      frenchtatotcards_29: 1377268403
-      frenchtatotcards_3: 1852656097
-      frenchtatotcards_30: -152723863
-      frenchtatotcards_31: -2022953913
-      frenchtatotcards_32: 458422711
-      frenchtatotcards_33: 779080685
-      frenchtatotcards_34: -1842463841
-      frenchtatotcards_35: 553424872
-      frenchtatotcards_36: -1599843163
-      frenchtatotcards_37: -2063976347
-      frenchtatotcards_38: -2070236935
-      frenchtatotcards_39: 1371434283
-      frenchtatotcards_4: -957629490
-      frenchtatotcards_40: 2116002967
-      frenchtatotcards_41: -1989724908
-      frenchtatotcards_42: 1195911194
-      frenchtatotcards_43: 1459856263
-      frenchtatotcards_44: 1081052529
-      frenchtatotcards_45: -1142367642
-      frenchtatotcards_46: 2075234648
-      frenchtatotcards_47: -1753953154
-      frenchtatotcards_48: 1808846053
-      frenchtatotcards_49: -104318514
-      frenchtatotcards_5: -1289178642
-      frenchtatotcards_50: 1172312638
-      frenchtatotcards_51: 1333868369
-      frenchtatotcards_52: 335610392
-      frenchtatotcards_53: -120250074
-      frenchtatotcards_54: -1144987885
-      frenchtatotcards_55: -1836238938
-      frenchtatotcards_56: -393435879
-      frenchtatotcards_57: 415830562
-      frenchtatotcards_58: 680554610
-      frenchtatotcards_59: -1974606648
-      frenchtatotcards_6: 1658996807
-      frenchtatotcards_60: 1089597443
-      frenchtatotcards_61: 1196305208
-      frenchtatotcards_62: 661611387
-      frenchtatotcards_63: -1314466767
-      frenchtatotcards_64: 757513469
-      frenchtatotcards_65: 247160008
-      frenchtatotcards_66: 23824561
-      frenchtatotcards_67: -897598540
-      frenchtatotcards_68: -1520557397
-      frenchtatotcards_69: 1898708077
-      frenchtatotcards_7: -1636887075
-      frenchtatotcards_70: 1132048386
-      frenchtatotcards_71: 206315381
-      frenchtatotcards_72: -1121179789
-      frenchtatotcards_73: 1259862092
-      frenchtatotcards_74: 1432514470
-      frenchtatotcards_75: -1719974754
-      frenchtatotcards_76: 1374640040
-      frenchtatotcards_77: -1658813489
-      frenchtatotcards_78: 1494442919
-      frenchtatotcards_79: 1953455791
-      frenchtatotcards_8: 1363722488
-      frenchtatotcards_9: 1823639119
+      Cards_0: 313130297
+      Cards_1: -1085558240
+      Cards_10: -1991478365
+      Cards_11: -1309556671
+      Cards_12: 2132566074
+      Cards_13: -1500365531
+      Cards_14: -1026725574
+      Cards_15: 751568915
+      Cards_16: -837819309
+      Cards_17: -2008148969
+      Cards_18: -1479598585
+      Cards_19: -829560471
+      Cards_2: -1566961383
+      Cards_20: 1378564356
+      Cards_21: 87232556
+      Cards_22: 1472660000
+      Cards_23: -1302546189
+      Cards_24: 1832752491
+      Cards_25: 744302592
+      Cards_26: 479904834
+      Cards_27: -264845468
+      Cards_28: -529259988
+      Cards_29: 1684152808
+      Cards_3: -1036668590
+      Cards_30: 2056281856
+      Cards_31: 914437885
+      Cards_32: -405532852
+      Cards_33: 1052792793
+      Cards_34: 465359684
+      Cards_35: 491166714
+      Cards_36: 593495038
+      Cards_37: 1294605564
+      Cards_38: -819637290
+      Cards_39: 459849414
+      Cards_4: 1983592666
+      Cards_40: -1555219951
+      Cards_41: 803431818
+      Cards_42: 1940923137
+      Cards_43: -922083629
+      Cards_44: 423449605
+      Cards_45: -969651581
+      Cards_46: 1011698966
+      Cards_47: 87577432
+      Cards_48: -919817064
+      Cards_49: 1622501213
+      Cards_5: -1364300563
+      Cards_50: -304359372
+      Cards_51: 1037755672
+      Cards_52: 1414403620
+      Cards_53: -2139144975
+      Cards_54: 1489918278
+      Cards_55: -1344666564
+      Cards_56: -1967723366
+      Cards_57: 1317677450
+      Cards_58: 1037305133
+      Cards_59: 870559653
+      Cards_6: 490712410
+      Cards_60: -1941799942
+      Cards_61: -602009152
+      Cards_62: 896955490
+      Cards_63: 621202536
+      Cards_64: -609321390
+      Cards_65: 1071772151
+      Cards_66: -565046689
+      Cards_67: 1161106721
+      Cards_68: 1148443149
+      Cards_69: -1263159768
+      Cards_7: -189553759
+      Cards_70: 584870433
+      Cards_71: 1451466352
+      Cards_72: -569973900
+      Cards_73: 676683460
+      Cards_74: 51110214
+      Cards_75: -1910804636
+      Cards_76: -858589424
+      Cards_77: -1850041773
+      Cards_78: 1836483900
+      Cards_79: -958905004
+      Cards_8: 5282953
+      Cards_9: -1727719131
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -811,8 +811,8 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Tarot_Classique
-  metroPackageVersion: 
+  metroPackageName: TarotClassique
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -820,7 +820,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: Tarot_Classique
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: Tarot_Classique
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
@@ -887,7 +887,7 @@ PlayerSettings:
   qnxGraphicConfPath: 
   apiCompatibilityLevel: 6
   captureStartupLogs: {}
-  activeInputHandler: 1
+  activeInputHandler: 2
   windowsGamepadBackendHint: 0
   cloudProjectId: 2723a0f1-6ad0-47b5-83fd-095d75b78cb0
   framebufferDepthMemorylessMode: 0

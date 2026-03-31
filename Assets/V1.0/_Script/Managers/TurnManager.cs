@@ -18,6 +18,103 @@
 // It will be integrated with other systems like the DeckManager and PlayerManager to coordinate game actions based on the active player's turn.
 // Note: This script does not handle player actions or game state changes directly; it only manages the turn order and notifies other systems when the active seat changes.
 #endregion
+#region 
+//using UnityEngine;
+//using System;
+
+//namespace TarotLive.Game
+//{
+//    public class TurnManager : MonoBehaviour
+//    {
+//        [Header("Setup")]
+//        public int playerCount = 4;
+
+//        private int currentSeatIndex = 0;
+
+//        // Fires whenever the active seat changes
+//        public event Action<int> OnTurnChanged;
+
+//        public int CurrentSeat => currentSeatIndex;
+
+//        public void StartGame(int players, int firstSeat = 0)
+//        {
+//            playerCount = players;
+//            currentSeatIndex = firstSeat;
+
+//            Debug.Log("TurnManager: Game started. First turn: Seat " + currentSeatIndex);
+//            OnTurnChanged?.Invoke(currentSeatIndex);
+//        }
+
+//        public void NextTurn()
+//        {
+//            currentSeatIndex = (currentSeatIndex + 1) % playerCount;
+
+//            Debug.Log("TurnManager: Next turn -> Seat " + currentSeatIndex);
+//            OnTurnChanged?.Invoke(currentSeatIndex);
+//        }
+
+//        public bool IsLocalPlayerTurn(int localSeatIndex)
+//        {
+//            return currentSeatIndex == localSeatIndex;
+//        }
+//    }
+//}
+#endregion
+#region Sprint 6
+// TurnManager.cs
+// Manages turn order. Supports round-robin NextTurn and direct SetTurn for trick winner.
+
+//using UnityEngine;
+//using System;
+
+//namespace TarotLive.Game
+//{
+//    public class TurnManager : MonoBehaviour
+//    {
+//        [Header("Setup")]
+//        public int playerCount = 4;
+
+//        private int currentSeatIndex = 0;
+
+//        public event Action<int> OnTurnChanged;
+
+//        public int CurrentSeat => currentSeatIndex;
+
+//        public void StartGame(int players, int firstSeat = 0)
+//        {
+//            playerCount = players;
+//            currentSeatIndex = firstSeat;
+
+//            Debug.Log("TurnManager: Game started. First turn: Seat " + currentSeatIndex);
+//            OnTurnChanged?.Invoke(currentSeatIndex);
+//        }
+
+//        public void NextTurn()
+//        {
+//            currentSeatIndex = (currentSeatIndex + 1) % playerCount;
+
+//            Debug.Log("TurnManager: Next turn -> Seat " + currentSeatIndex);
+//            OnTurnChanged?.Invoke(currentSeatIndex);
+//        }
+
+//        public void SetTurn(int seatIndex)
+//        {
+//            currentSeatIndex = seatIndex;
+
+//            Debug.Log("TurnManager: Turn set to Seat " + currentSeatIndex);
+//            OnTurnChanged?.Invoke(currentSeatIndex);
+//        }
+
+//        public bool IsLocalPlayerTurn(int localSeatIndex)
+//        {
+//            return currentSeatIndex == localSeatIndex;
+//        }
+//    }
+//}
+#endregion
+#region Sprint 6.1
+// TurnManager.cs
+// Manages turn order. NextTurn for round-robin, SetTurn for trick winner.
 
 using UnityEngine;
 using System;
@@ -31,7 +128,6 @@ namespace TarotLive.Game
 
         private int currentSeatIndex = 0;
 
-        // Fires whenever the active seat changes
         public event Action<int> OnTurnChanged;
 
         public int CurrentSeat => currentSeatIndex;
@@ -40,7 +136,6 @@ namespace TarotLive.Game
         {
             playerCount = players;
             currentSeatIndex = firstSeat;
-
             Debug.Log("TurnManager: Game started. First turn: Seat " + currentSeatIndex);
             OnTurnChanged?.Invoke(currentSeatIndex);
         }
@@ -48,14 +143,18 @@ namespace TarotLive.Game
         public void NextTurn()
         {
             currentSeatIndex = (currentSeatIndex + 1) % playerCount;
-
             Debug.Log("TurnManager: Next turn -> Seat " + currentSeatIndex);
             OnTurnChanged?.Invoke(currentSeatIndex);
         }
 
-        public bool IsLocalPlayerTurn(int localSeatIndex)
+        public void SetTurn(int seatIndex)
         {
-            return currentSeatIndex == localSeatIndex;
+            currentSeatIndex = seatIndex;
+            Debug.Log("TurnManager: Turn set to Seat " + currentSeatIndex);
+            OnTurnChanged?.Invoke(currentSeatIndex);
         }
+
+        public bool IsLocalPlayerTurn(int localSeatIndex) => currentSeatIndex == localSeatIndex;
     }
 }
+#endregion

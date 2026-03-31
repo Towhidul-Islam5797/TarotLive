@@ -11,7 +11,10 @@
 // Note: Future enhancements could include handling player actions during their turn, managing game state transitions (e.g., bidding phase, playing phase), and implementing win/loss conditions. For now, it focuses on initializing the game and managing turns in a basic way to set up the foundation for further development.
 #endregion
 
-#region
+#region second version
+// GameManager.cs
+// Entry point. No longer handles card playing directly - HandDisplay owns that flow.
+
 //using UnityEngine;
 
 //namespace TarotLive.Game
@@ -23,6 +26,7 @@
 //        public TurnManager turnManager;
 //        public TableLayout tableLayout;
 //        public HandDisplay localHandDisplay;
+//        public PlayArea playArea;
 
 //        [Header("Settings")]
 //        public int playerCount = 4;
@@ -30,19 +34,15 @@
 
 //        void Start()
 //        {
-//            // 1. Deal cards
 //            deckManager.StartDeal(playerCount);
 
-//            // 2. Get local seat position to anchor the hand there
 //            PlayerSeat localSeat = tableLayout.GetSeat(localSeatIndex);
 //            Vector3 seatPosition = localSeat != null ? localSeat.transform.position : Vector3.zero;
 
-//            // 3. Show local player's hand at seat position
-//            var localHand = deckManager.GetHand(localSeatIndex);
 //            localHandDisplay.faceUp = true;
-//            localHandDisplay.ShowHand(localHand, seatPosition);
+//            localHandDisplay.playArea = playArea;
+//            localHandDisplay.ShowHand(deckManager.GetHand(localSeatIndex), seatPosition);
 
-//            // 4. Start turn order
 //            turnManager.StartGame(playerCount, firstSeat: 0);
 //            turnManager.OnTurnChanged += OnTurnChanged;
 //        }
@@ -53,14 +53,407 @@
 //        }
 //    }
 //}
-
 #endregion
 
-#region second version
+#region Third version 
 // GameManager.cs
-// Entry point. No longer handles card playing directly - HandDisplay owns that flow.
+// Spawns hand displays for all players.
+// All hands face up for testing.
+
+//using UnityEngine;
+
+//namespace TarotLive.Game
+//{
+//    public class GameManager : MonoBehaviour
+//    {
+//        [Header("References")]
+//        public DeckManager deckManager;
+//        public TurnManager turnManager;
+//        public TableLayout tableLayout;
+//        public PlayArea playArea;
+
+//        [Header("Hand Displays - assign all 4 in Inspector")]
+//        public HandDisplay[] handDisplays; // 0=bottom, 1=right, 2=top, 3=left
+
+//        [Header("Settings")]
+//        public int playerCount = 4;
+//        public int localSeatIndex = 0;
+
+//        // Rotation per seat: bottom=0, right=-90, top=180, left=90
+//        private float[] seatRotations = { 0f, -90f, 180f, 90f };
+
+//        void Start()
+//        {
+//            deckManager.StartDeal(playerCount);
+
+//            for (int i = 0; i < playerCount; i++)
+//            {
+//                if (i >= handDisplays.Length || handDisplays[i] == null)
+//                {
+//                    Debug.LogWarning("GameManager: HandDisplay " + i + " not assigned.");
+//                    continue;
+//                }
+
+//                PlayerSeat seat = tableLayout.GetSeat(i);
+//                if (seat == null) continue;
+
+//                HandDisplay display = handDisplays[i];
+//                display.faceUp = true; // all face up for testing
+//                display.handRotation = seatRotations[i];
+//                display.playArea = playArea;
+//                display.ShowHand(deckManager.GetHand(i), seat.transform.position);
+//            }
+
+//            turnManager.StartGame(playerCount, firstSeat: 0);
+//            turnManager.OnTurnChanged += OnTurnChanged;
+//        }
+
+//        private void OnTurnChanged(int seatIndex)
+//        {
+//            Debug.Log("GameManager: Active seat -> " + seatIndex);
+//        }
+//    }
+//}
+#endregion
+
+#region Final version
+// GameManager.cs
+// Entry point. Initializes all hands, enforces turn-based play.
+// Seat 0 = local player (face up, canPlay on their turn).
+// All other seats = opponents (face down, canPlay never true for now).
+
+//using System.Collections.Generic;
+//using UnityEngine;
+
+//namespace TarotLive.Game
+//{
+//    public class GameManager : MonoBehaviour
+//    {
+//        [Header("References")]
+//        public DeckManager deckManager;
+//        public TurnManager turnManager;
+//        public TableLayout tableLayout;
+//        public PlayArea playArea;
+
+//        [Header("Hand Displays")]
+//        public HandDisplay[] handDisplays;
+
+//        [Header("Settings")]
+//        public int localSeatIndex = 0;
+
+//        // Rotations match scene hierarchy: Seat0=bottom, Seat1=right, Seat2=top, Seat3=left
+//        // Note: refactor to dynamic calculation in Milestone 2 for 3-7 player support
+//        private readonly float[] seatRotations = { 0f, -90f, 180f, 90f };
+
+//        private int playerCount => handDisplays.Length;
+
+//        void Start()
+//        {
+//            deckManager.StartDeal(playerCount);
+
+//            for (int i = 0; i < playerCount; i++)
+//            {
+//                PlayerSeat seat = tableLayout.GetSeat(i);
+//                Vector3 seatPos = seat != null ? seat.transform.position : Vector3.zero;
+
+//                handDisplays[i].handRotation = seatRotations[i];
+//                handDisplays[i].faceUp = (i == localSeatIndex);
+//                handDisplays[i].canPlay = false;
+//                handDisplays[i].playArea = playArea;
+//                handDisplays[i].ShowHand(deckManager.GetHand(i), seatPos);
+//            }
+
+//            playArea.OnCardPlayed += OnCardPlayed;
+//            turnManager.OnTurnChanged += OnTurnChanged;
+//            turnManager.StartGame(playerCount, firstSeat: 0);
+//        }
+
+//        private void OnCardPlayed()
+//        {
+//            turnManager.NextTurn();
+//        }
+
+//        private void OnTurnChanged(int activeSeat)
+//        {
+//            for (int i = 0; i < playerCount; i++)
+//                handDisplays[i].canPlay = (i == activeSeat);
+
+//            Debug.Log("GameManager: Active seat -> " + activeSeat);
+//        }
+//    }
+//}
+#endregion
+#region Sprint 6 - Final version
+// GameManager.cs
+// Entry point. Initializes all hands, enforces turn-based play, handles trick resolution.
+
+// GameManager.cs
+// Entry point. Initializes all hands, enforces turn-based play, handles trick resolution.
+
+//using UnityEngine;
+//using System.Collections;
+//using System.Collections.Generic;
+
+//namespace TarotLive.Game
+//{
+//    public class GameManager : MonoBehaviour
+//    {
+//        [Header("References")]
+//        public DeckManager deckManager;
+//        public TurnManager turnManager;
+//        public TableLayout tableLayout;
+//        public PlayArea playArea;
+
+//        [Header("Hand Displays")]
+//        public HandDisplay[] handDisplays;
+
+//        [Header("Settings")]
+//        public int localSeatIndex = 0;
+//        public float trickClearDelay = 1.5f;
+
+//        [Header("Debug")]
+//        public bool debugAllFaceUp = false;
+
+//        // Rotations match scene hierarchy: Seat0=bottom, Seat1=right, Seat2=top, Seat3=left
+//        // Note: refactor to dynamic calculation in Milestone 2 for 3-7 player support
+//        private readonly float[] seatRotations = { 0f, -90f, 180f, 90f };
+
+//        private int playerCount => handDisplays.Length;
+//        private int trickCount = 0;
+
+//        void Start()
+//        {
+//            deckManager.StartDeal(playerCount);
+//            playArea.Init(playerCount);
+
+//            for (int i = 0; i < playerCount; i++)
+//            {
+//                PlayerSeat seat = tableLayout.GetSeat(i);
+//                Vector3 seatPos = seat != null ? seat.transform.position : Vector3.zero;
+
+//                handDisplays[i].seatIndex = i;
+//                handDisplays[i].handRotation = seatRotations[i];
+//                handDisplays[i].canPlay = false;
+//                handDisplays[i].playArea = playArea;
+
+//                // In debug mode respect Inspector faceUp value, otherwise enforce game logic
+//                if (!debugAllFaceUp)
+//                    handDisplays[i].faceUp = (i == localSeatIndex);
+
+//                handDisplays[i].ShowHand(deckManager.GetHand(i), seatPos);
+//            }
+
+//            playArea.OnCardPlayed += OnCardPlayed;
+//            playArea.OnTrickComplete += OnTrickComplete;
+//            turnManager.OnTurnChanged += OnTurnChanged;
+//            turnManager.StartGame(playerCount, firstSeat: 0);
+//        }
+
+//        private void OnCardPlayed()
+//        {
+//            if (playArea.CardCount < playerCount)
+//                turnManager.NextTurn();
+//        }
+
+//        private void OnTrickComplete(List<(int seatIndex, CardView card)> cards)
+//        {
+//            int winnerSeat = ResolveTrick(cards);
+//            trickCount++;
+
+//            Debug.Log("GameManager: Trick " + trickCount + " won by Seat " + winnerSeat);
+
+//            for (int i = 0; i < playerCount; i++)
+//                handDisplays[i].canPlay = false;
+
+//            StartCoroutine(CollectTrickAfterDelay(winnerSeat));
+//        }
+
+//        private int ResolveTrick(List<(int seatIndex, CardView card)> cards)
+//        {
+//            int winnerSeat = cards[0].seatIndex;
+//            CardData best = cards[0].card.Data;
+
+//            foreach (var (seat, cardView) in cards)
+//            {
+//                CardData data = cardView.Data;
+//                if (data.IsTrump && !best.IsTrump)
+//                {
+//                    best = data;
+//                    winnerSeat = seat;
+//                }
+//                else if (data.IsTrump && best.IsTrump && data.trumpNumber > best.trumpNumber)
+//                {
+//                    best = data;
+//                    winnerSeat = seat;
+//                }
+//                else if (!data.IsTrump && !best.IsTrump && (int)data.rank > (int)best.rank)
+//                {
+//                    best = data;
+//                    winnerSeat = seat;
+//                }
+//            }
+
+//            return winnerSeat;
+//        }
+
+//        private IEnumerator CollectTrickAfterDelay(int winnerSeat)
+//        {
+//            yield return new WaitForSeconds(trickClearDelay);
+
+//            PlayerSeat seat = tableLayout.GetSeat(winnerSeat);
+//            Vector3 targetPos = seat != null ? seat.transform.position : Vector3.zero;
+
+//            playArea.AnimateCardsToWinner(targetPos, () =>
+//            {
+//                turnManager.SetTurn(winnerSeat);
+//            });
+//        }
+
+//        private void OnTurnChanged(int activeSeat)
+//        {
+//            for (int i = 0; i < playerCount; i++)
+//                handDisplays[i].canPlay = (i == activeSeat);
+
+//            Debug.Log("GameManager: Active seat -> " + activeSeat);
+//        }
+//    }
+//}
+#endregion
+#region sprint 6.1 - Final version with comments
+// GameManager.cs
+// Entry point. Initializes all hands, enforces turn-based play, handles trick resolution.
+
+//using UnityEngine;
+//using System.Collections;
+//using System.Collections.Generic;
+
+//namespace TarotLive.Game
+//{
+//    public class GameManager : MonoBehaviour
+//    {
+//        [Header("References")]
+//        public DeckManager deckManager;
+//        public TurnManager turnManager;
+//        public TableLayout tableLayout;
+//        public PlayArea playArea;
+
+//        [Header("Hand Displays")]
+//        public HandDisplay[] handDisplays;
+
+//        [Header("Settings")]
+//        public int localSeatIndex = 0;
+//        public float trickClearDelay = 1.5f;
+
+//        [Header("Debug")]
+//        public bool debugAllFaceUp = false;
+
+//        // Seat0=bottom, Seat1=right, Seat2=top, Seat3=left
+//        // Refactor to dynamic in Milestone 2 for 3-7 player support
+//        private readonly float[] seatRotations = { 0f, -90f, 180f, 90f };
+
+//        private int playerCount => handDisplays.Length;
+//        private int trickCount = 0;
+
+//        void Start()
+//        {
+//            deckManager.StartDeal(playerCount);
+//            playArea.Init(playerCount);
+
+//            for (int i = 0; i < playerCount; i++)
+//            {
+//                PlayerSeat seat = tableLayout.GetSeat(i);
+//                Vector3 seatPos = seat != null ? seat.transform.position : Vector3.zero;
+
+//                handDisplays[i].seatIndex = i;
+//                handDisplays[i].handRotation = seatRotations[i];
+//                handDisplays[i].canPlay = false;
+//                handDisplays[i].playArea = playArea;
+
+//                bool faceUp = debugAllFaceUp || (i == localSeatIndex);
+//                handDisplays[i].ShowHand(deckManager.GetHand(i), seatPos, faceUp);
+//            }
+
+//            playArea.OnCardPlayed += OnCardPlayed;
+//            playArea.OnTrickComplete += OnTrickComplete;
+//            turnManager.OnTurnChanged += OnTurnChanged;
+//            turnManager.StartGame(playerCount, firstSeat: 0);
+//        }
+
+//        private void OnCardPlayed()
+//        {
+//            if (playArea.CardCount < playerCount)
+//                turnManager.NextTurn();
+//        }
+
+//        private void OnTrickComplete(List<(int seatIndex, CardView card)> cards)
+//        {
+//            int winnerSeat = ResolveTrick(cards);
+//            trickCount++;
+
+//            Debug.Log("GameManager: Trick " + trickCount + " won by Seat " + winnerSeat);
+
+//            for (int i = 0; i < playerCount; i++)
+//                handDisplays[i].canPlay = false;
+
+//            StartCoroutine(CollectTrickAfterDelay(winnerSeat));
+//        }
+
+//        private int ResolveTrick(List<(int seatIndex, CardView card)> cards)
+//        {
+//            int winnerSeat = cards[0].seatIndex;
+//            CardData best = cards[0].card.Data;
+
+//            foreach (var (seat, cardView) in cards)
+//            {
+//                CardData data = cardView.Data;
+
+//                if (data.IsTrump && !best.IsTrump)
+//                {
+//                    best = data; winnerSeat = seat;
+//                }
+//                else if (data.IsTrump && best.IsTrump && data.trumpNumber > best.trumpNumber)
+//                {
+//                    best = data; winnerSeat = seat;
+//                }
+//                else if (!data.IsTrump && !best.IsTrump && (int)data.rank > (int)best.rank)
+//                {
+//                    best = data; winnerSeat = seat;
+//                }
+//            }
+
+//            return winnerSeat;
+//        }
+
+//        private IEnumerator CollectTrickAfterDelay(int winnerSeat)
+//        {
+//            yield return new WaitForSeconds(trickClearDelay);
+
+//            PlayerSeat seat = tableLayout.GetSeat(winnerSeat);
+//            Vector3 targetPos = seat != null ? seat.transform.position : Vector3.zero;
+
+//            playArea.AnimateCardsToWinner(targetPos, () => turnManager.SetTurn(winnerSeat));
+//        }
+
+//        private void OnTurnChanged(int activeSeat)
+//        {
+//            for (int i = 0; i < playerCount; i++)
+//                handDisplays[i].canPlay = (i == activeSeat);
+
+//            Debug.Log("GameManager: Active seat -> " + activeSeat);
+//        }
+//    }
+//}
+#endregion
+#region Sprint 7 - Final version with comments
+// GameManager.cs
+// Entry point. Initializes all hands, enforces turn-based play, handles trick resolution.
+// Sprint 7A: ResolveTrick applies rules 8-12 correctly.
+// Sprint 7B: GetLegalCards applies rules 5-7, updates card playability visually.
+// Sprint 7C: Wires HUDManager for turn and trick display.
 
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace TarotLive.Game
 {
@@ -70,31 +463,223 @@ namespace TarotLive.Game
         public DeckManager deckManager;
         public TurnManager turnManager;
         public TableLayout tableLayout;
-        public HandDisplay localHandDisplay;
         public PlayArea playArea;
+        public HUDManager hudManager;
+
+        [Header("Hand Displays")]
+        public HandDisplay[] handDisplays;
 
         [Header("Settings")]
-        public int playerCount = 4;
         public int localSeatIndex = 0;
+        public float trickClearDelay = 1.5f;
+
+        [Header("Debug")]
+        public bool debugAllFaceUp = false;
+
+        // Seat0=bottom, Seat1=right, Seat2=top, Seat3=left
+        // Refactor to dynamic in Milestone 2 for 3-7 player support
+        private readonly float[] seatRotations = { 0f, -90f, 180f, 90f };
+
+        private int playerCount => handDisplays.Length;
+        private int trickCount = 0;
+
+        // Total tricks in a game = cardsPerPlayer (18 for 4p)
+        private int totalTricks = 0;
 
         void Start()
         {
             deckManager.StartDeal(playerCount);
+            playArea.Init(playerCount);
 
-            PlayerSeat localSeat = tableLayout.GetSeat(localSeatIndex);
-            Vector3 seatPosition = localSeat != null ? localSeat.transform.position : Vector3.zero;
+            int chienSize = playerCount == 5 ? 3 : 6;
+            totalTricks = (78 - chienSize) / playerCount;
 
-            localHandDisplay.faceUp = true;
-            localHandDisplay.playArea = playArea;
-            localHandDisplay.ShowHand(deckManager.GetHand(localSeatIndex), seatPosition);
+            for (int i = 0; i < playerCount; i++)
+            {
+                PlayerSeat seat = tableLayout.GetSeat(i);
+                Vector3 seatPos = seat != null ? seat.transform.position : Vector3.zero;
 
-            turnManager.StartGame(playerCount, firstSeat: 0);
+                handDisplays[i].seatIndex = i;
+                handDisplays[i].handRotation = seatRotations[i];
+                handDisplays[i].canPlay = false;
+                handDisplays[i].playArea = playArea;
+
+                bool faceUp = debugAllFaceUp || (i == localSeatIndex);
+                handDisplays[i].ShowHand(deckManager.GetHand(i), seatPos, faceUp);
+            }
+
+            playArea.OnCardPlayed += OnCardPlayed;
+            playArea.OnTrickComplete += OnTrickComplete;
             turnManager.OnTurnChanged += OnTurnChanged;
+            turnManager.StartGame(playerCount, firstSeat: 0);
         }
 
-        private void OnTurnChanged(int seatIndex)
+        private void OnCardPlayed()
         {
-            Debug.Log("GameManager: Active seat -> " + seatIndex);
+            if (playArea.CardCount < playerCount)
+                turnManager.NextTurn();
+        }
+
+        private void OnTrickComplete(List<(int seatIndex, CardView card)> cards)
+        {
+            int winnerSeat = ResolveTrick(cards, playArea.LedSuit);
+            trickCount++;
+
+            Debug.Log("GameManager: Trick " + trickCount + " won by Seat " + winnerSeat);
+
+            hudManager?.UpdateTrickCount(trickCount, totalTricks);
+
+            for (int i = 0; i < playerCount; i++)
+            {
+                handDisplays[i].canPlay = false;
+                handDisplays[i].SetAllPlayable();
+            }
+
+            StartCoroutine(CollectTrickAfterDelay(winnerSeat));
+        }
+
+        // Rules 8-12
+        private int ResolveTrick(List<(int seatIndex, CardView card)> cards, CardSuit ledSuit)
+        {
+            int winnerSeat = -1;
+            CardData best = null;
+
+            foreach (var (seat, cardView) in cards)
+            {
+                CardData data = cardView.Data;
+
+                // Rule 11: Fool never wins
+                if (data.IsFool) continue;
+
+                if (best == null)
+                {
+                    if (data.IsTrump || data.suit == ledSuit)
+                    { best = data; winnerSeat = seat; }
+                    continue;
+                }
+
+                if (data.IsTrump)
+                {
+                    // Rule 9: trump beats non-trump
+                    if (!best.IsTrump)
+                    { best = data; winnerSeat = seat; }
+                    // Rule 10: highest trump wins
+                    else if (data.trumpNumber > best.trumpNumber)
+                    { best = data; winnerSeat = seat; }
+                }
+                // Rule 8 & 12: only led suit non-trump cards compete
+                else if (!best.IsTrump && data.suit == ledSuit && (int)data.rank > (int)best.rank)
+                { best = data; winnerSeat = seat; }
+            }
+
+            // Safe fallback
+            if (winnerSeat == -1) winnerSeat = cards[0].seatIndex;
+            return winnerSeat;
+        }
+
+        private IEnumerator CollectTrickAfterDelay(int winnerSeat)
+        {
+            yield return new WaitForSeconds(trickClearDelay);
+
+            PlayerSeat seat = tableLayout.GetSeat(winnerSeat);
+            Vector3 targetPos = seat != null ? seat.transform.position : Vector3.zero;
+
+            playArea.AnimateCardsToWinner(targetPos, () => turnManager.SetTurn(winnerSeat));
+        }
+
+        private void OnTurnChanged(int activeSeat)
+        {
+            for (int i = 0; i < playerCount; i++)
+                handDisplays[i].canPlay = (i == activeSeat);
+
+            // Rules 5-7: calculate and apply legal cards for local seat only
+            // Opponents are face-down so no visual feedback needed for them
+            if (activeSeat == localSeatIndex || debugAllFaceUp)
+                ApplyLegalCards(handDisplays[activeSeat]);
+
+            string turnLabel = activeSeat == localSeatIndex ? "Your Turn" : "Player " + (activeSeat + 1) + "'s Turn";
+            hudManager?.UpdateTurnLabel(turnLabel);
+
+            Debug.Log("GameManager: Active seat -> " + activeSeat);
+        }
+
+        // Rules 5-7: calculate which cards in hand are legal to play
+        private void ApplyLegalCards(HandDisplay display)
+        {
+            // Trick not started yet - all cards legal
+            if (!playArea.TrickStarted)
+            {
+                display.SetAllPlayable();
+                return;
+            }
+
+            List<CardView> hand = display.CardViews;
+            CardSuit ledSuit = playArea.LedSuit;
+            int highestTrump = playArea.HighestTrumpOnTable;
+
+            // Separate hand into categories
+            List<CardView> ledSuitCards = new List<CardView>();
+            List<CardView> trumpCards = new List<CardView>();
+            List<CardView> higherTrumps = new List<CardView>();
+
+            foreach (var card in hand)
+            {
+                CardData data = card.Data;
+                if (data.IsFool) continue; // Fool always playable, handled separately
+
+                if (data.IsTrump)
+                {
+                    trumpCards.Add(card);
+                    if (data.trumpNumber > highestTrump)
+                        higherTrumps.Add(card);
+                }
+                else if (data.suit == ledSuit)
+                {
+                    ledSuitCards.Add(card);
+                }
+            }
+
+            List<CardView> legal = new List<CardView>();
+
+            if (ledSuit == CardSuit.Trump)
+            {
+                // Led suit is trump: must play trump, must overtrump if possible
+                if (higherTrumps.Count > 0)
+                    legal.AddRange(higherTrumps);
+                else if (trumpCards.Count > 0)
+                    legal.AddRange(trumpCards);
+                else
+                    legal.AddRange(hand); // No trumps: free discard
+            }
+            else
+            {
+                // Rule 5: must follow led suit
+                if (ledSuitCards.Count > 0)
+                {
+                    legal.AddRange(ledSuitCards);
+                }
+                // Rule 6: no led suit, must play trump
+                else if (trumpCards.Count > 0)
+                {
+                    // Rule 7: must overtrump if possible
+                    if (higherTrumps.Count > 0)
+                        legal.AddRange(higherTrumps);
+                    else
+                        legal.AddRange(trumpCards);
+                }
+                else
+                {
+                    // No led suit, no trumps: free discard
+                    legal.AddRange(hand);
+                }
+            }
+
+            // Fool is always legal
+            foreach (var card in hand)
+                if (card.Data.IsFool && !legal.Contains(card))
+                    legal.Add(card);
+
+            display.SetPlayableCards(legal);
         }
     }
 }

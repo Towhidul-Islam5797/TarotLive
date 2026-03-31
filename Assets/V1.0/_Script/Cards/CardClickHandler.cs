@@ -14,7 +14,13 @@
 // Note: This script does not handle the logic for what happens when a card is selected (e.g., playing the card, showing details, etc.); it only detects clicks and notifies the HandDisplay script. The actual game logic for card interactions will need to be implemented in other parts of the codebase, such as the PlayerManager or GameManager.
 // Note: Ensure that the card prefab has a collider component to detect mouse clicks, and that the HandDisplay script is properly referenced in this script for it to function correctly.
 #endregion
-#region
+
+
+#region second version
+// CardClickHandler.cs
+// Single click selects a card. Second click on same card plays it to the play area.
+// Attach to CardPrefab alongside CardView. Requires Collider2D.
+
 //using UnityEngine;
 
 //namespace TarotLive.Game
@@ -32,17 +38,18 @@
 
 //        void OnMouseDown()
 //        {
-//            if (handDisplay != null)
-//                handDisplay.OnCardClicked(cardView);
+//            if (handDisplay == null) return;
+//            handDisplay.OnCardClicked(cardView);
+//            Debug.Log("CardClickHandler: Card clicked");
 //        }
 //    }
 //}
 #endregion
-
-#region second version
+#region Sprint 7 - Playable State
 // CardClickHandler.cs
-// Single click selects a card. Second click on same card plays it to the play area.
-// Attach to CardPrefab alongside CardView. Requires Collider2D.
+// Forwards click events to HandDisplay.
+// Respects CardView.isPlayable - blocks clicks on grayed out cards.
+// Attach to CardPrefab. Requires Collider2D and Physics 2D Raycaster on camera.
 
 using UnityEngine;
 
@@ -62,7 +69,9 @@ namespace TarotLive.Game
         void OnMouseDown()
         {
             if (handDisplay == null) return;
+            if (!cardView.isPlayable) return;
             handDisplay.OnCardClicked(cardView);
+            Debug.Log("CardClickHandler: Card clicked");
         }
     }
 }

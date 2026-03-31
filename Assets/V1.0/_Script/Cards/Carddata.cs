@@ -9,6 +9,32 @@
 // Note: Ensure that the CardData instances are created and managed properly in conjunction with the CardFactory and DeckManager classes to maintain a consistent game state and visual representation of the cards throughout the game.
 // This class is essential for defining the properties of each card and should be used as the basis for all card-related data in the game. It allows for a clear separation of data and logic, making it easier to manage and extend the game's card system in the future.
 #endregion
+#region version 1.0
+//using UnityEngine;
+
+//namespace TarotLive.Game
+//{
+//    [CreateAssetMenu(menuName = "TarotLive/CardData")]
+//    public class CardData : ScriptableObject
+//    {
+//        public CardSuit suit;
+//        public CardRank rank;
+//        public int trumpNumber; // 1-21 for trumps, 0 for Fool
+//        public Sprite frontSprite;
+
+//        public bool IsTrump => suit == CardSuit.Trump;
+//        public bool IsFool => suit == CardSuit.Trump && trumpNumber == 0;
+
+//        public override string ToString()
+//        {
+//            if (IsFool) return "Fool";
+//            if (IsTrump) return "Trump " + trumpNumber;
+//            return rank + " of " + suit;
+//        }
+//    }
+//}
+#endregion
+#region 
 using UnityEngine;
 
 namespace TarotLive.Game
@@ -18,7 +44,7 @@ namespace TarotLive.Game
     {
         public CardSuit suit;
         public CardRank rank;
-        public int trumpNumber; // 1-21 for trumps, 0 for Fool
+        public int trumpNumber;
         public Sprite frontSprite;
 
         public bool IsTrump => suit == CardSuit.Trump;
@@ -32,3 +58,4 @@ namespace TarotLive.Game
         }
     }
 }
+#endregion

@@ -30,6 +30,7 @@ namespace TarotLive.Core
             cam.orthographic = true;
             cam.orthographicSize = orthographicSize;
             cam.transform.position = new Vector3(0, 0, -10f);
+            Debug.Log("GameCamera: Camera configured with orthographic size " + orthographicSize);
         }
     }
 }
