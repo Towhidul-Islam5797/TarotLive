@@ -336,11 +336,11 @@ MonoBehaviour:
   playArea: {fileID: 1860478144}
   cardSpacing: 0.7
   cardScale: 0.22
-  rowOffset: 0.5
+  rowOffset: 0.7
   handRotation: 0
   canPlay: 0
   seatIndex: 0
-  selectLift: 0.4
+  selectLift: 0.35
   selectSpeed: 0.15
   playSpeed: 0.3
 --- !u!4 &275713503
@@ -1464,7 +1464,7 @@ MonoBehaviour:
   - {fileID: 1855456244}
   localSeatIndex: 0
   trickClearDelay: 1.5
-  debugAllFaceUp: 0
+  debugAllFaceUp: 1
 --- !u!4 &1865759171
 Transform:
   m_ObjectHideFlags: 0

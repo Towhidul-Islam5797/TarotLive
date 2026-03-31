@@ -1133,8 +1133,11 @@ namespace TarotLive.Game
 
             for (int i = 0; i < total; i++)
             {
+                // Determine row and index within row
                 bool isRow2 = i >= row1Count;
+                // For row 2, indexInRow starts at 0 after subtracting row1Count
                 int indexInRow = isRow2 ? i - row1Count : i;
+                // Get the count of cards in the current row for spacing calculations
                 int countInRow = isRow2 ? row2Count : row1Count;
 
                 float totalWidth = (countInRow - 1) * cardSpacing;
@@ -1147,6 +1150,7 @@ namespace TarotLive.Game
                 int sortOrder = isRow2 ? BackRowBase + indexInRow : FrontRowBase + indexInRow;
                 baseSortOrders.Add(sortOrder);
 
+                // Instantiate card prefab
                 GameObject go = Instantiate(cardPrefab, worldPos, Quaternion.Euler(0, 0, handRotation), transform);
                 go.name = "Card_" + i;
                 go.transform.localScale = new Vector3(cardScale, cardScale, 1f);
