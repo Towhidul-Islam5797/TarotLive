@@ -102,8 +102,83 @@
 // Manages deck, player hands, and chien.
 // Deals from end of list (O(1)) instead of front (O(n)).
 
+//using System.Collections.Generic;
+//using TarotLive.Core;
+//using UnityEngine;
+
+//namespace TarotLive.Game
+//{
+//    public class DeckManager : MonoBehaviour
+//    {
+//        [Header("References")]
+//        public CardFactory cardFactory;
+
+//        private List<CardData> deck = new List<CardData>();
+//        private Dictionary<int, List<CardData>> hands = new Dictionary<int, List<CardData>>();
+//        private List<CardData> chien = new List<CardData>();
+
+//        public List<CardData> Chien => chien;
+
+//        public void StartDeal(int playerCount)
+//        {
+//            deck = cardFactory.BuildDeck();
+//            Shuffle();
+
+//            hands.Clear();
+//            chien.Clear();
+
+//            for (int i = 0; i < playerCount; i++)
+//                hands[i] = new List<CardData>();
+
+//            // 3p: 24 each + 6 chien | 4p: 18 each + 6 chien | 5p: 15 each + 3 chien
+//            int chienSize = playerCount == 5 ? 3 : 6;
+//            int cardsPerPlayer = (78 - chienSize) / playerCount;
+//            int totalRounds = cardsPerPlayer / 3;
+
+//            for (int round = 0; round < totalRounds; round++)
+//                for (int p = 0; p < playerCount; p++)
+//                    for (int c = 0; c < 3; c++)
+//                        hands[p].Add(DealOne());
+
+//            chien.AddRange(deck);
+//            deck.Clear();
+
+//            Debug.Log("DeckManager: Deal complete. Cards per player: " + cardsPerPlayer + " | Chien: " + chien.Count);
+//            for (int i = 0; i < playerCount; i++)
+//                Debug.Log("Seat " + i + " -> " + hands[i].Count + " cards.");
+//        }
+
+//        public List<CardData> GetHand(int seatIndex)
+//        {
+//            return hands.TryGetValue(seatIndex, out var hand) ? hand : new List<CardData>();
+//        }
+
+//        private void Shuffle()
+//        {
+//            for (int i = deck.Count - 1; i > 0; i--)
+//            {
+//                int j = Random.Range(0, i + 1);
+//                (deck[i], deck[j]) = (deck[j], deck[i]);
+//            }
+//            Debug.Log("DeckManager: Deck shuffled.");
+//        }
+
+//        // O(1) - deal from end instead of RemoveAt(0) which was O(n)
+//        private CardData DealOne()
+//        {
+//            if (deck.Count == 0) return null;
+//            int last = deck.Count - 1;
+//            CardData card = deck[last];
+//            deck.RemoveAt(last);
+//            return card;
+//        }
+//    }
+//}
+#endregion
+#region Milestone 2 Sprint 1
 using UnityEngine;
 using System.Collections.Generic;
+using TarotLive.Core;
 
 namespace TarotLive.Game
 {
@@ -129,9 +204,8 @@ namespace TarotLive.Game
             for (int i = 0; i < playerCount; i++)
                 hands[i] = new List<CardData>();
 
-            // 3p: 24 each + 6 chien | 4p: 18 each + 6 chien | 5p: 15 each + 3 chien
-            int chienSize = playerCount == 5 ? 3 : 6;
-            int cardsPerPlayer = (78 - chienSize) / playerCount;
+            int chienSize = GameSettings.GetChienSize(playerCount);
+            int cardsPerPlayer = (GameSettings.TotalCards - chienSize) / playerCount;
             int totalRounds = cardsPerPlayer / 3;
 
             for (int round = 0; round < totalRounds; round++)
@@ -143,8 +217,6 @@ namespace TarotLive.Game
             deck.Clear();
 
             Debug.Log("DeckManager: Deal complete. Cards per player: " + cardsPerPlayer + " | Chien: " + chien.Count);
-            for (int i = 0; i < playerCount; i++)
-                Debug.Log("Seat " + i + " -> " + hands[i].Count + " cards.");
         }
 
         public List<CardData> GetHand(int seatIndex)
@@ -159,10 +231,8 @@ namespace TarotLive.Game
                 int j = Random.Range(0, i + 1);
                 (deck[i], deck[j]) = (deck[j], deck[i]);
             }
-            Debug.Log("DeckManager: Deck shuffled.");
         }
 
-        // O(1) - deal from end instead of RemoveAt(0) which was O(n)
         private CardData DealOne()
         {
             if (deck.Count == 0) return null;

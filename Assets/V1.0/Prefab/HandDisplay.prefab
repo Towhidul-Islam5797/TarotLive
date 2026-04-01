@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &654681196430997002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7579236844851149041}
+  - component: {fileID: 6592389266668447647}
+  m_Layer: 0
+  m_Name: HandDisplay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7579236844851149041
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654681196430997002}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6592389266668447647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654681196430997002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e101b0d61c10ff54ca09abaeb2e21a58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TarotLive.Game.HandDisplay
+  cardPrefab: {fileID: 1962675000049230852, guid: ba7fe61f0c211e342a09c4c943cf7aff, type: 3}
+  cardFactory: {fileID: 0}
+  playArea: {fileID: 0}
+  maxHandWidth: 4.5
+  cardAspectRatio: 0.3
+  rowOffset: 0.7
+  canPlay: 0
+  seatIndex: 0
+  selectLift: 0.35
+  selectSpeed: 0.15
+  playSpeed: 0.3

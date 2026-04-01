@@ -451,9 +451,244 @@
 // Sprint 7B: GetLegalCards applies rules 5-7, updates card playability visually.
 // Sprint 7C: Wires HUDManager for turn and trick display.
 
+//using UnityEngine;
+//using System.Collections;
+//using System.Collections.Generic;
+
+//namespace TarotLive.Game
+//{
+//    public class GameManager : MonoBehaviour
+//    {
+//        [Header("References")]
+//        public DeckManager deckManager;
+//        public TurnManager turnManager;
+//        public TableLayout tableLayout;
+//        public PlayArea playArea;
+//        public HUDManager hudManager;
+
+//        [Header("Hand Displays")]
+//        public HandDisplay[] handDisplays;
+
+//        [Header("Settings")]
+//        public int localSeatIndex = 0;
+//        public float trickClearDelay = 1.5f;
+
+//        [Header("Debug")]
+//        public bool debugAllFaceUp = false;
+
+//        // Seat0=bottom, Seat1=right, Seat2=top, Seat3=left
+//        // Refactor to dynamic in Milestone 2 for 3-7 player support
+//        private readonly float[] seatRotations = { 0f, -90f, 180f, 90f };
+
+//        private int playerCount => handDisplays.Length;
+//        private int trickCount = 0;
+
+//        // Total tricks in a game = cardsPerPlayer (18 for 4p)
+//        private int totalTricks = 0;
+
+//        void Start()
+//        {
+//            deckManager.StartDeal(playerCount);
+//            playArea.Init(playerCount);
+
+//            int chienSize = playerCount == 5 ? 3 : 6;
+//            totalTricks = (78 - chienSize) / playerCount;
+
+//            for (int i = 0; i < playerCount; i++)
+//            {
+//                PlayerSeat seat = tableLayout.GetSeat(i);
+//                Vector3 seatPos = seat != null ? seat.transform.position : Vector3.zero;
+
+//                handDisplays[i].seatIndex = i;
+//                handDisplays[i].handRotation = seatRotations[i];
+//                handDisplays[i].canPlay = false;
+//                handDisplays[i].playArea = playArea;
+
+//                bool faceUp = debugAllFaceUp || (i == localSeatIndex);
+//                handDisplays[i].ShowHand(deckManager.GetHand(i), seatPos, faceUp);
+//            }
+
+//            playArea.OnCardPlayed += OnCardPlayed;
+//            playArea.OnTrickComplete += OnTrickComplete;
+//            turnManager.OnTurnChanged += OnTurnChanged;
+//            turnManager.StartGame(playerCount, firstSeat: 0);
+//        }
+
+//        private void OnCardPlayed()
+//        {
+//            if (playArea.CardCount < playerCount)
+//                turnManager.NextTurn();
+//        }
+
+//        private void OnTrickComplete(List<(int seatIndex, CardView card)> cards)
+//        {
+//            int winnerSeat = ResolveTrick(cards, playArea.LedSuit);
+//            trickCount++;
+
+//            Debug.Log("GameManager: Trick " + trickCount + " won by Seat " + winnerSeat);
+
+//            hudManager?.UpdateTrickCount(trickCount, totalTricks);
+
+//            for (int i = 0; i < playerCount; i++)
+//            {
+//                handDisplays[i].canPlay = false;
+//                handDisplays[i].SetAllPlayable();
+//            }
+
+//            StartCoroutine(CollectTrickAfterDelay(winnerSeat));
+//        }
+
+//        // Rules 8-12
+//        private int ResolveTrick(List<(int seatIndex, CardView card)> cards, CardSuit ledSuit)
+//        {
+//            int winnerSeat = -1;
+//            CardData best = null;
+
+//            foreach (var (seat, cardView) in cards)
+//            {
+//                CardData data = cardView.Data;
+
+//                // Rule 11: Fool never wins
+//                if (data.IsFool) continue;
+
+//                if (best == null)
+//                {
+//                    if (data.IsTrump || data.suit == ledSuit)
+//                    { best = data; winnerSeat = seat; }
+//                    continue;
+//                }
+
+//                if (data.IsTrump)
+//                {
+//                    // Rule 9: trump beats non-trump
+//                    if (!best.IsTrump)
+//                    { best = data; winnerSeat = seat; }
+//                    // Rule 10: highest trump wins
+//                    else if (data.trumpNumber > best.trumpNumber)
+//                    { best = data; winnerSeat = seat; }
+//                }
+//                // Rule 8 & 12: only led suit non-trump cards compete
+//                else if (!best.IsTrump && data.suit == ledSuit && (int)data.rank > (int)best.rank)
+//                { best = data; winnerSeat = seat; }
+//            }
+
+//            // Safe fallback
+//            if (winnerSeat == -1) winnerSeat = cards[0].seatIndex;
+//            return winnerSeat;
+//        }
+
+//        private IEnumerator CollectTrickAfterDelay(int winnerSeat)
+//        {
+//            yield return new WaitForSeconds(trickClearDelay);
+
+//            PlayerSeat seat = tableLayout.GetSeat(winnerSeat);
+//            Vector3 targetPos = seat != null ? seat.transform.position : Vector3.zero;
+
+//            playArea.AnimateCardsToWinner(targetPos, () => turnManager.SetTurn(winnerSeat));
+//        }
+
+//        private void OnTurnChanged(int activeSeat)
+//        {
+//            for (int i = 0; i < playerCount; i++)
+//                handDisplays[i].canPlay = (i == activeSeat);
+
+//            // Rules 5-7: calculate and apply legal cards for local seat only
+//            // Opponents are face-down so no visual feedback needed for them
+//            if (activeSeat == localSeatIndex || debugAllFaceUp)
+//                ApplyLegalCards(handDisplays[activeSeat]);
+
+//            string turnLabel = activeSeat == localSeatIndex ? "Your Turn" : "Player " + (activeSeat + 1) + "'s Turn";
+//            hudManager?.UpdateTurnLabel(turnLabel);
+
+//            Debug.Log("GameManager: Active seat -> " + activeSeat);
+//        }
+
+//        // Rules 5-7: calculate which cards in hand are legal to play
+//        private void ApplyLegalCards(HandDisplay display)
+//        {
+//            // Trick not started yet - all cards legal
+//            if (!playArea.TrickStarted)
+//            {
+//                display.SetAllPlayable();
+//                return;
+//            }
+
+//            List<CardView> hand = display.CardViews;
+//            CardSuit ledSuit = playArea.LedSuit;
+//            int highestTrump = playArea.HighestTrumpOnTable;
+
+//            // Separate hand into categories
+//            List<CardView> ledSuitCards = new List<CardView>();
+//            List<CardView> trumpCards = new List<CardView>();
+//            List<CardView> higherTrumps = new List<CardView>();
+
+//            foreach (var card in hand)
+//            {
+//                CardData data = card.Data;
+//                if (data.IsFool) continue; // Fool always playable, handled separately
+
+//                if (data.IsTrump)
+//                {
+//                    trumpCards.Add(card);
+//                    if (data.trumpNumber > highestTrump)
+//                        higherTrumps.Add(card);
+//                }
+//                else if (data.suit == ledSuit)
+//                {
+//                    ledSuitCards.Add(card);
+//                }
+//            }
+
+//            List<CardView> legal = new List<CardView>();
+
+//            if (ledSuit == CardSuit.Trump)
+//            {
+//                // Led suit is trump: must play trump, must overtrump if possible
+//                if (higherTrumps.Count > 0)
+//                    legal.AddRange(higherTrumps);
+//                else if (trumpCards.Count > 0)
+//                    legal.AddRange(trumpCards);
+//                else
+//                    legal.AddRange(hand); // No trumps: free discard
+//            }
+//            else
+//            {
+//                // Rule 5: must follow led suit
+//                if (ledSuitCards.Count > 0)
+//                {
+//                    legal.AddRange(ledSuitCards);
+//                }
+//                // Rule 6: no led suit, must play trump
+//                else if (trumpCards.Count > 0)
+//                {
+//                    // Rule 7: must overtrump if possible
+//                    if (higherTrumps.Count > 0)
+//                        legal.AddRange(higherTrumps);
+//                    else
+//                        legal.AddRange(trumpCards);
+//                }
+//                else
+//                {
+//                    // No led suit, no trumps: free discard
+//                    legal.AddRange(hand);
+//                }
+//            }
+
+//            // Fool is always legal
+//            foreach (var card in hand)
+//                if (card.Data.IsFool && !legal.Contains(card))
+//                    legal.Add(card);
+
+//            display.SetPlayableCards(legal);
+//        }
+//    }
+//}
+#endregion
+#region Milestone 2
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using TarotLive.Core;
 
 namespace TarotLive.Game
 {
@@ -465,47 +700,52 @@ namespace TarotLive.Game
         public TableLayout tableLayout;
         public PlayArea playArea;
         public HUDManager hudManager;
+        public CardFactory cardFactory;
 
-        [Header("Hand Displays")]
-        public HandDisplay[] handDisplays;
+        [Header("Prefabs")]
+        public HandDisplay handDisplayPrefab;
 
         [Header("Settings")]
+        public int playerCount = GameSettings.DefaultPlayerCount;
         public int localSeatIndex = 0;
         public float trickClearDelay = 1.5f;
 
         [Header("Debug")]
         public bool debugAllFaceUp = false;
 
-        // Seat0=bottom, Seat1=right, Seat2=top, Seat3=left
-        // Refactor to dynamic in Milestone 2 for 3-7 player support
-        private readonly float[] seatRotations = { 0f, -90f, 180f, 90f };
-
-        private int playerCount => handDisplays.Length;
+        private HandDisplay[] handDisplays;
         private int trickCount = 0;
-
-        // Total tricks in a game = cardsPerPlayer (18 for 4p)
         private int totalTricks = 0;
 
         void Start()
         {
+            tableLayout.playerCount = playerCount;
+            tableLayout.SpawnSeats();
+
             deckManager.StartDeal(playerCount);
             playArea.Init(playerCount);
 
-            int chienSize = playerCount == 5 ? 3 : 6;
-            totalTricks = (78 - chienSize) / playerCount;
+            int chienSize = GameSettings.GetChienSize(playerCount);
+            totalTricks = (GameSettings.TotalCards - chienSize) / playerCount;
+
+            handDisplays = new HandDisplay[playerCount];
 
             for (int i = 0; i < playerCount; i++)
             {
                 PlayerSeat seat = tableLayout.GetSeat(i);
                 Vector3 seatPos = seat != null ? seat.transform.position : Vector3.zero;
 
-                handDisplays[i].seatIndex = i;
-                handDisplays[i].handRotation = seatRotations[i];
-                handDisplays[i].canPlay = false;
-                handDisplays[i].playArea = playArea;
+                // Spawn as child of seat - inherits rotation automatically
+                HandDisplay display = Instantiate(handDisplayPrefab, seat.transform);
+                display.seatIndex = i;
+                display.canPlay = false;
+                display.playArea = playArea;
+                display.cardFactory = cardFactory;
 
                 bool faceUp = debugAllFaceUp || (i == localSeatIndex);
-                handDisplays[i].ShowHand(deckManager.GetHand(i), seatPos, faceUp);
+                display.ShowHand(deckManager.GetHand(i), seatPos, faceUp);
+
+                handDisplays[i] = display;
             }
 
             playArea.OnCardPlayed += OnCardPlayed;
@@ -526,7 +766,6 @@ namespace TarotLive.Game
             trickCount++;
 
             Debug.Log("GameManager: Trick " + trickCount + " won by Seat " + winnerSeat);
-
             hudManager?.UpdateTrickCount(trickCount, totalTricks);
 
             for (int i = 0; i < playerCount; i++)
@@ -538,7 +777,6 @@ namespace TarotLive.Game
             StartCoroutine(CollectTrickAfterDelay(winnerSeat));
         }
 
-        // Rules 8-12
         private int ResolveTrick(List<(int seatIndex, CardView card)> cards, CardSuit ledSuit)
         {
             int winnerSeat = -1;
@@ -547,8 +785,6 @@ namespace TarotLive.Game
             foreach (var (seat, cardView) in cards)
             {
                 CardData data = cardView.Data;
-
-                // Rule 11: Fool never wins
                 if (data.IsFool) continue;
 
                 if (best == null)
@@ -558,21 +794,14 @@ namespace TarotLive.Game
                     continue;
                 }
 
-                if (data.IsTrump)
-                {
-                    // Rule 9: trump beats non-trump
-                    if (!best.IsTrump)
-                    { best = data; winnerSeat = seat; }
-                    // Rule 10: highest trump wins
-                    else if (data.trumpNumber > best.trumpNumber)
-                    { best = data; winnerSeat = seat; }
-                }
-                // Rule 8 & 12: only led suit non-trump cards compete
-                else if (!best.IsTrump && data.suit == ledSuit && (int)data.rank > (int)best.rank)
+                if (data.IsTrump && !best.IsTrump)
+                { best = data; winnerSeat = seat; }
+                else if (data.IsTrump && best.IsTrump && data.trumpNumber > best.trumpNumber)
+                { best = data; winnerSeat = seat; }
+                else if (!data.IsTrump && !best.IsTrump && data.suit == ledSuit && best.suit == ledSuit && (int)data.rank > (int)best.rank)
                 { best = data; winnerSeat = seat; }
             }
 
-            // Safe fallback
             if (winnerSeat == -1) winnerSeat = cards[0].seatIndex;
             return winnerSeat;
         }
@@ -592,21 +821,18 @@ namespace TarotLive.Game
             for (int i = 0; i < playerCount; i++)
                 handDisplays[i].canPlay = (i == activeSeat);
 
-            // Rules 5-7: calculate and apply legal cards for local seat only
-            // Opponents are face-down so no visual feedback needed for them
-            if (activeSeat == localSeatIndex || debugAllFaceUp)
-                ApplyLegalCards(handDisplays[activeSeat]);
+            ApplyLegalCards(handDisplays[activeSeat]);
 
-            string turnLabel = activeSeat == localSeatIndex ? "Your Turn" : "Player " + (activeSeat + 1) + "'s Turn";
+            string turnLabel = activeSeat == localSeatIndex
+                ? "Your Turn"
+                : "Player " + (activeSeat + 1) + "'s Turn";
             hudManager?.UpdateTurnLabel(turnLabel);
 
             Debug.Log("GameManager: Active seat -> " + activeSeat);
         }
 
-        // Rules 5-7: calculate which cards in hand are legal to play
         private void ApplyLegalCards(HandDisplay display)
         {
-            // Trick not started yet - all cards legal
             if (!playArea.TrickStarted)
             {
                 display.SetAllPlayable();
@@ -617,7 +843,6 @@ namespace TarotLive.Game
             CardSuit ledSuit = playArea.LedSuit;
             int highestTrump = playArea.HighestTrumpOnTable;
 
-            // Separate hand into categories
             List<CardView> ledSuitCards = new List<CardView>();
             List<CardView> trumpCards = new List<CardView>();
             List<CardView> higherTrumps = new List<CardView>();
@@ -625,7 +850,7 @@ namespace TarotLive.Game
             foreach (var card in hand)
             {
                 CardData data = card.Data;
-                if (data.IsFool) continue; // Fool always playable, handled separately
+                if (data.IsFool) continue;
 
                 if (data.IsTrump)
                 {
@@ -634,47 +859,30 @@ namespace TarotLive.Game
                         higherTrumps.Add(card);
                 }
                 else if (data.suit == ledSuit)
-                {
                     ledSuitCards.Add(card);
-                }
             }
 
             List<CardView> legal = new List<CardView>();
 
             if (ledSuit == CardSuit.Trump)
             {
-                // Led suit is trump: must play trump, must overtrump if possible
-                if (higherTrumps.Count > 0)
-                    legal.AddRange(higherTrumps);
-                else if (trumpCards.Count > 0)
-                    legal.AddRange(trumpCards);
-                else
-                    legal.AddRange(hand); // No trumps: free discard
+                if (higherTrumps.Count > 0) legal.AddRange(higherTrumps);
+                else if (trumpCards.Count > 0) legal.AddRange(trumpCards);
+                else legal.AddRange(hand);
             }
             else
             {
-                // Rule 5: must follow led suit
                 if (ledSuitCards.Count > 0)
-                {
                     legal.AddRange(ledSuitCards);
-                }
-                // Rule 6: no led suit, must play trump
                 else if (trumpCards.Count > 0)
                 {
-                    // Rule 7: must overtrump if possible
-                    if (higherTrumps.Count > 0)
-                        legal.AddRange(higherTrumps);
-                    else
-                        legal.AddRange(trumpCards);
+                    if (higherTrumps.Count > 0) legal.AddRange(higherTrumps);
+                    else legal.AddRange(trumpCards);
                 }
                 else
-                {
-                    // No led suit, no trumps: free discard
                     legal.AddRange(hand);
-                }
             }
 
-            // Fool is always legal
             foreach (var card in hand)
                 if (card.Data.IsFool && !legal.Contains(card))
                     legal.Add(card);
