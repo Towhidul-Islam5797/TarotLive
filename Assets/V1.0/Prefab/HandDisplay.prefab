@@ -47,10 +47,10 @@ MonoBehaviour:
   cardPrefab: {fileID: 1962675000049230852, guid: ba7fe61f0c211e342a09c4c943cf7aff, type: 3}
   cardFactory: {fileID: 0}
   playArea: {fileID: 0}
-  maxHandWidth: 4.5
+  maxHandWidth: 4.7
   cardAspectRatio: 0.3
-  rowOffset: 0.7
-  canPlay: 0
+  rowOffset: 0.4
+  canPlay: 1
   seatIndex: 0
   selectLift: 0.35
   selectSpeed: 0.15
