@@ -1262,7 +1262,361 @@
 //}
 #endregion
 #region Milestone 2 - V.2 
+//using UnityEngine;
+//using System.Collections.Generic;
+//using DG.Tweening;
+
+//namespace TarotLive.Game
+//{
+//    public class HandDisplay : MonoBehaviour
+//    {
+//        [Header("References")]
+//        public GameObject cardPrefab;
+//        public CardFactory cardFactory;
+//        public PlayArea playArea;
+
+//        [Header("Layout")]
+//        public float maxHandWidth = 6f;
+//        public float cardAspectRatio = 0.28f;
+//        public float rowOffset = 0.5f;
+
+//        [Header("Turn")]
+//        public bool canPlay = false;
+//        public int seatIndex = 0;
+
+//        [Header("Animation")]
+//        public float selectLift = 0.4f;
+//        public float selectSpeed = 0.15f;
+//        public float playSpeed = 0.3f;
+
+//        private List<CardView> cardViews = new List<CardView>();
+//        private List<Vector3> basePositions = new List<Vector3>();
+//        private List<int> baseSortOrders = new List<int>();
+//        private CardView selectedCard = null;
+
+//        private float cardSpacing;
+//        private float cardScale;
+
+//        private const int BackRowBase = 0;
+//        private const int FrontRowBase = 10;
+//        private const int SelectedOrder = 20;
+
+//        public List<CardView> CardViews => cardViews;
+
+//        public void ShowHand(List<CardData> hand, Vector3 anchorPosition, bool faceUp)
+//        {
+//            ClearHand();
+
+//            transform.position = anchorPosition;
+
+//            int total = hand.Count;
+//            int row1Count = Mathf.CeilToInt(total / 2f);
+//            int row2Count = total - row1Count;
+
+//            cardSpacing = maxHandWidth / row1Count;
+//            cardScale = cardSpacing * cardAspectRatio;
+
+//            for (int i = 0; i < total; i++)
+//            {
+//                bool isRow2 = i >= row1Count;
+//                int indexInRow = isRow2 ? i - row1Count : i;
+//                int countInRow = isRow2 ? row2Count : row1Count;
+
+//                float totalWidth = (countInRow - 1) * cardSpacing;
+//                float startX = -totalWidth / 2f;
+
+//                // Local X = spread along seat's right axis
+//                // Local Y = row offset along seat's up axis (toward center)
+//                float localX = startX + indexInRow * cardSpacing;
+//                float localY = isRow2 ? rowOffset : 0f;
+
+//                // Convert local seat space to world space
+//                Vector3 worldPos = transform.TransformPoint(new Vector3(localX, localY, 0f));
+//                basePositions.Add(worldPos);
+
+//                int sortOrder = isRow2 ? BackRowBase + indexInRow : FrontRowBase + indexInRow;
+//                baseSortOrders.Add(sortOrder);
+
+//                GameObject go = Instantiate(cardPrefab, worldPos, transform.rotation, transform);
+//                go.name = "Card_" + i;
+//                go.transform.localScale = new Vector3(cardScale, cardScale, 1f);
+
+//                CardView view = go.GetComponent<CardView>();
+//                view.Setup(hand[i], cardFactory.cardBackSprite, faceUp);
+//                view.spriteRenderer.sortingOrder = sortOrder;
+
+//                go.GetComponent<CardClickHandler>().Init(this);
+//                cardViews.Add(view);
+//            }
+//        }
+
+//        public void SetPlayableCards(List<CardView> legal)
+//        {
+//            foreach (var view in cardViews)
+//                view.SetPlayable(legal.Contains(view));
+//        }
+
+//        public void SetAllPlayable()
+//        {
+//            foreach (var view in cardViews)
+//                view.SetPlayable(true);
+//        }
+
+//        public void ClearHand()
+//        {
+//            foreach (var view in cardViews)
+//                if (view != null) Destroy(view.gameObject);
+
+//            cardViews.Clear();
+//            basePositions.Clear();
+//            baseSortOrders.Clear();
+//            selectedCard = null;
+//        }
+
+//        public void OnCardClicked(CardView card)
+//        {
+//            if (!canPlay) return;
+
+//            if (selectedCard == card)
+//            {
+//                PlaySelectedCard();
+//                return;
+//            }
+
+//            if (selectedCard != null)
+//            {
+//                int prevIndex = cardViews.IndexOf(selectedCard);
+//                selectedCard.transform.DOMove(basePositions[prevIndex], selectSpeed);
+//                selectedCard.spriteRenderer.sortingOrder = baseSortOrders[prevIndex];
+//            }
+
+//            int newIndex = cardViews.IndexOf(card);
+
+//            // Lift along local up — always points toward table center
+//            Vector3 liftPos = basePositions[newIndex] + transform.up * selectLift;
+//            card.transform.DOMove(liftPos, selectSpeed);
+//            card.spriteRenderer.sortingOrder = SelectedOrder;
+//            selectedCard = card;
+//        }
+
+//        private void PlaySelectedCard()
+//        {
+//            if (selectedCard == null || playArea == null)
+//            {
+//                if (playArea == null) Debug.LogWarning("HandDisplay: PlayArea not assigned.");
+//                return;
+//            }
+
+//            CardView card = selectedCard;
+//            RemoveCard(card);
+
+//            card.transform.SetParent(null);
+//            card.transform.DOMove(playArea.transform.position, playSpeed)
+//                .OnComplete(() => playArea.PlayCard(card, seatIndex));
+//        }
+
+//        public void RemoveCard(CardView card)
+//        {
+//            int index = cardViews.IndexOf(card);
+//            if (index == -1) return;
+
+//            cardViews.RemoveAt(index);
+//            basePositions.RemoveAt(index);
+//            baseSortOrders.RemoveAt(index);
+
+//            if (selectedCard == card)
+//                selectedCard = null;
+//        }
+
+//        public CardView GetSelectedCard() => selectedCard;
+//    }
+//}
+#endregion
+#region Milestone -3 Sprint 3a - Finalize HandDisplay with canPlay gate and SetPlayableCards
+//using UnityEngine;
+//using System;
+//using System.Collections.Generic;
+//using DG.Tweening;
+
+//namespace TarotLive.Game
+//{
+//    public class HandDisplay : MonoBehaviour
+//    {
+//        [Header("References")]
+//        public GameObject cardPrefab;
+//        public CardFactory cardFactory;
+//        public PlayArea playArea;
+
+//        [Header("Layout")]
+//        public float maxHandWidth = 6f;
+//        public float cardAspectRatio = 0.28f;
+//        public float rowOffset = 0.5f;
+
+//        [Header("Turn")]
+//        public bool canPlay = false;
+//        public int seatIndex = 0;
+
+//        [Header("Animation")]
+//        public float selectLift = 0.4f;
+//        public float selectSpeed = 0.15f;
+//        public float playSpeed = 0.3f;
+
+//        // When set, all card clicks are routed here instead of the default play flow.
+//        // ChienManager sets this during discard phase and clears it when done.
+//        public Action<CardView> onCardClickedOverride;
+
+//        private List<CardView> cardViews = new List<CardView>();
+//        private List<Vector3> basePositions = new List<Vector3>();
+//        private List<int> baseSortOrders = new List<int>();
+//        private CardView selectedCard = null;
+
+//        private float cardSpacing;
+//        private float cardScale;
+
+//        private const int BackRowBase = 0;
+//        private const int FrontRowBase = 10;
+//        private const int SelectedOrder = 20;
+
+//        public List<CardView> CardViews => cardViews;
+
+//        public void ShowHand(List<CardData> hand, Vector3 anchorPosition, bool faceUp)
+//        {
+//            ClearHand();
+//            transform.position = anchorPosition;
+
+//            int total = hand.Count;
+//            int row1Count = Mathf.CeilToInt(total / 2f);
+//            int row2Count = total - row1Count;
+
+//            cardSpacing = maxHandWidth / row1Count;
+//            cardScale = cardSpacing * cardAspectRatio;
+
+//            for (int i = 0; i < total; i++)
+//            {
+//                bool isRow2 = i >= row1Count;
+//                int indexInRow = isRow2 ? i - row1Count : i;
+//                int countInRow = isRow2 ? row2Count : row1Count;
+
+//                float totalWidth = (countInRow - 1) * cardSpacing;
+//                float startX = -totalWidth / 2f;
+//                float localX = startX + indexInRow * cardSpacing;
+//                float localY = isRow2 ? rowOffset : 0f;
+
+//                Vector3 worldPos = transform.TransformPoint(new Vector3(localX, localY, 0f));
+//                basePositions.Add(worldPos);
+
+//                int sortOrder = isRow2 ? BackRowBase + indexInRow : FrontRowBase + indexInRow;
+//                baseSortOrders.Add(sortOrder);
+
+//                GameObject go = Instantiate(cardPrefab, worldPos, transform.rotation, transform);
+//                go.name = "Card_" + i;
+//                go.transform.localScale = new Vector3(cardScale, cardScale, 1f);
+
+//                CardView view = go.GetComponent<CardView>();
+//                view.Setup(hand[i], cardFactory.cardBackSprite, faceUp);
+//                view.spriteRenderer.sortingOrder = sortOrder;
+//                go.GetComponent<CardClickHandler>().Init(this);
+//                cardViews.Add(view);
+//            }
+//        }
+
+//        // Returns the stored base world position for a card at the given index.
+//        // Used by ChienManager to lift and lower staged cards.
+//        public Vector3 GetBasePosition(int index)
+//        {
+//            if (index >= 0 && index < basePositions.Count)
+//                return basePositions[index];
+//            return transform.position;
+//        }
+
+//        public void SetPlayableCards(List<CardView> legal)
+//        {
+//            foreach (var view in cardViews)
+//                view.SetPlayable(legal.Contains(view));
+//        }
+
+//        public void SetAllPlayable()
+//        {
+//            foreach (var view in cardViews)
+//                view.SetPlayable(true);
+//        }
+
+//        public void ClearHand()
+//        {
+//            foreach (var view in cardViews)
+//                if (view != null) Destroy(view.gameObject);
+//            cardViews.Clear();
+//            basePositions.Clear();
+//            baseSortOrders.Clear();
+//            selectedCard = null;
+//        }
+
+//        public void OnCardClicked(CardView card)
+//        {
+//            if (!canPlay) return;
+
+//            // Chien discard mode: route to override handler instead of normal play.
+//            if (onCardClickedOverride != null)
+//            {
+//                onCardClickedOverride(card);
+//                return;
+//            }
+
+//            if (selectedCard == card)
+//            {
+//                PlaySelectedCard();
+//                return;
+//            }
+
+//            if (selectedCard != null)
+//            {
+//                int prevIndex = cardViews.IndexOf(selectedCard);
+//                selectedCard.transform.DOMove(basePositions[prevIndex], selectSpeed);
+//                selectedCard.spriteRenderer.sortingOrder = baseSortOrders[prevIndex];
+//            }
+
+//            int newIndex = cardViews.IndexOf(card);
+//            card.transform.DOMove(basePositions[newIndex] + transform.up * selectLift, selectSpeed);
+//            card.spriteRenderer.sortingOrder = SelectedOrder;
+//            selectedCard = card;
+//        }
+
+//        private void PlaySelectedCard()
+//        {
+//            if (selectedCard == null || playArea == null)
+//            {
+//                if (playArea == null) Debug.LogWarning("HandDisplay: PlayArea not assigned.");
+//                return;
+//            }
+
+//            CardView card = selectedCard;
+//            RemoveCard(card);
+//            card.transform.SetParent(null);
+//            card.transform.DOMove(playArea.transform.position, playSpeed)
+//                .OnComplete(() => playArea.PlayCard(card, seatIndex));
+//        }
+
+//        public void RemoveCard(CardView card)
+//        {
+//            int index = cardViews.IndexOf(card);
+//            if (index == -1) return;
+
+//            cardViews.RemoveAt(index);
+//            basePositions.RemoveAt(index);
+//            baseSortOrders.RemoveAt(index);
+
+//            if (selectedCard == card)
+//                selectedCard = null;
+//        }
+
+//        public CardView GetSelectedCard() => selectedCard;
+//    }
+//}
+
+#endregion
+#region Milestone 2, Sprint 3b - Finalize HandDisplay with canPlay gate, SetPlayableCards, and onCardClickedOverride for Chien discard  
 using UnityEngine;
+using System;
 using System.Collections.Generic;
 using DG.Tweening;
 
@@ -1289,6 +1643,8 @@ namespace TarotLive.Game
         public float selectSpeed = 0.15f;
         public float playSpeed = 0.3f;
 
+        public Action<CardView> onCardClickedOverride;
+
         private List<CardView> cardViews = new List<CardView>();
         private List<Vector3> basePositions = new List<Vector3>();
         private List<int> baseSortOrders = new List<int>();
@@ -1303,10 +1659,17 @@ namespace TarotLive.Game
 
         public List<CardView> CardViews => cardViews;
 
+        // Called by GameManager before ShowHand to apply per-player-count layout.
+        public void ApplyLayout(float handWidth, float aspectRatio, float rowOff)
+        {
+            maxHandWidth = handWidth;
+            cardAspectRatio = aspectRatio;
+            rowOffset = rowOff;
+        }
+
         public void ShowHand(List<CardData> hand, Vector3 anchorPosition, bool faceUp)
         {
             ClearHand();
-
             transform.position = anchorPosition;
 
             int total = hand.Count;
@@ -1324,13 +1687,9 @@ namespace TarotLive.Game
 
                 float totalWidth = (countInRow - 1) * cardSpacing;
                 float startX = -totalWidth / 2f;
-
-                // Local X = spread along seat's right axis
-                // Local Y = row offset along seat's up axis (toward center)
                 float localX = startX + indexInRow * cardSpacing;
                 float localY = isRow2 ? rowOffset : 0f;
 
-                // Convert local seat space to world space
                 Vector3 worldPos = transform.TransformPoint(new Vector3(localX, localY, 0f));
                 basePositions.Add(worldPos);
 
@@ -1344,10 +1703,16 @@ namespace TarotLive.Game
                 CardView view = go.GetComponent<CardView>();
                 view.Setup(hand[i], cardFactory.cardBackSprite, faceUp);
                 view.spriteRenderer.sortingOrder = sortOrder;
-
                 go.GetComponent<CardClickHandler>().Init(this);
                 cardViews.Add(view);
             }
+        }
+
+        public Vector3 GetBasePosition(int index)
+        {
+            if (index >= 0 && index < basePositions.Count)
+                return basePositions[index];
+            return transform.position;
         }
 
         public void SetPlayableCards(List<CardView> legal)
@@ -1366,7 +1731,6 @@ namespace TarotLive.Game
         {
             foreach (var view in cardViews)
                 if (view != null) Destroy(view.gameObject);
-
             cardViews.Clear();
             basePositions.Clear();
             baseSortOrders.Clear();
@@ -1376,6 +1740,12 @@ namespace TarotLive.Game
         public void OnCardClicked(CardView card)
         {
             if (!canPlay) return;
+
+            if (onCardClickedOverride != null)
+            {
+                onCardClickedOverride(card);
+                return;
+            }
 
             if (selectedCard == card)
             {
@@ -1391,10 +1761,7 @@ namespace TarotLive.Game
             }
 
             int newIndex = cardViews.IndexOf(card);
-
-            // Lift along local up — always points toward table center
-            Vector3 liftPos = basePositions[newIndex] + transform.up * selectLift;
-            card.transform.DOMove(liftPos, selectSpeed);
+            card.transform.DOMove(basePositions[newIndex] + transform.up * selectLift, selectSpeed);
             card.spriteRenderer.sortingOrder = SelectedOrder;
             selectedCard = card;
         }
@@ -1409,7 +1776,6 @@ namespace TarotLive.Game
 
             CardView card = selectedCard;
             RemoveCard(card);
-
             card.transform.SetParent(null);
             card.transform.DOMove(playArea.transform.position, playSpeed)
                 .OnComplete(() => playArea.PlayCard(card, seatIndex));

@@ -1,3 +1,4 @@
+#region Milestone 2, Sprint 3a - Bid Contract Enum
 namespace TarotLive.Game
 {
     public enum BidContract
@@ -9,3 +10,4 @@ namespace TarotLive.Game
         GardeContre = 4
     }
 }
+#endregion

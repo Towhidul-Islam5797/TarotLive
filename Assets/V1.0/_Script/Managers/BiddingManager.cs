@@ -1,3 +1,4 @@
+#region Milestone 2, Sprint 3a - Bidding Manager
 using UnityEngine;
 using System;
 
@@ -89,3 +90,4 @@ namespace TarotLive.Game
         }
     }
 }
+#endregion
