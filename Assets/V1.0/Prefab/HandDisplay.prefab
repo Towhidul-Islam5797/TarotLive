@@ -52,6 +52,6 @@ MonoBehaviour:
   rowOffset: 0.4
   canPlay: 1
   seatIndex: 0
-  selectLift: 0.35
+  selectLift: 0.3
   selectSpeed: 0.15
   playSpeed: 0.3
