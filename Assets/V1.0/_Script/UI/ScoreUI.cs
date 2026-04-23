@@ -77,6 +77,107 @@
 //}
 #endregion
 #region Milestone 2 Sprint 4b - Score Display with Continue Button
+//using UnityEngine;
+//using UnityEngine.UI;
+//using System;
+//using TMPro;
+
+//namespace TarotLive.Game
+//{
+//    public class ScoreUI : MonoBehaviour
+//    {
+//        [Header("Labels")]
+//        public TextMeshProUGUI outcomeLabel;
+//        public TextMeshProUGUI detailsLabel;
+//        public TextMeshProUGUI playerScoresLabel;
+
+//        [Header("Continue")]
+//        public Button continueButton;
+
+//        private Action onContinue;
+
+//        void Start()
+//        {
+//            if (continueButton != null)
+//                continueButton.onClick.AddListener(OnContinueClicked);
+//        }
+
+//        public void Show(RoundResult result, int takerSeat, int localSeat, Action onComplete)
+//        {
+//            gameObject.SetActive(true);
+//            onContinue = onComplete;
+
+//            SetOutcome(result);
+//            SetDetails(result);
+//            SetPlayerScores(result, takerSeat, localSeat);
+//        }
+
+//        private void SetOutcome(RoundResult result)
+//        {
+//            if (outcomeLabel == null) return;
+
+//            if (result.takerWon)
+//            {
+//                outcomeLabel.text = "TAKER WON";
+//                outcomeLabel.color = new Color(1f, 0.84f, 0f);
+//            }
+//            else
+//            {
+//                outcomeLabel.text = "DEFENSE WON";
+//                outcomeLabel.color = new Color(0.9f, 0.2f, 0.2f);
+//            }
+//        }
+
+//        private void SetDetails(RoundResult result)
+//        {
+//            if (detailsLabel == null) return;
+
+//            float absDiff = Mathf.Abs((float)result.pointDifference);
+
+//            detailsLabel.text =
+//                "ROUND SUMMARY\n" +
+//                "-----------------\n" +
+//                "Points:      " + result.takerPoints.ToString("0.#") + " / " + result.threshold.ToString("0") + "\n" +
+//                "Base:        25 + " + absDiff.ToString("0.#") + " = " + result.scoreBase + "\n" +
+//                "Contract:    x" + result.contractMultiplier + "\n" +
+//                "Score:       " + result.finalScore + "\n" +
+//                "-----------------\n" +
+//                "Petit:       -\n" +
+//                "Handful:     -\n" +
+//                "Slam:        -";
+//        }
+
+//        private void SetPlayerScores(RoundResult result, int takerSeat, int localSeat)
+//        {
+//            if (playerScoresLabel == null) return;
+
+//            string header = "";
+//            string roundRow = "Round:  ";
+//            string totalRow = "Total:  ";
+
+//            for (int i = 0; i < result.scorePerSeat.Length; i++)
+//            {
+//                string name = i == localSeat ? "You" : "P" + (i + 1);
+//                string tag = i == takerSeat ? "*" : "";
+//                string sign = result.scorePerSeat[i] >= 0 ? "+" : "";
+
+//                header += name + tag + "\t";
+//                roundRow += sign + result.scorePerSeat[i] + "\t";
+//                totalRow += sign + result.scorePerSeat[i] + "\t";
+//            }
+
+//            playerScoresLabel.text = header + "\n" + roundRow + "\n" + totalRow;
+//        }
+
+//        private void OnContinueClicked()
+//        {
+//            gameObject.SetActive(false);
+//            onContinue?.Invoke();
+//        }
+//    }
+//}
+#endregion
+#region Milestone 2 Sprint 4c - Final Score Display with Detailed Player Rows
 using UnityEngine;
 using UnityEngine.UI;
 using System;
@@ -84,12 +185,32 @@ using TMPro;
 
 namespace TarotLive.Game
 {
+    [Serializable]
+    public class PlayerRow
+    {
+        public TextMeshProUGUI nameLabel;
+        public TextMeshProUGUI stateLabel;
+        public TextMeshProUGUI scoreLabel;
+    }
+
     public class ScoreUI : MonoBehaviour
     {
-        [Header("Labels")]
+        [Header("Outcome")]
         public TextMeshProUGUI outcomeLabel;
-        public TextMeshProUGUI detailsLabel;
-        public TextMeshProUGUI playerScoresLabel;
+
+        [Header("Left Parchment - Player Rows")]
+        public PlayerRow[] playerRows;
+
+        [Header("Right Parchment - Contract Section")]
+        public TextMeshProUGUI contractValue;
+        public TextMeshProUGUI multiplierValue;
+        public TextMeshProUGUI takerNameValue;
+
+        [Header("Right Parchment - Points Section")]
+        public TextMeshProUGUI pointsMadeValue;
+        public TextMeshProUGUI pointsNeededValue;
+        public TextMeshProUGUI differenceValue;
+        public TextMeshProUGUI finalScoreValue;
 
         [Header("Continue")]
         public Button continueButton;
@@ -108,8 +229,9 @@ namespace TarotLive.Game
             onContinue = onComplete;
 
             SetOutcome(result);
-            SetDetails(result);
-            SetPlayerScores(result, takerSeat, localSeat);
+            SetPlayerRows(result, takerSeat, localSeat);
+            SetContractSection(result, takerSeat, localSeat);
+            SetPointsSection(result);
         }
 
         private void SetOutcome(RoundResult result)
@@ -128,45 +250,99 @@ namespace TarotLive.Game
             }
         }
 
-        private void SetDetails(RoundResult result)
+        private void SetPlayerRows(RoundResult result, int takerSeat, int localSeat)
         {
-            if (detailsLabel == null) return;
+            if (playerRows == null) return;
 
-            float absDiff = Mathf.Abs((float)result.pointDifference);
+            int playerCount = result.scorePerSeat.Length;
 
-            detailsLabel.text =
-                "ROUND SUMMARY\n" +
-                "-----------------\n" +
-                "Points:      " + result.takerPoints.ToString("0.#") + " / " + result.threshold.ToString("0") + "\n" +
-                "Base:        25 + " + absDiff.ToString("0.#") + " = " + result.scoreBase + "\n" +
-                "Contract:    x" + result.contractMultiplier + "\n" +
-                "Score:       " + result.finalScore + "\n" +
-                "-----------------\n" +
-                "Petit:       -\n" +
-                "Handful:     -\n" +
-                "Slam:        -";
+            for (int i = 0; i < playerRows.Length; i++)
+            {
+                PlayerRow row = playerRows[i];
+                if (row == null) continue;
+
+                bool active = i < playerCount;
+
+                if (row.nameLabel != null) row.nameLabel.gameObject.SetActive(active);
+                if (row.stateLabel != null) row.stateLabel.gameObject.SetActive(active);
+                if (row.scoreLabel != null) row.scoreLabel.gameObject.SetActive(active);
+
+                if (!active) continue;
+
+                // Name - default label, ready for server username in multiplayer
+                if (row.nameLabel != null)
+                    row.nameLabel.text = "Player " + (i + 1);
+
+                // State - role in this round
+                if (row.stateLabel != null)
+                {
+                    if (i == localSeat && i == takerSeat)
+                        row.stateLabel.text = "You (Taker)";
+                    else if (i == localSeat)
+                        row.stateLabel.text = "You";
+                    else if (i == takerSeat)
+                        row.stateLabel.text = "Taker";
+                    else
+                        row.stateLabel.text = "Defense";
+                }
+
+                // Score - green for positive, red for negative
+                if (row.scoreLabel != null)
+                {
+                    int score = result.scorePerSeat[i];
+                    string sign = score >= 0 ? "+" : "";
+                    row.scoreLabel.text = sign + score;
+                    row.scoreLabel.color = score >= 0
+                        ? new Color(0.2f, 0.8f, 0.2f)
+                        : new Color(0.9f, 0.2f, 0.2f);
+                }
+            }
         }
 
-        private void SetPlayerScores(RoundResult result, int takerSeat, int localSeat)
+        private void SetContractSection(RoundResult result, int takerSeat, int localSeat)
         {
-            if (playerScoresLabel == null) return;
-
-            string header = "";
-            string roundRow = "Round:  ";
-            string totalRow = "Total:  ";
-
-            for (int i = 0; i < result.scorePerSeat.Length; i++)
+            if (contractValue != null)
             {
-                string name = i == localSeat ? "You" : "P" + (i + 1);
-                string tag = i == takerSeat ? "*" : "";
-                string sign = result.scorePerSeat[i] >= 0 ? "+" : "";
-
-                header += name + tag + "\t";
-                roundRow += sign + result.scorePerSeat[i] + "\t";
-                totalRow += sign + result.scorePerSeat[i] + "\t";
+                switch (result.contractMultiplier)
+                {
+                    case 1: contractValue.text = "Petite"; break;
+                    case 2: contractValue.text = "Garde"; break;
+                    case 4: contractValue.text = "Garde Sans"; break;
+                    case 6: contractValue.text = "Garde Contre"; break;
+                    default: contractValue.text = "-"; break;
+                }
             }
 
-            playerScoresLabel.text = header + "\n" + roundRow + "\n" + totalRow;
+            if (multiplierValue != null)
+                multiplierValue.text = "x" + result.contractMultiplier;
+
+            if (takerNameValue != null)
+                takerNameValue.text = takerSeat == localSeat
+                    ? "You"
+                    : "Player " + (takerSeat + 1);
+        }
+
+        private void SetPointsSection(RoundResult result)
+        {
+            float absDiff = Mathf.Abs((float)result.pointDifference);
+
+            if (pointsMadeValue != null)
+                pointsMadeValue.text = result.takerPoints.ToString("0.#");
+
+            if (pointsNeededValue != null)
+                pointsNeededValue.text = result.threshold.ToString("0");
+
+            if (differenceValue != null)
+            {
+                string sign = result.pointDifference >= 0 ? "+" : "-";
+                differenceValue.text = sign + absDiff.ToString("0.#");
+                differenceValue.color = result.pointDifference >= 0
+                    ? new Color(0.2f, 0.8f, 0.2f)
+                    : new Color(0.9f, 0.2f, 0.2f);
+            }
+
+            if (finalScoreValue != null)
+                finalScoreValue.text = result.finalScore.ToString();
         }
 
         private void OnContinueClicked()
