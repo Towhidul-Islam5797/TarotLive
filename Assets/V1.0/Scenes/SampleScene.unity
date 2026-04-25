@@ -822,7 +822,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Trick
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 30b271c30df4abb48a69c1b0a27a3b15, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4bb67ccaaa5675647aaf4808a4bbd2a8, type: 2}
   m_sharedMaterial: {fileID: 7167643583941027043, guid: 30b271c30df4abb48a69c1b0a27a3b15, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -889,7 +889,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &147467228
@@ -2258,7 +2258,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: DiscardLabel
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 30b271c30df4abb48a69c1b0a27a3b15, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4bb67ccaaa5675647aaf4808a4bbd2a8, type: 2}
   m_sharedMaterial: {fileID: 7167643583941027043, guid: 30b271c30df4abb48a69c1b0a27a3b15, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2325,7 +2325,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &431067866
@@ -3688,7 +3688,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Player 999"s turn
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 30b271c30df4abb48a69c1b0a27a3b15, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4bb67ccaaa5675647aaf4808a4bbd2a8, type: 2}
   m_sharedMaterial: {fileID: 7167643583941027043, guid: 30b271c30df4abb48a69c1b0a27a3b15, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3755,7 +3755,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1010725794
@@ -3904,7 +3904,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Player 999's Bidding
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 30b271c30df4abb48a69c1b0a27a3b15, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4bb67ccaaa5675647aaf4808a4bbd2a8, type: 2}
   m_sharedMaterial: {fileID: 7167643583941027043, guid: 30b271c30df4abb48a69c1b0a27a3b15, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3971,7 +3971,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1046971077
