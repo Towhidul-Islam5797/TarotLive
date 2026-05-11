@@ -1,4 +1,4 @@
-# region Summary
+#region Summary
 // ScoreManager.cs
 // Contains logic for calculating points and scores at the end of each round.
 // This includes card point values, bout counting, win threshold, and final score distribution.

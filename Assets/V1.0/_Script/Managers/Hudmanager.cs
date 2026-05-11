@@ -30,7 +30,7 @@
 //    }
 //}
 #endregion
-#region Milestone 3 Sprint 3a - Discard Counter
+#region Milestone 2 Sprint 3a - Discard Counter
 // HUDManager.cs
 // Displays turn label and trick count during gameplay.
 // Attach to HUD Canvas. Wire TextMeshPro references in Inspector.
@@ -66,6 +66,37 @@
 // Attach to HUDPanel. Wire TurnLabel and TrickLabel in Inspector.
 // HUDPanel starts disabled in scene. GameManager calls Show() when card play begins.
 
+//using UnityEngine;
+//using TMPro;
+
+//namespace TarotLive.Game
+//{
+//    public class HUDManager : MonoBehaviour
+//    {
+//        [Header("References")]
+//        public TextMeshProUGUI turnLabel;
+//        public TextMeshProUGUI trickLabel;
+
+//        public void Show()
+//        {
+//            gameObject.SetActive(true);
+//        }
+
+//        public void UpdateTurnLabel(string text)
+//        {
+//            if (turnLabel != null)
+//                turnLabel.text = text;
+//        }
+
+//        public void UpdateTrickCount(int current, int total)
+//        {
+//            if (trickLabel != null)
+//                trickLabel.text = "Trick " + current + " / " + total;
+//        }
+//    }
+//}
+#endregion
+#region Milestone 2, Sprint 5 - HUD Hide
 using UnityEngine;
 using TMPro;
 
@@ -80,6 +111,11 @@ namespace TarotLive.Game
         public void Show()
         {
             gameObject.SetActive(true);
+        }
+
+        public void Hide()
+        {
+            gameObject.SetActive(false);
         }
 
         public void UpdateTurnLabel(string text)
