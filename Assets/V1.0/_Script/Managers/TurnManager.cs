@@ -18,7 +18,7 @@
 // It will be integrated with other systems like the DeckManager and PlayerManager to coordinate game actions based on the active player's turn.
 // Note: This script does not handle player actions or game state changes directly; it only manages the turn order and notifies other systems when the active seat changes.
 #endregion
-#region 
+#region Milestone 1 Sprint 5 - Initial Implementation
 //using UnityEngine;
 //using System;
 
@@ -60,7 +60,7 @@
 //    }
 //}
 #endregion
-#region Sprint 6
+#region Milestone 1 Sprint 6 - Initial Implementation   
 // TurnManager.cs
 // Manages turn order. Supports round-robin NextTurn and direct SetTurn for trick winner.
 
@@ -112,7 +112,7 @@
 //    }
 //}
 #endregion
-#region Sprint 6.1
+#region Milestone 1 Sprint 6.1 - Add SetTurn for trick winner
 // TurnManager.cs
 // Manages turn order. NextTurn for round-robin, SetTurn for trick winner.
 

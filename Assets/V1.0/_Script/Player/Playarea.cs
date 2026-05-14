@@ -123,7 +123,7 @@
 //    }
 //}
 #endregion
-#region Sprint 6
+#region Milestone 1 Sprint 6 - Initial Implementation
 // PlayArea.cs
 // Receives played cards. Tracks trick. Animates cards to winner on trick complete.
 
@@ -199,7 +199,7 @@
 //    }
 //}
 #endregion
-#region Sprint 7 - Playable State
+#region Milestone 1 Sprint 7 - Track Led Suit and Highest Trump
 // PlayArea.cs
 // Receives played cards. Tracks trick, led suit, and highest trump on table.
 // Fires OnTrickComplete when all players have played.

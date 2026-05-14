@@ -56,7 +56,7 @@
 //    }
 //}
 #endregion
-#region Sprint 7 - Playable State
+#region Milestone 1 Sprint 7 - Playable State
 // CardView.cs
 // Manages card visual state - facing, sprite, and playability.
 

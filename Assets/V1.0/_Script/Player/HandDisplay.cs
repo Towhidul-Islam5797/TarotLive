@@ -731,7 +731,7 @@
 //}
 #endregion
 
-#region Sprint 5 - Finalize HandDisplay
+#region Milestone 1 Sprint 5 - Finalize HandDisplay
 // HandDisplay.cs
 // Two row hand display with correct lift direction per seat position.
 // Sorting order assigned dynamically per row so front row always renders above back row.
