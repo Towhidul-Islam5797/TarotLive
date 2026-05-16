@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ea014814b1899f142a440abda7cab090
+guid: 26841e6323f5ca8469695566aeaf091b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5222251956301324566
-    second: Copilot_20260514_160613_0
+      213: -1447472240058402766
+    second: Player_Avatar_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Copilot_20260514_160613_0
+      name: Player_Avatar_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1536
-        height: 1024
+        width: 762
+        height: 757
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 611edee4c7a297840800000000000000
-      internalID: 5222251956301324566
+      spriteID: 238741daaab89ebe0800000000000000
+      internalID: -1447472240058402766
       vertices: []
       indices: 
       edges: []
@@ -164,7 +164,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Copilot_20260514_160613_0: 5222251956301324566
+      Player_Avatar_0: -1447472240058402766
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
