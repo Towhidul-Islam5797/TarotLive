@@ -213,6 +213,29 @@
 // Controls the HUD button bar only.
 // All info display (scores, contract, taker, turn) moved to ScorePanelManager.
 
+//using UnityEngine;
+
+//namespace TarotLive.Game
+//{
+//    public class HUDManager : MonoBehaviour
+//    {
+//        public void Show()
+//        {
+//            gameObject.SetActive(true);
+//        }
+
+//        public void Hide()
+//        {
+//            gameObject.SetActive(false);
+//        }
+//    }
+//}
+#endregion
+#region Milestone 2, Sprint 6d - HUD always visible during game
+// HUDManager.cs
+// Button bar only. Shown once at game start, stays visible during all card play.
+// Hide() called only when PauseMenu opens. Show() called on resume.
+
 using UnityEngine;
 
 namespace TarotLive.Game

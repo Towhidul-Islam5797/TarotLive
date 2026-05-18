@@ -22,6 +22,79 @@
 // Attach to ScorePanel in the canvas. Wire all TMP labels in Inspector.
 // ScorePanel starts disabled. GameManager calls Show() when card play begins, Hide() on round end.
 
+//using UnityEngine;
+//using TMPro;
+
+//namespace TarotLive.Game
+//{
+//    public class ScorePanelManager : MonoBehaviour
+//    {
+//        [Header("Live Score")]
+//        public TextMeshProUGUI attackScoreLabel;
+//        public TextMeshProUGUI defenseScoreLabel;
+
+//        [Header("Game Info")]
+//        public TextMeshProUGUI contractLabel;
+//        public TextMeshProUGUI takerLabel;
+
+//        [Header("Turn Info")]
+//        public TextMeshProUGUI turnLabel;
+
+//        public void Show()
+//        {
+//            gameObject.SetActive(true);
+//        }
+
+//        public void Hide()
+//        {
+//            gameObject.SetActive(false);
+//        }
+
+//        public void UpdateLiveScore(float attack, float defense)
+//        {
+//            if (attackScoreLabel != null)
+//                attackScoreLabel.text = "x " + attack.ToString("0.#");
+
+//            if (defenseScoreLabel != null)
+//                defenseScoreLabel.text = defense.ToString("0.#");
+//        }
+
+//        public void SetContractInfo(BidContract contract, int takerSeat, int localSeat)
+//        {
+//            if (contractLabel != null)
+//                contractLabel.text = ContractName(contract);
+
+//            if (takerLabel != null)
+//                takerLabel.text = takerSeat == localSeat ? "You" : "Player " + (takerSeat + 1);
+//        }
+
+//        public void UpdateTurnLabel(int activeSeat, int localSeat)
+//        {
+//            if (turnLabel != null)
+//                turnLabel.text = activeSeat == localSeat ? "Your Turn" : "Player " + (activeSeat + 1) + "'s Turn";
+//        }
+
+//        private string ContractName(BidContract contract)
+//        {
+//            switch (contract)
+//            {
+//                case BidContract.Petite: return "Petite";
+//                case BidContract.Garde: return "Garde";
+//                case BidContract.GardeSans: return "Garde Sans";
+//                case BidContract.GardeContre: return "Garde Contre";
+//                default: return "";
+//            }
+//        }
+//    }
+//}
+#endregion
+
+#region Milestone 2, Sprint 6d - Live score panel during card play
+// ScorePanelManager.cs
+// Shows live game info during card play: attack/defense scores, contract, taker, current turn.
+// Attach to ScorePanel in GameScene canvas. Starts disabled.
+// GameManager calls Show() when card play begins, Hide() on round end.
+
 using UnityEngine;
 using TMPro;
 
