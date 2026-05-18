@@ -2,7 +2,7 @@
 - Project name: TarotLive
 - Unity version: Unity 6000.3.10f1
 - Active game object:
-  - Name: Main Camera
-  - Tag: MainCamera
-  - Layer: Default
+  - Name: ButtonPanel
+  - Tag: Untagged
+  - Layer: UI
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
