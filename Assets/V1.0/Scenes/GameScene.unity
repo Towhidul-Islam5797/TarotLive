@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 49853278}
   - component: {fileID: 49853277}
   m_Layer: 5
-  m_Name: PauseButton
+  m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -779,7 +779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &150420902
 RectTransform:
   m_ObjectHideFlags: 0
@@ -832,7 +832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 432a5d8e32ee26044b2e4ac0d32ffa01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TarotLive.Game.HUDButtons
-  pauseButton: {fileID: 49853277}
+  menuButton: {fileID: 49853277}
 --- !u!1 &161166229
 GameObject:
   m_ObjectHideFlags: 0
@@ -3992,7 +3992,7 @@ MonoBehaviour:
     rowOffset: 0.6
   layout5Players:
     maxHandWidth: 8
-    cardAspectRatio: 0.34
+    cardAspectRatio: 0.32
     rowOffset: 0.6
   debugAllFaceUp: 1
 --- !u!4 &1865759171

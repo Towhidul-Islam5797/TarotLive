@@ -13,26 +13,57 @@
 // Handles HUD button actions during card play.
 // Attach to HUDPanel. Wire pauseButton in Inspector.
 
+//using UnityEngine;
+//using UnityEngine.UI;
+//using UnityEngine.SceneManagement;
+
+//namespace TarotLive.Game
+//{
+//    public class HUDButtons : MonoBehaviour
+//    {
+//        [Header("Buttons")]
+//        public Button pauseButton;
+
+//        void Start()
+//        {
+//            if (pauseButton != null)
+//                pauseButton.onClick.AddListener(OnPauseClicked);
+//        }
+
+//        private void OnPauseClicked()
+//        {
+//            SceneManager.LoadScene("PauseMenu", LoadSceneMode.Additive);
+//        }
+//    }
+//}
+#endregion
+
+#region Milestone 2, Sprint 7 - Rename Pause to Menu
+// HUDButtons.cs
+// Handles HUD button actions during card play.
+// Attach to HUDPanel. Wire menuButton in Inspector.
+// Opens GameMenu scene additively — game keeps running underneath.
+ 
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+ 
 namespace TarotLive.Game
 {
     public class HUDButtons : MonoBehaviour
     {
         [Header("Buttons")]
-        public Button pauseButton;
+        public Button menuButton;
 
         void Start()
         {
-            if (pauseButton != null)
-                pauseButton.onClick.AddListener(OnPauseClicked);
+            if (menuButton != null)
+                menuButton.onClick.AddListener(OnMenuClicked);
         }
 
-        private void OnPauseClicked()
+        private void OnMenuClicked()
         {
-            SceneManager.LoadScene("PauseMenu", LoadSceneMode.Additive);
+            SceneManager.LoadScene("GameMenu", LoadSceneMode.Additive);
         }
     }
 }

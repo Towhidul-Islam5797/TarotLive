@@ -39,57 +39,114 @@
 // Attach to PauseCanvas or a manager GameObject in the PauseMenu scene.
 // Wire all buttons in the Inspector.
 
+//using UnityEngine;
+//using UnityEngine.UI;
+//using UnityEngine.SceneManagement;
+
+//namespace TarotLive.Game
+//{
+//    public class PauseMenuManager : MonoBehaviour
+//    {
+//        [Header("Buttons")]
+//        public Button resumeButton;
+//        public Button rulesButton;
+//        public Button settingsButton;
+//        public Button quitButton;
+
+//        void Start()
+//        {
+//            if (resumeButton != null)
+//                resumeButton.onClick.AddListener(OnResumeClicked);
+
+//            if (rulesButton != null)
+//                rulesButton.onClick.AddListener(OnRulesClicked);
+
+//            if (settingsButton != null)
+//                settingsButton.onClick.AddListener(OnSettingsClicked);
+
+//            if (quitButton != null)
+//                quitButton.onClick.AddListener(OnQuitClicked);
+//        }
+
+//        // Unloads the PauseMenu scene and returns to GameScene.
+//        private void OnResumeClicked()
+//        {
+//            SceneManager.UnloadSceneAsync("PauseMenu");
+//        }
+
+//        // Loads the Rules scene.
+//        private void OnRulesClicked()
+//        {
+//            SceneManager.LoadScene("Rules");
+//        }
+
+//        // Stubbed for now — settings panel will be added later.
+//        private void OnSettingsClicked()
+//        {
+//            Debug.Log("PauseMenuManager: Settings clicked — not yet implemented.");
+//        }
+
+//        // Unloads PauseMenu and loads MainMenu.
+//        private void OnQuitClicked()
+//        {
+//            SceneManager.UnloadSceneAsync("PauseMenu");
+//            SceneManager.LoadScene("MainMenu");
+//        }
+//    }
+//}
+#endregion
+
+#region Milestone 2, Sprint 7 - Rename Pause to Menu
+// GameMenuManager.cs
+// Handles all button actions in the GameMenu scene.
+// Attach to a manager GameObject in the GameMenu scene.
+// Wire all buttons in the Inspector.
+// Game continues running in the background — nothing pauses.
+
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 namespace TarotLive.Game
 {
-    public class PauseMenuManager : MonoBehaviour
+    public class GameMenuManager : MonoBehaviour
     {
         [Header("Buttons")]
         public Button resumeButton;
         public Button rulesButton;
         public Button settingsButton;
-        public Button quitButton;
+        public Button leaveButton;
 
         void Start()
         {
             if (resumeButton != null)
                 resumeButton.onClick.AddListener(OnResumeClicked);
-
             if (rulesButton != null)
                 rulesButton.onClick.AddListener(OnRulesClicked);
-
             if (settingsButton != null)
                 settingsButton.onClick.AddListener(OnSettingsClicked);
-
-            if (quitButton != null)
-                quitButton.onClick.AddListener(OnQuitClicked);
+            if (leaveButton != null)
+                leaveButton.onClick.AddListener(OnLeaveClicked);
         }
 
-        // Unloads the PauseMenu scene and returns to GameScene.
         private void OnResumeClicked()
         {
-            SceneManager.UnloadSceneAsync("PauseMenu");
+            SceneManager.UnloadSceneAsync("GameMenu");
         }
 
-        // Loads the Rules scene.
         private void OnRulesClicked()
         {
             SceneManager.LoadScene("Rules");
         }
 
-        // Stubbed for now — settings panel will be added later.
         private void OnSettingsClicked()
         {
-            Debug.Log("PauseMenuManager: Settings clicked — not yet implemented.");
+            Debug.Log("GameMenuManager: Settings not yet implemented.");
         }
 
-        // Unloads PauseMenu and loads MainMenu.
-        private void OnQuitClicked()
+        private void OnLeaveClicked()
         {
-            SceneManager.UnloadSceneAsync("PauseMenu");
+            SceneManager.UnloadSceneAsync("GameMenu");
             SceneManager.LoadScene("MainMenu");
         }
     }

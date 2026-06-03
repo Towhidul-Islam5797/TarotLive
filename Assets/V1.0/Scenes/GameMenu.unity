@@ -129,7 +129,6 @@ GameObject:
   m_Component:
   - component: {fileID: 12264466}
   - component: {fileID: 12264465}
-  - component: {fileID: 12264464}
   - component: {fileID: 12264467}
   m_Layer: 0
   m_Name: Main Camera
@@ -138,14 +137,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &12264464
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 12264463}
-  m_Enabled: 1
 --- !u!20 &12264465
 Camera:
   m_ObjectHideFlags: 0
@@ -349,7 +340,7 @@ GameObject:
   - component: {fileID: 84284819}
   - component: {fileID: 84284823}
   m_Layer: 5
-  m_Name: PauseCanvas
+  m_Name: GameMenuCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -453,7 +444,7 @@ MonoBehaviour:
   resumeButton: {fileID: 860564663}
   rulesButton: {fileID: 536176730}
   settingsButton: {fileID: 1357131946}
-  quitButton: {fileID: 1200699110}
+  leaveButton: {fileID: 1200699110}
 --- !u!1 &536176726
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,7 +1051,7 @@ GameObject:
   - component: {fileID: 948918660}
   - component: {fileID: 948918659}
   m_Layer: 5
-  m_Name: QuitLabel
+  m_Name: LEAVE GAME
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1105,9 +1096,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Quit
-
-'
+  m_text: LEAVE GAME
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4bb67ccaaa5675647aaf4808a4bbd2a8, type: 2}
   m_sharedMaterial: {fileID: 794939106157573254, guid: 4bb67ccaaa5675647aaf4808a4bbd2a8, type: 2}
@@ -1337,7 +1326,7 @@ GameObject:
   - component: {fileID: 1200699108}
   - component: {fileID: 1200699110}
   m_Layer: 5
-  m_Name: QuitButton
+  m_Name: LEAVE GAME
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1703,7 +1692,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PAUSED
+  m_text: Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 36673ad93deac6d4fbc1697552a24a16, type: 2}
   m_sharedMaterial: {fileID: -9125246361897487853, guid: 36673ad93deac6d4fbc1697552a24a16, type: 2}
