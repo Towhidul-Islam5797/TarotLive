@@ -354,9 +354,209 @@
 //}
 #endregion
 #region Milestone 2 Sprint 5 - Final Score Display with Cumulative Totals and Continue Button
+//using UnityEngine;
+//using UnityEngine.UI;
+//using System;
+//using TMPro;
+
+//namespace TarotLive.Game
+//{
+//    [Serializable]
+//    public class PlayerRow
+//    {
+//        public TextMeshProUGUI nameLabel;
+//        public TextMeshProUGUI stateLabel;
+//        public TextMeshProUGUI scoreLabel;
+//        public TextMeshProUGUI totalLabel;
+//    }
+
+//    public class ScoreUI : MonoBehaviour
+//    {
+//        [Header("Outcome")]
+//        public TextMeshProUGUI outcomeLabel;
+
+//        [Header("Left Parchment - Player Rows")]
+//        public PlayerRow[] playerRows;
+
+//        [Header("Right Parchment - Contract Section")]
+//        public TextMeshProUGUI contractValue;
+//        public TextMeshProUGUI multiplierValue;
+//        public TextMeshProUGUI takerNameValue;
+
+//        [Header("Right Parchment - Points Section")]
+//        public TextMeshProUGUI pointsMadeValue;
+//        public TextMeshProUGUI pointsNeededValue;
+//        public TextMeshProUGUI differenceValue;
+//        public TextMeshProUGUI finalScoreValue;
+
+//        [Header("Continue")]
+//        public Button continueButton;
+
+//        private Action onContinue;
+
+//        void Start()
+//        {
+//            if (continueButton != null)
+//                continueButton.onClick.AddListener(OnContinueClicked);
+//        }
+
+//        // cumulativeScores = running totals per seat across all rounds so far (already updated before calling Show).
+//        public void Show(RoundResult result, int takerSeat, int localSeat, int[] cumulativeScores, Action onComplete)
+//        {
+//            gameObject.SetActive(true);
+//            onContinue = onComplete;
+
+//            SetOutcome(result);
+//            SetPlayerRows(result, takerSeat, localSeat, cumulativeScores);
+//            SetContractSection(result, takerSeat, localSeat);
+//            SetPointsSection(result);
+//        }
+
+//        private void SetOutcome(RoundResult result)
+//        {
+//            if (outcomeLabel == null) return;
+
+//            if (result.takerWon)
+//            {
+//                outcomeLabel.text = "TAKER WON";
+//                outcomeLabel.color = new Color(1f, 0.84f, 0f);
+//            }
+//            else
+//            {
+//                outcomeLabel.text = "DEFENSE WON";
+//                outcomeLabel.color = new Color(0.9f, 0.2f, 0.2f);
+//            }
+//        }
+
+//        private void SetPlayerRows(RoundResult result, int takerSeat, int localSeat, int[] cumulativeScores)
+//        {
+//            if (playerRows == null) return;
+
+//            int playerCount = result.scorePerSeat.Length;
+
+//            for (int i = 0; i < playerRows.Length; i++)
+//            {
+//                PlayerRow row = playerRows[i];
+//                if (row == null) continue;
+
+//                bool active = i < playerCount;
+
+//                if (row.nameLabel != null) row.nameLabel.gameObject.SetActive(active);
+//                if (row.stateLabel != null) row.stateLabel.gameObject.SetActive(active);
+//                if (row.scoreLabel != null) row.scoreLabel.gameObject.SetActive(active);
+//                if (row.totalLabel != null) row.totalLabel.gameObject.SetActive(active);
+
+//                if (!active) continue;
+
+//                if (row.nameLabel != null)
+//                    row.nameLabel.text = "Player " + (i + 1);
+
+//                if (row.stateLabel != null)
+//                {
+//                    if (i == localSeat && i == takerSeat)
+//                        row.stateLabel.text = "You (Taker)";
+//                    else if (i == localSeat)
+//                        row.stateLabel.text = "You";
+//                    else if (i == takerSeat)
+//                        row.stateLabel.text = "Taker";
+//                    else
+//                        row.stateLabel.text = "Defense";
+//                }
+
+//                if (row.scoreLabel != null)
+//                {
+//                    int score = result.scorePerSeat[i];
+//                    string sign = score >= 0 ? "+" : "";
+//                    row.scoreLabel.text = sign + score;
+//                    row.scoreLabel.color = score >= 0
+//                        ? new Color(0.2f, 0.8f, 0.2f)
+//                        : new Color(0.9f, 0.2f, 0.2f);
+//                }
+
+//                // Running total — only shown if the array is provided and sized correctly.
+//                if (row.totalLabel != null)
+//                {
+//                    if (cumulativeScores != null && i < cumulativeScores.Length)
+//                    {
+//                        int total = cumulativeScores[i];
+//                        string sign = total >= 0 ? "+" : "";
+//                        row.totalLabel.text = sign + total;
+//                        row.totalLabel.color = total >= 0
+//                            ? new Color(0.2f, 0.8f, 0.2f)
+//                            : new Color(0.9f, 0.2f, 0.2f);
+//                    }
+//                    else
+//                    {
+//                        row.totalLabel.text = "-";
+//                    }
+//                }
+//            }
+//        }
+
+//        private void SetContractSection(RoundResult result, int takerSeat, int localSeat)
+//        {
+//            if (contractValue != null)
+//            {
+//                switch (result.contractMultiplier)
+//                {
+//                    case 1: contractValue.text = "Petite"; break;
+//                    case 2: contractValue.text = "Garde"; break;
+//                    case 4: contractValue.text = "Garde Sans"; break;
+//                    case 6: contractValue.text = "Garde Contre"; break;
+//                    default: contractValue.text = "-"; break;
+//                }
+//            }
+
+//            if (multiplierValue != null)
+//                multiplierValue.text = "x" + result.contractMultiplier;
+
+//            if (takerNameValue != null)
+//                takerNameValue.text = takerSeat == localSeat
+//                    ? "You"
+//                    : "Player " + (takerSeat + 1);
+//        }
+
+//        private void SetPointsSection(RoundResult result)
+//        {
+//            float absDiff = Mathf.Abs((float)result.pointDifference);
+
+//            if (pointsMadeValue != null)
+//                pointsMadeValue.text = result.takerPoints.ToString("0.#");
+
+//            if (pointsNeededValue != null)
+//                pointsNeededValue.text = result.threshold.ToString("0");
+
+//            if (differenceValue != null)
+//            {
+//                string sign = result.pointDifference >= 0 ? "+" : "-";
+//                differenceValue.text = sign + absDiff.ToString("0.#");
+//                differenceValue.color = result.pointDifference >= 0
+//                    ? new Color(0.2f, 0.8f, 0.2f)
+//                    : new Color(0.9f, 0.2f, 0.2f);
+//            }
+
+//            if (finalScoreValue != null)
+//                finalScoreValue.text = result.finalScore.ToString();
+//        }
+
+//        private void OnContinueClicked()
+//        {
+//            gameObject.SetActive(false);
+//            onContinue?.Invoke();
+//        }
+//    }
+//}
+#endregion
+
+#region Milestone 2, Sprint 7 - Display half-points as readable points
+// ScoreUI.cs
+// Revision: RoundResult now uses int half-points.
+// Display divides by 2f for human-readable output.
+// Player rows show "Partner" role for 5P partner seat.
+
+using System;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 using TMPro;
 
 namespace TarotLive.Game
@@ -400,12 +600,10 @@ namespace TarotLive.Game
                 continueButton.onClick.AddListener(OnContinueClicked);
         }
 
-        // cumulativeScores = running totals per seat across all rounds so far (already updated before calling Show).
         public void Show(RoundResult result, int takerSeat, int localSeat, int[] cumulativeScores, Action onComplete)
         {
             gameObject.SetActive(true);
             onContinue = onComplete;
-
             SetOutcome(result);
             SetPlayerRows(result, takerSeat, localSeat, cumulativeScores);
             SetContractSection(result, takerSeat, localSeat);
@@ -415,23 +613,15 @@ namespace TarotLive.Game
         private void SetOutcome(RoundResult result)
         {
             if (outcomeLabel == null) return;
-
-            if (result.takerWon)
-            {
-                outcomeLabel.text = "TAKER WON";
-                outcomeLabel.color = new Color(1f, 0.84f, 0f);
-            }
-            else
-            {
-                outcomeLabel.text = "DEFENSE WON";
-                outcomeLabel.color = new Color(0.9f, 0.2f, 0.2f);
-            }
+            outcomeLabel.text = result.takerWon ? "ATTACK WON" : "DEFENSE WON";
+            outcomeLabel.color = result.takerWon
+                ? new Color(0.2f, 0.8f, 0.2f)
+                : new Color(0.9f, 0.2f, 0.2f);
         }
 
         private void SetPlayerRows(RoundResult result, int takerSeat, int localSeat, int[] cumulativeScores)
         {
             if (playerRows == null) return;
-
             int playerCount = result.scorePerSeat.Length;
 
             for (int i = 0; i < playerRows.Length; i++)
@@ -440,7 +630,6 @@ namespace TarotLive.Game
                 if (row == null) continue;
 
                 bool active = i < playerCount;
-
                 if (row.nameLabel != null) row.nameLabel.gameObject.SetActive(active);
                 if (row.stateLabel != null) row.stateLabel.gameObject.SetActive(active);
                 if (row.scoreLabel != null) row.scoreLabel.gameObject.SetActive(active);
@@ -449,18 +638,16 @@ namespace TarotLive.Game
                 if (!active) continue;
 
                 if (row.nameLabel != null)
-                    row.nameLabel.text = "Player " + (i + 1);
+                    row.nameLabel.text = i == localSeat ? "You" : "Player " + (i + 1);
 
                 if (row.stateLabel != null)
                 {
-                    if (i == localSeat && i == takerSeat)
-                        row.stateLabel.text = "You (Taker)";
-                    else if (i == localSeat)
-                        row.stateLabel.text = "You";
-                    else if (i == takerSeat)
+                    if (i == takerSeat)
                         row.stateLabel.text = "Taker";
+                    else if (i == result.partnerSeat && result.partnerSeat >= 0)
+                        row.stateLabel.text = "Partner";
                     else
-                        row.stateLabel.text = "Defense";
+                        row.stateLabel.text = "Defender";
                 }
 
                 if (row.scoreLabel != null)
@@ -473,22 +660,14 @@ namespace TarotLive.Game
                         : new Color(0.9f, 0.2f, 0.2f);
                 }
 
-                // Running total — only shown if the array is provided and sized correctly.
-                if (row.totalLabel != null)
+                if (row.totalLabel != null && cumulativeScores != null && i < cumulativeScores.Length)
                 {
-                    if (cumulativeScores != null && i < cumulativeScores.Length)
-                    {
-                        int total = cumulativeScores[i];
-                        string sign = total >= 0 ? "+" : "";
-                        row.totalLabel.text = sign + total;
-                        row.totalLabel.color = total >= 0
-                            ? new Color(0.2f, 0.8f, 0.2f)
-                            : new Color(0.9f, 0.2f, 0.2f);
-                    }
-                    else
-                    {
-                        row.totalLabel.text = "-";
-                    }
+                    int total = cumulativeScores[i];
+                    string sign = total >= 0 ? "+" : "";
+                    row.totalLabel.text = sign + total;
+                    row.totalLabel.color = total >= 0
+                        ? new Color(0.2f, 0.8f, 0.2f)
+                        : new Color(0.9f, 0.2f, 0.2f);
                 }
             }
         }
@@ -496,47 +675,51 @@ namespace TarotLive.Game
         private void SetContractSection(RoundResult result, int takerSeat, int localSeat)
         {
             if (contractValue != null)
-            {
-                switch (result.contractMultiplier)
-                {
-                    case 1: contractValue.text = "Petite"; break;
-                    case 2: contractValue.text = "Garde"; break;
-                    case 4: contractValue.text = "Garde Sans"; break;
-                    case 6: contractValue.text = "Garde Contre"; break;
-                    default: contractValue.text = "-"; break;
-                }
-            }
+                contractValue.text = ContractName(result.contractMultiplier);
 
             if (multiplierValue != null)
                 multiplierValue.text = "x" + result.contractMultiplier;
 
             if (takerNameValue != null)
-                takerNameValue.text = takerSeat == localSeat
-                    ? "You"
-                    : "Player " + (takerSeat + 1);
+                takerNameValue.text = takerSeat == localSeat ? "You" : "Player " + (takerSeat + 1);
         }
 
         private void SetPointsSection(RoundResult result)
         {
-            float absDiff = Mathf.Abs((float)result.pointDifference);
+            // Divide half-points by 2 only here for display.
+            float pointsMade = result.takerHalfPoints / 2f;
+            float pointsNeeded = result.thresholdHalfPoints / 2f;
+            float diff = result.pointDifferenceHalf / 2f;
 
             if (pointsMadeValue != null)
-                pointsMadeValue.text = result.takerPoints.ToString("0.#");
+                pointsMadeValue.text = pointsMade.ToString("0.#");
 
             if (pointsNeededValue != null)
-                pointsNeededValue.text = result.threshold.ToString("0");
+                pointsNeededValue.text = pointsNeeded.ToString("0");
 
             if (differenceValue != null)
             {
-                string sign = result.pointDifference >= 0 ? "+" : "-";
-                differenceValue.text = sign + absDiff.ToString("0.#");
-                differenceValue.color = result.pointDifference >= 0
+                string sign = diff >= 0 ? "+" : "";
+                differenceValue.text = sign + diff.ToString("0.#");
+                differenceValue.color = diff >= 0
                     ? new Color(0.2f, 0.8f, 0.2f)
                     : new Color(0.9f, 0.2f, 0.2f);
             }
 
             if (finalScoreValue != null)
                 finalScoreValue.text = result.finalScore.ToString();
+        }
+
+        private string ContractName(int multiplier)
+        {
+            switch (multiplier)
+            {
+                case 1: return "Petite";
+                case 2: return "Garde";
+                case 4: return "Garde Sans";
+                case 6: return "Garde Contre";
+                default: return "";
+            }
         }
 
         private void OnContinueClicked()
