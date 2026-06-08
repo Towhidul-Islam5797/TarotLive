@@ -30,6 +30,26 @@
 // Static container that carries round result data from GameScene to FinalResults scene.
 // Revision: Added CurrentRound, TotalRounds, IsGameOver for round limit support.
 
+//namespace TarotLive.Game
+//{
+//    public static class RoundResultData
+//    {
+//        public static RoundResult Result;
+//        public static int TakerSeat;
+//        public static int LocalSeat;
+//        public static int[] CumulativeScores;
+//        public static int PlayerCount;
+//        public static int CurrentRound;
+//        public static int TotalRounds;
+//        public static bool IsGameOver;
+//    }
+//}
+#endregion
+
+#region Milestone 3, Sprint 9 - Dealer rotation across rounds
+// RoundResultData.cs
+// Sprint 9: Added DealerSeat so GameManager can restore the correct dealer each round.
+
 namespace TarotLive.Game
 {
     public static class RoundResultData
@@ -42,6 +62,7 @@ namespace TarotLive.Game
         public static int CurrentRound;
         public static int TotalRounds;
         public static bool IsGameOver;
+        public static int DealerSeat;
     }
 }
 #endregion

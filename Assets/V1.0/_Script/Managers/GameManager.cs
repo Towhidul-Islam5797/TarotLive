@@ -5471,6 +5471,455 @@
 //   - ShowHand and StartChien now pass seat.cardSpawnPoint (Transform) not Vector3
 //   - HandLayoutSettings class removed (moved to HandLayoutSettings.cs)
 
+//using System;
+//using System.Collections;
+//using System.Collections.Generic;
+//using TarotLive.Core;
+//using UnityEngine;
+//using UnityEngine.SceneManagement;
+
+//namespace TarotLive.Game
+//{
+//    public class GameManager : MonoBehaviour
+//    {
+//        [Header("References")]
+//        public DeckManager deckManager;
+//        public TurnManager turnManager;
+//        public TableLayout tableLayout;
+//        public PlayArea playArea;
+//        public HUDManager hudManager;
+//        public ScorePanelManager scorePanel;
+//        public CardFactory cardFactory;
+//        public BiddingManager biddingManager;
+//        public ChienManager chienManager;
+
+//        [Header("Prefabs")]
+//        public HandDisplay handDisplayPrefab;
+
+//        [Header("Settings (fallback if Lobby not used)")]
+//        public int playerCount = GameSettings.DefaultPlayerCount;
+//        public int localSeatIndex = 0;
+//        public float trickClearDelay = 1.5f;
+
+//        [Header("Debug")]
+//        public bool debugAllFaceUp = false;
+
+//        private HandDisplay[] handDisplays;
+//        private int trickCount = 0;
+//        private int totalTricks = 0;
+//        private int dealerSeat = 0;
+//        private int takerSeat = -1;
+//        private BidContract currentContract = BidContract.None;
+//        private int previousActiveSeat = -1;
+//        private int currentRound = 0;
+//        private int roundsToPlay = 0;
+
+//        private Dictionary<int, List<CardData>> trickPilePerSeat;
+//        private int[] cumulativeScores;
+
+//        void Start()
+//        {
+//            if (GameSession.IsValid())
+//            {
+//                playerCount = GameSession.PlayerCount;
+//                roundsToPlay = GameSession.RoundCount;
+//            }
+//            else
+//            {
+//                roundsToPlay = 3;
+//                Debug.LogWarning("GameManager: GameSession not valid. Using Inspector fallback.");
+//            }
+
+//            tableLayout.playerCount = playerCount;
+//            tableLayout.SpawnSeats();
+
+//            deckManager.StartDeal(playerCount);
+//            playArea.Init(playerCount);
+
+//            int chienSize = GameSettings.GetChienSize(playerCount);
+//            totalTricks = (GameSettings.TotalCards - chienSize) / playerCount;
+
+//            cumulativeScores = new int[playerCount];
+//            currentRound = 0;
+
+//            hudManager?.Show();
+
+//            handDisplays = new HandDisplay[playerCount];
+
+//            for (int i = 0; i < playerCount; i++)
+//            {
+//                PlayerSeat seat = tableLayout.GetSeat(i);
+//                Transform spawnPoint = SpawnPointOf(seat);
+
+//                HandDisplay display = Instantiate(handDisplayPrefab, seat.transform);
+//                display.seatIndex = i;
+//                display.canPlay = false;
+//                display.playArea = playArea;
+//                display.cardFactory = cardFactory;
+
+//                display.ApplyLayout(
+//                    seat.handLayout.maxHandWidth,
+//                    seat.handLayout.cardAspectRatio,
+//                    seat.handLayout.rowOffset
+//                );
+
+//                bool faceUp = debugAllFaceUp || (i == localSeatIndex);
+//                display.ShowHand(deckManager.GetHand(i), spawnPoint, faceUp);
+
+//                handDisplays[i] = display;
+
+//                if (seat != null)
+//                    seat.Setup(i, i == localSeatIndex ? "You" : "Player " + (i + 1), i == localSeatIndex);
+//            }
+
+//            StartBidding();
+//        }
+
+//        // Returns seat.cardSpawnPoint if assigned, otherwise falls back to seat root.
+//        private Transform SpawnPointOf(PlayerSeat seat)
+//        {
+//            if (seat == null) return null;
+//            return seat.cardSpawnPoint != null ? seat.cardSpawnPoint : seat.transform;
+//        }
+
+//        // -------------------------------------------------------
+//        // Bidding
+//        // -------------------------------------------------------
+
+//        private void StartBidding()
+//        {
+//            for (int i = 0; i < playerCount; i++)
+//            {
+//                PlayerSeat seat = tableLayout.GetSeat(i);
+//                if (seat != null) seat.SetCamp(false, false);
+//            }
+
+//            biddingManager.OnBiddingComplete += OnBiddingComplete;
+//            biddingManager.OnAllPassed += OnAllPassed;
+//            biddingManager.StartBidding(playerCount, dealerSeat);
+//        }
+
+//        private void OnBiddingComplete(int taker, BidContract contract)
+//        {
+//            biddingManager.OnBiddingComplete -= OnBiddingComplete;
+//            biddingManager.OnAllPassed -= OnAllPassed;
+
+//            takerSeat = taker;
+//            currentContract = contract;
+
+//            Debug.Log("GameManager: Taker is Seat " + takerSeat + " with " + currentContract);
+
+//            for (int i = 0; i < playerCount; i++)
+//            {
+//                PlayerSeat seat = tableLayout.GetSeat(i);
+//                if (seat != null) seat.SetCamp(i == takerSeat, true);
+//            }
+
+//            StartChienPhase();
+//        }
+
+//        private void OnAllPassed()
+//        {
+//            biddingManager.OnBiddingComplete -= OnBiddingComplete;
+//            biddingManager.OnAllPassed -= OnAllPassed;
+
+//            Debug.Log("GameManager: All passed. Redealing.");
+//            Invoke(nameof(Redeal), 1.5f);
+//        }
+
+//        private void Redeal()
+//        {
+//            for (int i = 0; i < playerCount; i++)
+//                handDisplays[i].ClearHand();
+
+//            deckManager.StartDeal(playerCount);
+
+//            for (int i = 0; i < playerCount; i++)
+//            {
+//                PlayerSeat seat = tableLayout.GetSeat(i);
+//                Transform spawnPoint = SpawnPointOf(seat);
+
+//                bool faceUp = debugAllFaceUp || (i == localSeatIndex);
+//                handDisplays[i].ApplyLayout(
+//                    seat.handLayout.maxHandWidth,
+//                    seat.handLayout.cardAspectRatio,
+//                    seat.handLayout.rowOffset
+//                );
+//                handDisplays[i].ShowHand(deckManager.GetHand(i), spawnPoint, faceUp);
+//            }
+
+//            dealerSeat = (dealerSeat + 1) % playerCount;
+//            trickCount = 0;
+//            previousActiveSeat = -1;
+//            StartBidding();
+//        }
+
+//        // -------------------------------------------------------
+//        // Chien phase
+//        // -------------------------------------------------------
+
+//        private void StartChienPhase()
+//        {
+//            PlayerSeat seat = tableLayout.GetSeat(takerSeat);
+//            Transform spawnPoint = SpawnPointOf(seat);
+
+//            chienManager.StartChien(
+//                currentContract,
+//                deckManager.Chien,
+//                handDisplays[takerSeat],
+//                deckManager.GetHand(takerSeat),
+//                spawnPoint,
+//                StartCardPlay
+//            );
+//        }
+
+//        // -------------------------------------------------------
+//        // Card play
+//        // -------------------------------------------------------
+
+//        private void StartCardPlay()
+//        {
+//            trickPilePerSeat = new Dictionary<int, List<CardData>>();
+//            for (int i = 0; i < playerCount; i++)
+//                trickPilePerSeat[i] = new List<CardData>();
+
+//            scorePanel?.Show();
+//            scorePanel?.UpdateLiveScore(0, 91);
+//            scorePanel?.SetContractInfo(currentContract, takerSeat, localSeatIndex);
+
+//            playArea.OnCardPlayed += OnCardPlayed;
+//            playArea.OnTrickComplete += OnTrickComplete;
+//            turnManager.OnTurnChanged += OnTurnChanged;
+//            turnManager.StartGame(playerCount, firstSeat: (dealerSeat + 1) % playerCount);
+//        }
+
+//        private void OnCardPlayed()
+//        {
+//            if (playArea.CardCount < playerCount)
+//                turnManager.NextTurn();
+//        }
+
+//        private void OnTrickComplete(List<(int seatIndex, CardView card)> cards)
+//        {
+//            int winnerSeat = ResolveTrick(cards, playArea.LedSuit);
+//            trickCount++;
+
+//            foreach (var (_, card) in cards)
+//                trickPilePerSeat[winnerSeat].Add(card.Data);
+
+//            float attackPoints = 0f;
+//            foreach (var card in trickPilePerSeat[takerSeat])
+//                attackPoints += ScoreManager.GetCardPoints(card);
+
+//            scorePanel?.UpdateLiveScore(attackPoints, 91f - attackPoints);
+
+//            Debug.Log("GameManager: Trick " + trickCount + " won by Seat " + winnerSeat);
+
+//            for (int i = 0; i < playerCount; i++)
+//            {
+//                handDisplays[i].canPlay = false;
+//                handDisplays[i].SetAllPlayable();
+//            }
+
+//            StartCoroutine(CollectTrickAfterDelay(winnerSeat));
+//        }
+
+//        private int ResolveTrick(List<(int seatIndex, CardView card)> cards, CardSuit ledSuit)
+//        {
+//            int winnerSeat = -1;
+//            CardData best = null;
+
+//            foreach (var (seat, cardView) in cards)
+//            {
+//                CardData data = cardView.Data;
+//                if (data.IsFool) continue;
+
+//                if (best == null)
+//                {
+//                    if (data.IsTrump || data.suit == ledSuit)
+//                    { best = data; winnerSeat = seat; }
+//                    continue;
+//                }
+
+//                if (data.IsTrump && !best.IsTrump)
+//                { best = data; winnerSeat = seat; }
+//                else if (data.IsTrump && best.IsTrump && data.trumpNumber > best.trumpNumber)
+//                { best = data; winnerSeat = seat; }
+//                else if (!data.IsTrump && !best.IsTrump && data.suit == ledSuit && best.suit == ledSuit && (int)data.rank > (int)best.rank)
+//                { best = data; winnerSeat = seat; }
+//            }
+
+//            if (winnerSeat == -1) winnerSeat = cards[0].seatIndex;
+//            return winnerSeat;
+//        }
+
+//        private IEnumerator CollectTrickAfterDelay(int winnerSeat)
+//        {
+//            yield return new WaitForSeconds(trickClearDelay);
+
+//            PlayerSeat seat = tableLayout.GetSeat(winnerSeat);
+//            Vector3 targetPos = seat != null ? seat.CardSpawnPosition : Vector3.zero;
+
+//            playArea.AnimateCardsToWinner(targetPos, () =>
+//            {
+//                if (trickCount == totalTricks)
+//                    OnRoundEnd();
+//                else
+//                    turnManager.SetTurn(winnerSeat);
+//            });
+//        }
+
+//        // -------------------------------------------------------
+//        // Round end
+//        // -------------------------------------------------------
+
+//        private void OnRoundEnd()
+//        {
+//            playArea.OnCardPlayed -= OnCardPlayed;
+//            playArea.OnTrickComplete -= OnTrickComplete;
+//            turnManager.OnTurnChanged -= OnTurnChanged;
+
+//            scorePanel?.Hide();
+//            currentRound++;
+
+//            if (previousActiveSeat >= 0)
+//            {
+//                PlayerSeat prev = tableLayout.GetSeat(previousActiveSeat);
+//                if (prev != null) prev.SetActive(false);
+//            }
+
+//            List<CardData> takerCards = new List<CardData>(trickPilePerSeat[takerSeat]);
+
+//            if (currentContract == BidContract.Petite || currentContract == BidContract.Garde)
+//                takerCards.AddRange(chienManager.DiscardedCards);
+//            else if (currentContract == BidContract.GardeSans)
+//                takerCards.AddRange(deckManager.Chien);
+
+//            RoundResult result = ScoreManager.CalculateRoundScore(
+//                takerCards,
+//                currentContract,
+//                takerSeat,
+//                playerCount,
+//                partnerSeat: -1
+//            );
+
+//            for (int i = 0; i < playerCount; i++)
+//                cumulativeScores[i] += result.scorePerSeat[i];
+
+//            Debug.Log("GameManager: Round " + currentRound + "/" + roundsToPlay +
+//                      ". Taker " + (result.takerWon ? "won" : "lost") +
+//                      ". Score: " + result.finalScore);
+
+//            RoundResultData.Result = result;
+//            RoundResultData.TakerSeat = takerSeat;
+//            RoundResultData.LocalSeat = localSeatIndex;
+//            RoundResultData.CumulativeScores = cumulativeScores;
+//            RoundResultData.PlayerCount = playerCount;
+//            RoundResultData.CurrentRound = currentRound;
+//            RoundResultData.TotalRounds = roundsToPlay;
+//            RoundResultData.IsGameOver = currentRound >= roundsToPlay;
+
+//            SceneManager.LoadScene("FinalResults");
+//        }
+
+//        // -------------------------------------------------------
+//        // Turn changed
+//        // -------------------------------------------------------
+
+//        private void OnTurnChanged(int activeSeat)
+//        {
+//            if (previousActiveSeat >= 0)
+//            {
+//                PlayerSeat prev = tableLayout.GetSeat(previousActiveSeat);
+//                if (prev != null) prev.SetActive(false);
+//            }
+
+//            PlayerSeat current = tableLayout.GetSeat(activeSeat);
+//            if (current != null) current.SetActive(true);
+//            previousActiveSeat = activeSeat;
+
+//            for (int i = 0; i < playerCount; i++)
+//                handDisplays[i].canPlay = (i == activeSeat);
+
+//            ApplyLegalCards(handDisplays[activeSeat]);
+//            scorePanel?.UpdateTurnLabel(activeSeat, localSeatIndex);
+
+//            Debug.Log("GameManager: Active seat -> " + activeSeat);
+//        }
+
+//        // -------------------------------------------------------
+//        // Legal card enforcement (Rules 5-7)
+//        // -------------------------------------------------------
+
+//        private void ApplyLegalCards(HandDisplay display)
+//        {
+//            if (!playArea.TrickStarted)
+//            {
+//                display.SetAllPlayable();
+//                return;
+//            }
+
+//            List<CardView> hand = display.CardViews;
+//            CardSuit ledSuit = playArea.LedSuit;
+//            int highestTrump = playArea.HighestTrumpOnTable;
+
+//            List<CardView> ledSuitCards = new List<CardView>();
+//            List<CardView> trumpCards = new List<CardView>();
+//            List<CardView> higherTrumps = new List<CardView>();
+
+//            foreach (var card in hand)
+//            {
+//                CardData data = card.Data;
+//                if (data.IsFool) continue;
+
+//                if (data.IsTrump)
+//                {
+//                    trumpCards.Add(card);
+//                    if (data.trumpNumber > highestTrump)
+//                        higherTrumps.Add(card);
+//                }
+//                else if (data.suit == ledSuit)
+//                    ledSuitCards.Add(card);
+//            }
+
+//            List<CardView> legal = new List<CardView>();
+
+//            if (ledSuit == CardSuit.Trump)
+//            {
+//                if (higherTrumps.Count > 0) legal.AddRange(higherTrumps);
+//                else if (trumpCards.Count > 0) legal.AddRange(trumpCards);
+//                else legal.AddRange(hand);
+//            }
+//            else
+//            {
+//                if (ledSuitCards.Count > 0)
+//                    legal.AddRange(ledSuitCards);
+//                else if (trumpCards.Count > 0)
+//                {
+//                    if (higherTrumps.Count > 0) legal.AddRange(higherTrumps);
+//                    else legal.AddRange(trumpCards);
+//                }
+//                else
+//                    legal.AddRange(hand);
+//            }
+
+//            foreach (var card in hand)
+//                if (card.Data.IsFool && !legal.Contains(card))
+//                    legal.Add(card);
+
+//            display.SetPlayableCards(legal);
+//        }
+//    }
+//}
+#endregion
+
+#region Milestone 3, Sprint 9 - Dealer rotation + random first dealer
+// GameManager.cs
+// Sprint 9 changes:
+//   - Round 1: dealerSeat chosen randomly
+//   - Round 2+: dealerSeat and cumulativeScores restored from RoundResultData
+//   - OnRoundEnd: saves next dealerSeat into RoundResultData before scene load
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -5530,6 +5979,20 @@ namespace TarotLive.Game
                 Debug.LogWarning("GameManager: GameSession not valid. Using Inspector fallback.");
             }
 
+            // Round 1: random dealer. Round 2+: restore from RoundResultData.
+            if (RoundResultData.CurrentRound == 0)
+            {
+                dealerSeat = UnityEngine.Random.Range(0, playerCount);
+                currentRound = 0;
+                cumulativeScores = new int[playerCount];
+            }
+            else
+            {
+                dealerSeat = RoundResultData.DealerSeat;
+                currentRound = RoundResultData.CurrentRound;
+                cumulativeScores = RoundResultData.CumulativeScores;
+            }
+
             tableLayout.playerCount = playerCount;
             tableLayout.SpawnSeats();
 
@@ -5538,9 +6001,6 @@ namespace TarotLive.Game
 
             int chienSize = GameSettings.GetChienSize(playerCount);
             totalTricks = (GameSettings.TotalCards - chienSize) / playerCount;
-
-            cumulativeScores = new int[playerCount];
-            currentRound = 0;
 
             hudManager?.Show();
 
@@ -5575,7 +6035,6 @@ namespace TarotLive.Game
             StartBidding();
         }
 
-        // Returns seat.cardSpawnPoint if assigned, otherwise falls back to seat root.
         private Transform SpawnPointOf(PlayerSeat seat)
         {
             if (seat == null) return null;
@@ -5818,6 +6277,7 @@ namespace TarotLive.Game
             RoundResultData.CurrentRound = currentRound;
             RoundResultData.TotalRounds = roundsToPlay;
             RoundResultData.IsGameOver = currentRound >= roundsToPlay;
+            RoundResultData.DealerSeat = (dealerSeat + 1) % playerCount;
 
             SceneManager.LoadScene("FinalResults");
         }
