@@ -75,61 +75,134 @@
 //}
 #endregion
 #region Milestone 2 Sprint 1
+//using UnityEngine;
+//using TarotLive.Core;
+
+//namespace TarotLive.Game
+//{
+//    public class TableLayout : MonoBehaviour
+//    {
+//        [Header("Setup")]
+//        public GameObject seatPrefab;
+
+//        public int playerCount { get; set; }
+
+//        private PlayerSeat[] seats;
+
+//        public void SpawnSeats()
+//        {
+//            if (seats != null)
+//            {
+//                foreach (var seat in seats)
+//                    if (seat != null) Destroy(seat.gameObject);
+//            }
+
+//            seats = new PlayerSeat[playerCount];
+
+//            for (int i = 0; i < playerCount; i++)
+//            {
+//                Vector3 position = GetSeatPosition(i, playerCount);
+
+//                // Rotate seat so transform.up always points toward table center
+//                Vector3 dirToCenter = (Vector3.zero - position).normalized;
+//                float angle = Mathf.Atan2(dirToCenter.y, dirToCenter.x) * Mathf.Rad2Deg - 90f;
+//                Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
+
+//                GameObject go = Instantiate(seatPrefab, position, rotation, transform);
+//                go.name = "Seat_" + i;
+
+//                PlayerSeat seat = go.GetComponent<PlayerSeat>();
+//                seat.Setup(i, "Player " + (i + 1), isLocal: i == 0);
+//                seats[i] = seat;
+//            }
+//        }
+
+//        private Vector3 GetSeatPosition(int index, int total)
+//        {
+//            float angleDeg = 270f + (360f / total) * index;
+//            float angleRad = angleDeg * Mathf.Deg2Rad;
+//            float x = Mathf.Cos(angleRad) * GameSettings.TableRadius;
+//            float y = Mathf.Sin(angleRad) * GameSettings.TableRadius;
+//            return new Vector3(x, y, 0f);
+//        }
+
+//        public PlayerSeat GetSeat(int index)
+//        {
+//            if (index < 0 || index >= seats.Length) return null;
+//            return seats[index];
+//        }
+//    }
+//}
+#endregion
+
+#region Milestone 3, Sprint 8 - Inspector-driven seat anchors
+// TableLayout.cs
+// Sprint 8 changes:
+//   - Removed GetSeatPosition() radius math entirely
+//   - Removed seatPrefab and runtime instantiation
+//   - Three PlayerSeat[] arrays wired in Inspector: seats3P, seats4P, seats5P
+//   - SpawnSeats() enables the right group, disables the other two
+//   - Seats are pre-placed in the scene — full visual control in the editor
+//   - GetSeat(index) reads from the active array
+
 using UnityEngine;
-using TarotLive.Core;
 
 namespace TarotLive.Game
 {
     public class TableLayout : MonoBehaviour
     {
-        [Header("Setup")]
-        public GameObject seatPrefab;
+        [Header("Seat Groups — place seats in scene and wire here")]
+        public PlayerSeat[] seats3P;
+        public PlayerSeat[] seats4P;
+        public PlayerSeat[] seats5P;
 
+        // Set by GameManager before SpawnSeats() is called.
         public int playerCount { get; set; }
 
-        private PlayerSeat[] seats;
+        private PlayerSeat[] activeSeats;
 
         public void SpawnSeats()
         {
-            if (seats != null)
+            DisableAll();
+
+            switch (playerCount)
             {
-                foreach (var seat in seats)
-                    if (seat != null) Destroy(seat.gameObject);
+                case 3: activeSeats = seats3P; break;
+                case 5: activeSeats = seats5P; break;
+                default: activeSeats = seats4P; break;
             }
 
-            seats = new PlayerSeat[playerCount];
-
-            for (int i = 0; i < playerCount; i++)
+            if (activeSeats == null || activeSeats.Length == 0)
             {
-                Vector3 position = GetSeatPosition(i, playerCount);
-
-                // Rotate seat so transform.up always points toward table center
-                Vector3 dirToCenter = (Vector3.zero - position).normalized;
-                float angle = Mathf.Atan2(dirToCenter.y, dirToCenter.x) * Mathf.Rad2Deg - 90f;
-                Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
-
-                GameObject go = Instantiate(seatPrefab, position, rotation, transform);
-                go.name = "Seat_" + i;
-
-                PlayerSeat seat = go.GetComponent<PlayerSeat>();
-                seat.Setup(i, "Player " + (i + 1), isLocal: i == 0);
-                seats[i] = seat;
+                Debug.LogError("TableLayout: No seat array assigned for playerCount " + playerCount);
+                return;
             }
+
+            foreach (var seat in activeSeats)
+                if (seat != null) seat.gameObject.SetActive(true);
+
+            Debug.Log("TableLayout: Activated " + playerCount + "P seat group.");
         }
 
-        private Vector3 GetSeatPosition(int index, int total)
+        private void DisableAll()
         {
-            float angleDeg = 270f + (360f / total) * index;
-            float angleRad = angleDeg * Mathf.Deg2Rad;
-            float x = Mathf.Cos(angleRad) * GameSettings.TableRadius;
-            float y = Mathf.Sin(angleRad) * GameSettings.TableRadius;
-            return new Vector3(x, y, 0f);
+            DisableGroup(seats3P);
+            DisableGroup(seats4P);
+            DisableGroup(seats5P);
+        }
+
+        private void DisableGroup(PlayerSeat[] group)
+        {
+            if (group == null) return;
+            foreach (var seat in group)
+                if (seat != null) seat.gameObject.SetActive(false);
         }
 
         public PlayerSeat GetSeat(int index)
         {
-            if (index < 0 || index >= seats.Length) return null;
-            return seats[index];
+            if (activeSeats == null || index < 0 || index >= activeSeats.Length)
+                return null;
+            return activeSeats[index];
         }
     }
 }
